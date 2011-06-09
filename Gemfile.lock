@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/pero-ict-solutions/spree-homepager.git
+  revision: 393749cb067209acc3b756cf8f5fae95362eb7f8
+  specs:
+    spree-homepager (0.50.0)
+      spree_core
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -148,4 +155,5 @@ PLATFORMS
 DEPENDENCIES
   rails (= 3.0.7)
   spree
+  spree-homepager!
   sqlite3
