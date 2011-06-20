@@ -1,9 +1,9 @@
 <div id='main_menu'>
   <li><%= link_to 'Lookbooks', '#' %></li>
-  <li><%= link_to 'Shirts', '#' %></li>
-  <li><%= link_to 'Pants & Shorts', '#' %></li>
-  <li><%= link_to 'Sweaters & Outerwer', '#' %></li>
-  <li><%= link_to 'Suiting', '#' %></li>
-  <li><%= link_to 'Accessories', '#' %></li>
+  <li><%= link_to 'Shirts', products_path(:keywords => 'shirt') %></li>
+  <li><%= link_to 'Pants & Shorts', products_path(:keywords => 'pant,short') %></li>
+  <li><%= link_to 'Sweaters & Outerwer', products_path(:keywords => 'sweater, outerwear') %></li>
+  <li><%= link_to 'Suiting', products_path(:keywords => 'suit') %></li>
+  <li><%= link_to 'Accessories', products_path(:keywords => 'accessory') %></li>
   <li><%= link_to 'Sale', '#' %></li>
 </div>

@@ -1,3 +1,23 @@
-<li>Featured New Item</li>
-<li>Featured Sale Item</li>
-<li>Featured Popular Item</li>
+<section id='features'>
+  <%= link_to('#') do %>
+    <h2>Featured New Item</h2>
+    <%= image_tag 'product_thumb.jpg' %>
+    <h3>Product Name</h3>
+    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <span class="price">$13.99</span>
+  <% end %>
+  <%= link_to('#') do %>
+    <h2>Featured Sale Item</h2>
+    <%= image_tag 'product_thumb.jpg' %>
+    <h3>Product Name</h3>
+    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <span class="price">$13.99</span>
+  <% end %>
+  <%= link_to('#', :class => 'last') do %>
+    <h2>Featured Popular Item</h2>
+    <%= image_tag 'product_thumb.jpg' %>
+    <h3>Product Name</h3>
+    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <span class="price">$13.99</span>
+  <% end %>
+</section>

@@ -1,3 +1,28 @@
-<div id='hompage_footer'>
-  <p>soon to be homepage footer...join mailing list, exchanges, etc.</p>
-</div>
+<section id="subs">
+	<div id="mailing_list">
+		<h2>Mailing List</h2>
+		<form>
+			<input type="text" placeholder="Email address">
+			<input type="submit">
+		</form>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+	</div>
+	<div id="returns_exchanges">
+		<h2>Returns &amp; Exchanges</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quam massa, egestas congue mollis.</p>
+	</div>
+	<div id="connect">
+		<h2>Connect with Combat Gent</h2>
+		<%= link_to image_tag('facebook.png'), '#' %>
+		<%= link_to image_tag('twitter.png'), '#' %>
+		<%= link_to image_tag('tumblr.png'), '#' %>
+	</div>
+	<div id="blog" class="last">
+		<h2>Recent from Blog</h2>
+		<%= link_to image_tag('social-rss'), '#' %>
+		<span class="date">May 15, 2011</span>
+		<h3>
+		  <%= link_to 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '#' %>
+		</h3>
+	</div>
+</section>
