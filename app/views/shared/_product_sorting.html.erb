@@ -1,0 +1,10 @@
+<%= form_tag '#', :id => "sort" do %> 
+  <%= label_tag :sort_order_of, "Sort items in order of:" %>
+  <%= select_tag :sort_order_of, options_for_select(["Newest","Oldest","Popularity","Price (high)","Price (low)"], "Newest") %>
+
+  <%= label_tag :only_show, "Only show items available in:" %>
+  <%= select_tag :only_show, options_for_select(["My size","My size and larger","My size and smaller","All sizes"], "My size") %>
+  
+  <%= label_tag :sale_only, "Sale items only:" %>
+	<%= check_box_tag :sale_only, :value => "yes" %> 
+<% end %>

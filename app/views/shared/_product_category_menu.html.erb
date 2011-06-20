@@ -1,9 +1,7 @@
 <div id='main_menu'>
   <li><%= link_to 'Lookbooks', '#' %></li>
-  <li><%= link_to 'Shirts', products_path(:keywords => 'shirt') %></li>
-  <li><%= link_to 'Pants & Shorts', products_path(:keywords => 'pant,short') %></li>
-  <li><%= link_to 'Sweaters & Outerwer', products_path(:keywords => 'sweater, outerwear') %></li>
-  <li><%= link_to 'Suiting', products_path(:keywords => 'suit') %></li>
-  <li><%= link_to 'Accessories', products_path(:keywords => 'accessory') %></li>
+  <% Taxon.header_navigation.each do |taxon| %>
+    <li><%= link_to taxon.name, seo_url(taxon) %></li>
+  <% end %>
   <li><%= link_to 'Sale', '#' %></li>
 </div>

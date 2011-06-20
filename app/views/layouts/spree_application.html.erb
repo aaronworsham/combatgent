@@ -5,7 +5,7 @@
     <%= render :partial =>'shared/styles'%>
     <% @body_class ||= content_for?(:sidebar) ? 'two-col' : 'one-col' %>
   </head>
-  <body class="<%= @body_class %>" id="<%= @body_id %>">
+  <body  id="<%= @body_id %>">
     <div id="header" class="container_bg">
       <%= render 'shared/header_toolbar' %>
       <div class="container">
@@ -19,12 +19,6 @@
     </div>
 
     <div id="wrapper" class="container">
-      <% if content_for?(:sidebar) %>
-        <div id="sidebar" data-hook data-layer="1">
-          <%= yield :sidebar %>
-        </div>
-      <% end %>
-
       <div id="content">
         <%= breadcrumbs(@taxon) if @taxon %>
         <% if flash.notice %>
@@ -37,6 +31,7 @@
       </div>
     </div>
     <footer class="container">
+      <%= render :partial => 'shared/join_mailing_list' unless @suppress_mailing_list_footer %>
       <%= render :partial => 'shared/page_footer'%>
     </footer>
   </body>
