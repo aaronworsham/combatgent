@@ -33,6 +33,14 @@
     <footer class="container">
       <%= render :partial => 'shared/join_mailing_list' unless @suppress_mailing_list_footer %>
       <%= render :partial => 'shared/page_footer'%>
+      <%= render :partial => 'shared/javascript_footer' %>
+      <script type="text/javascript">
+   		$().ready(function() {
+   			$('#slideshow').codaSlider({
+   				panelTitleSelector: "img.thumb"
+   			});
+   		});
+   	 </script>
     </footer>
   </body>
 </html>
