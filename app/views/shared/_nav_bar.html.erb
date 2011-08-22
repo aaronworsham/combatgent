@@ -1,4 +1,3 @@
-<h1><%=link_to 'Combat Gent', root_path %></h1>
+<% @taxons = @taxon && @taxon.parent ? @taxon.parent.children : Taxon.roots  %> 	
 <%= render 'shared/search' %>
-<li class="cart-indicator"><%= link_to_cart %></li>
-<%= render 'shared/login_bar' %>
+

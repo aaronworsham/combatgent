@@ -1,0 +1,212 @@
+/* 
+	General structure of site
+*/
+
+body {
+	background: #000000;
+}
+
+#toolbar {
+	height: 30px;
+	
+	ul {
+		width: @siteWidth;
+		margin: 0 auto;
+		height: 30px;
+		overflow: hidden;
+		
+		li {
+			list-style-type: none;
+			float: left;
+			display: inline;
+			
+			a {
+				text-decoration: none;
+			}
+			
+			&.social {
+				a,span {
+					margin: 8px 0;
+					display: block;
+					padding: 0px 8px;
+					color: #cccccc;
+					border-right: 1px solid #666666;
+					font-size: 0.9em;
+					
+					&:hover {
+						color: #ffffff;
+					}
+					
+				}
+				
+				span { 
+					border: none; 
+					
+					&:hover {
+						color: #cccccc;
+					}
+				}
+			}
+			
+			&.facebook {
+				a {
+					padding-left: 0;
+				}
+			}
+			
+			&.action {
+				float: right;
+				width: 150px;
+				height: 30px;
+				border-left: 1px solid #fafafa;
+				
+				&:hover {
+					background: lighten(#000000, 20%);
+					cursor: pointer;
+					text-shadow: 1px 1px 0 #333333;				
+				}				
+									
+				a {
+					float: left;
+					display: block;
+					padding: 7px 15px 7px 15px;
+					color: #ffffff;
+					font-size: 1.0em;
+					
+	
+					&:hover {
+						color: #ffffff
+					}
+				}	
+				
+				ul { display: none; }
+				
+				
+				
+				&.cart {
+					border-right: 1px solid #fafafa;
+				}
+				
+				&:hover {
+					ul {
+						display: block;
+						position: absolute;
+						top: 30px;
+						width: 150px;
+						height: auto;
+						
+						li {
+							background: #000000;
+							border-top: 1px solid #fafafa;
+							width: 150px;
+														
+							&:hover {
+								background: lighten(#000000, 20%);
+								cursor: pointer;
+								text-shadow: 1px 1px 0 #333333;
+							}
+						}
+					}
+				}
+			}	
+		}
+		
+	}
+}
+
+header {
+	text-align: center;
+	padding: 30px 0;
+	width: 100%;
+	
+	img#tagline,
+	img#logo,
+	.hline {
+		clear: both;
+		display: block;
+		margin: 0 auto;
+	}
+	
+	img#tagline {
+		margin: 15px auto 10px;
+	}
+	
+	ul {
+		margin: 0 auto;
+		width: @siteWidth;
+		height: 40px;
+		overflow: hidden;
+		
+		li {
+			display: inline;
+			float: left;
+			
+			a,
+			a:visited {
+				margin: 5px 5px 7px;
+				padding: 2px 10px 0 0;
+				display: block;
+				float: left;
+				color: #000000;
+				text-decoration: none;
+				font-size: 1.0em;
+				text-transform: uppercase;
+				font-weight: bold;
+				border-right: 1px solid #ccc;
+				
+				&:hover {
+					color: lighten(#000000, 30%);
+				}
+				
+			}
+			
+			&.lookbooks {
+				a {
+					margin-left: 0;
+				}
+			}
+			
+			&.sale {
+				a {
+					border: none;
+					padding-right: 0;
+					margin-right: 0;
+					color: #d64e28;
+				}
+			}
+			
+			&.search {
+				float: right;
+				
+				form {
+					margin: 2px 0;
+					background: #ffffff;
+					border: 1px solid #cccccc;
+					
+					input[type=text]{
+						border: none;
+						padding: 4px;
+					}
+					
+					input[type=submit]{
+						border: none;
+						background: #fff;
+						text-indent: -9999px;
+						width: 15px;
+						height: 15px;
+					}
+					
+				}
+			}
+		}
+	}
+	
+}
+
+
+header,
+#wrapper{
+	background: url(../images/background-texture.jpg) #fafafa;
+	width: 100%;
+	overflow: hidden;
+}

@@ -1,12 +1,22 @@
-<div id='toolbar'>
+<div id="toolbar">
   <ul>
-    <li>24/7 Customer Service 1-800-123-456</li>
-    <li id='social'>
-      <%= link_to 'Facebook', '#' %>
-      <%= link_to 'Twitter', '#' %>
-      <%= link_to 'Blog', '#' %>
-      <%= link_to 'Feedback', '#' %>
-    </li>
-    <li class='last'><%= link_to 'Mailing List Signup', '#'%></li>
+    <li class="social facebook"><%= link_to 'Facebook', '#' %></li>
+    <li class="social twitter"><%= link_to 'Twitter', '#' %></li>
+    <li class="social blog"><%= link_to 'Blog', '#' %></li>
+    <li class="social feedback"><%= link_to 'Feedback', '#' %></li>	
+    <li class="social service"><span>24/7 Customer Service 1-800-123-456</span></li>
+		<li class="action cart">
+			<%= link_to_cart %>
+			<ul>
+				<li><a href="#">Checkout</a></li>
+			</ul>
+		</li>
+		<li class="action profile">
+			<a href="#">J. Morse</a>
+			<ul>
+				<%= render 'shared/login_bar' %>				
+				<li><a href="#">Closet</a></li>
+			</ul>
+		</li>
   <ul>
 </div>

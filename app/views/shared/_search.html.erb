@@ -1,5 +1,6 @@
-<% @taxons = @taxon && @taxon.parent ? @taxon.parent.children : Taxon.roots  %> 
+<li class="search">
 <%= form_tag products_url, :method => :get do %>
-  <%= text_field_tag :keywords, params[:keywords] %>
+  <%= text_field_tag :keywords, params[:keywords], :placeholder => "Search" %>
   <%= submit_tag t(:search), :name => nil %>
 <% end %>
+</li>
