@@ -16,6 +16,7 @@
 			</ul>
 			<%= image_tag "gray-horizontal-line.png", :class => "hline" %>			
 		</header>
+
     <div id="wrapper">
       <div id="content">
         <%= breadcrumbs(@taxon) if @taxon %>
@@ -28,17 +29,18 @@
         <%= yield %>
       </div>
     </div>
-    <footer class="container">
-      <%= render :partial => 'shared/join_mailing_list' unless @suppress_mailing_list_footer %>
-      <%= render :partial => 'shared/page_footer'%>
-      <%= render :partial => 'shared/javascript_footer' %>
-      <script type="text/javascript">
-   		$().ready(function() {
-   			$('#slideshow').codaSlider({
-   				panelTitleSelector: "img.thumb"
-   			});
-   		});
-   	 </script>
+    <footer>
+			<%= render :partial => 'shared/expanded_footer' %>	
+			<%= render :partial => 'shared/join_mailing_list' unless @suppress_mailing_list_footer %>
+			<%= render :partial => 'shared/page_footer'%>
     </footer>
+		<%= render :partial => 'shared/javascript_footer' %>
+		<script type="text/javascript">
+			$().ready(function() {
+				$('#slideshow').codaSlider({
+					panelTitleSelector: "img.thumb"
+				});
+			});
+		</script>
   </body>
 </html>
