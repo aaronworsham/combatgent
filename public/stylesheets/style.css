@@ -76,6 +76,12 @@ footer ul{width:940px;margin:0 auto;display:block;clear:both;color:#999999;font-
 footer ul li.contact_us a{border:none;}
 footer ul li.copyright{float:right;}
 header,#wrapper{background:url(../images/background-texture.jpg) #fafafa;width:100%;overflow:hidden;}
+#features{width:940px;margin:0 auto;}#features>a,#features>a:visited{width:280px;padding:9px;border:1px solid #eaeaea;display:block;float:left;background:#ffffff;margin:0 0 20px 20px;text-decoration:none;color:#333;}#features>a:first-child,#features>a:visited:first-child{margin-left:0;}
+#features>a h2,#features>a:visited h2{font-size:1.0em;padding:5px 0 10px;text-transform:uppercase;font-weight:normal;border-bottom:1px solid #eaeaea;text-decoration:none !important;text-align:center;}
+#features>a img,#features>a:visited img{float:left;margin:0 10px 0 0;}
+#features>a h3,#features>a:visited h3{font-size:1.1em;font-weight:bold;margin:0 0 5px 0;}
+#features>a p.description,#features>a:visited p.description{margin:0 0 10px 0;}
+#features>a:hover h2,#features>a:visited:hover h2,#features>a:hover span.price,#features>a:visited:hover span.price{color:#d34f28;}
 h1{font-size:2.00em;margin-bottom:10px;}
 h2{font-size:1.75em;margin-bottom:10px;}
 h3{font-size:1.50em;margin-bottom:10px;}

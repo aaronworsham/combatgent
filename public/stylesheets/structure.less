@@ -333,3 +333,57 @@ header,
 	width: 100%;
 	overflow: hidden;
 }
+
+/* HOME */
+
+#features {
+	.content;
+	
+	> a, > a:visited {
+		width: 280px;
+		padding: 9px;
+		border: 1px solid #eaeaea;
+		display: block;
+		float: left;
+		background: #ffffff;
+		margin: 0 0 20px 20px;
+		text-decoration: none;
+		color: #333;
+		
+		&:first-child {
+			margin-left: 0;
+		}
+		
+		h2 {
+			font-size: 1.0em;
+			padding: 5px 0 10px;
+			text-transform: uppercase;
+			font-weight: normal;
+			border-bottom: 1px solid #eaeaea;
+			text-decoration: none !important;
+			text-align: center;
+		}
+		
+		img {
+			float: left;
+			margin: 0 10px 0 0;
+		}
+		
+		h3 {
+			font-size: 1.1em;
+			font-weight: bold;
+			margin: 0 0 5px 0;
+		}
+		
+		p.description {
+			margin: 0 0 10px 0;
+		}
+		
+		&:hover {
+			h2, span.price {
+				color: @red;
+			}
+		}
+				
+	}
+}
