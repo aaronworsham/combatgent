@@ -49,8 +49,8 @@ a:hover{color:#036;}
 .container{width:940px;margin:0 auto;zoom:1;content:"\0020";display:block;height:0;overflow:hidden;zoom:1;}.container:after{display:block;visibility:hidden;height:0;clear:both;content:".";}
 #flexbox .display-box{display:-moz-box;display:-webkit-box;display:box;}
 body{background:#000000;}
-#toolbar{height:30px;}#toolbar ul{width:940px;margin:0 auto;height:30px;overflow:hidden;}#toolbar ul li{list-style-type:none;float:left;display:inline;}#toolbar ul li a{text-decoration:none;}
-#toolbar ul li.social a,#toolbar ul li.social span{margin:8px 0;display:block;padding:0px 8px;color:#cccccc;border-right:1px solid #666666;font-size:0.9em;}#toolbar ul li.social a:hover,#toolbar ul li.social span:hover{color:#d34f28;}
+#toolbar{height:30px;font-family:"freight-sans-pro",helvetica,arial,sans-serif;font-size:12px;font-weight:normal;line-height:20px;}#toolbar ul{width:940px;margin:0 auto;height:30px;overflow:hidden;}#toolbar ul li{list-style-type:none;float:left;display:inline;}#toolbar ul li a{text-decoration:none;}
+#toolbar ul li.social a,#toolbar ul li.social span{margin:5px 0;display:block;padding:0 8px;color:#cccccc;border-right:1px solid #666666;font-size:1.0em;height:15px;}#toolbar ul li.social a:hover,#toolbar ul li.social span:hover{color:#d34f28;}
 #toolbar ul li.social span{border:none;}#toolbar ul li.social span:hover{color:#cccccc;}
 #toolbar ul li.facebook a{padding-left:0;}
 #toolbar ul li.action{float:right;width:150px;height:30px;border-left:1px solid #fafafa;}#toolbar ul li.action:hover{background:#333333;cursor:pointer;text-shadow:1px 1px 0 #333333;}
