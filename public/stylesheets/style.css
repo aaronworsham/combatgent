@@ -82,6 +82,7 @@ header,#wrapper{background:url(../images/background-texture.jpg) #fafafa;width:1
 #features>a h3,#features>a:visited h3{font-size:1.2em;font-weight:bold;margin:0 0 2px 0;}
 #features>a p.description,#features>a:visited p.description{margin:0 0 10px 0;font-size:1.15em;line-height:1.2em;}
 #features>a:hover,#features>a:visited:hover{border:1px solid #f6d9d1;}#features>a:hover h2,#features>a:visited:hover h2,#features>a:hover span.price,#features>a:visited:hover span.price{color:#d34f28;}
+#value_statement{width:940px;margin:20px auto;padding:10px 0 13px;border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;display:block;text-align:center;font-size:1.4em;}#value_statement strong{color:#d34f28;font-weight:normal;}
 h1{font-size:2.00em;margin-bottom:10px;}
 h2{font-size:1.75em;margin-bottom:10px;font-family:"freight-sans-pro",helvetica,arial,sans-serif;font-size:12px;font-weight:normal;line-height:20px;}
 h3{font-size:1.50em;margin-bottom:10px;font-family:"freight-sans-pro",helvetica,arial,sans-serif;font-size:12px;font-weight:normal;line-height:20px;}
