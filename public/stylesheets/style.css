@@ -48,9 +48,6 @@ a:hover{color:#036;}
 .center-block{display:block;margin:0 auto;}
 .container{width:940px;margin:0 auto;zoom:1;content:"\0020";display:block;height:0;overflow:hidden;zoom:1;}.container:after{display:block;visibility:hidden;height:0;clear:both;content:".";}
 #flexbox .display-box{display:-moz-box;display:-webkit-box;display:box;}
-body{padding:20px;}
-.panel h2.title{margin-bottom:10px;}
-noscript div{background:#ccc;border:1px solid #900;margin:20px 0;padding:15px;}
 .coda-slider-wrapper{padding:20px 0;}
 .coda-slider{background:#ebebeb;}
 .coda-slider-no-js .coda-slider{height:200px;overflow:auto !important;padding-right:20px;}
@@ -80,14 +77,14 @@ body{background:#000000;font-family:"freight-sans-pro",helvetica,arial,sans-seri
 #toolbar ul li.action ul{display:none;}
 #toolbar ul li.action.cart{border-right:1px solid #fafafa;}
 #toolbar ul li.action:hover ul{display:block;position:absolute;top:30px;width:150px;height:auto;}#toolbar ul li.action:hover ul li{background:#000000;border-top:1px solid #fafafa;width:150px;}#toolbar ul li.action:hover ul li:hover{background:#333333;cursor:pointer;text-shadow:1px 1px 0 #333333;}
-header{text-align:center;padding:30px 0;width:100%;}header img#tagline,header img#logo,header .hline{clear:both;display:block;margin:0 auto;}
+header{text-align:center;padding:30px 0 20px;width:100%;}header img#tagline,header img#logo,header .hline{clear:both;display:block;margin:0 auto;}
 header img#tagline{margin:15px auto 10px;}
 header ul{margin:0 auto;width:940px;height:35px;overflow:hidden;}header ul li{display:inline;float:left;}header ul li a,header ul li a:visited{margin:2px 5px 4px;padding:0 10px 0 0;display:block;float:left;color:#000000;text-decoration:none;font-size:1.15em;text-transform:uppercase;font-weight:bold;border-right:1px solid #ccc;}header ul li a:hover,header ul li a:visited:hover{color:#d34f28;}
 header ul li.lookbooks a{margin-left:0;}
 header ul li.sale a{border:none;padding-right:0;margin-right:0;color:#d64e28;}
 header ul li.search{float:right;}header ul li.search form{margin:0;background:#ffffff;border:1px solid #cccccc;}header ul li.search form input[type=text]{border:none;padding:4px;}
 header ul li.search form input[type=submit]{border:none;background:#fff;text-indent:-9999px;width:15px;height:15px;}
-footer{color:#ffffff;height:auto;background:#000000;}footer #expanded_footer{width:940px;margin:0 auto;padding:20px 0;display:block;height:100px;border-bottom:1px solid #ffffff;}footer #expanded_footer div{display:inline;float:left;width:300px;margin-left:20px;}footer #expanded_footer div:first-child{margin-left:0;}
+footer{color:#ffffff;height:auto;background:#000000;min-height:300px;}footer #expanded_footer{width:940px;margin:0 auto;padding:20px 0;display:block;height:100px;border-bottom:1px solid #ffffff;}footer #expanded_footer div{display:inline;float:left;width:300px;margin-left:20px;}footer #expanded_footer div:first-child{margin-left:0;}
 footer #expanded_footer div h2{font-size:1.2em;text-transform:uppercase;font-weight:normal;}
 footer #expanded_footer div p{color:#999;font-size:1.15em;line-height:1.3em;margin:0 0 10px 0;}
 footer #expanded_footer div a{color:#d34f28;margin:0 0 10px 0;text-decoration:none;font-size:1.15em;}footer #expanded_footer div a:hover{color:#ffffff;}
@@ -100,11 +97,19 @@ footer ul li.copyright{float:right;}
 header,#wrapper{background:url(../images/background-texture.jpg) #fafafa;width:100%;overflow:hidden;}
 #features{width:940px;margin:0 auto;}#features>a,#features>a:visited{width:280px;padding:5px 9px 9px;border:1px solid #eaeaea;display:block;float:left;background:#ffffff;margin:0 0 20px 20px;text-decoration:none;color:#333;}#features>a:first-child,#features>a:visited:first-child{margin-left:0;}
 #features>a h2,#features>a:visited h2{font-size:1.2em;padding:5px 0 10px;text-transform:uppercase;font-weight:normal;border-bottom:1px solid #eaeaea;text-decoration:none !important;text-align:center;}
-#features>a img,#features>a:visited img{float:left;margin:0 10px 0 0;}
+#features>a img,#features>a:visited img{float:left;margin:0 10px 0 0;border:1px solid #ffffff;}
 #features>a h3,#features>a:visited h3{font-size:1.2em;font-weight:bold;margin:0 0 2px 0;}
 #features>a p.description,#features>a:visited p.description{margin:0 0 10px 0;font-size:1.15em;line-height:1.2em;}
-#features>a:hover,#features>a:visited:hover{border:1px solid #f6d9d1;}#features>a:hover h2,#features>a:visited:hover h2,#features>a:hover span.price,#features>a:visited:hover span.price{color:#d34f28;}
-#slideshow{width:940px;margin:0 auto;height:450px;overflow:hidden;}#slideshow .slideshow-wrapper{width:940px;}
+#features>a:hover,#features>a:visited:hover{border:1px solid #f6d9d1;}#features>a:hover img,#features>a:visited:hover img{border:1px solid #f6d9d1;}
+#features>a:hover h2,#features>a:visited:hover h2,#features>a:hover span.price,#features>a:visited:hover span.price{color:#d34f28;}
+#slideshow{width:940px;margin:0 auto;height:450px;overflow:hidden;position:relative;}#slideshow .slideshow-wrapper,#slideshow .coda-slider-wrapper,#slideshow .coda-slider{width:940px;position:relative;padding:0;}
+#slideshow .slideshow_wrapper{height:450px;padding:0;}
+#slideshow .coda-nav-right,#slideshow .coda-nav-left{position:absolute;z-index:999;top:195px;width:40px;height:81px;}#slideshow .coda-nav-right a,#slideshow .coda-nav-left a{width:40px;height:80px;background:red;display:block;text-indent:-9999px;}
+#slideshow .coda-nav-left{left:0;}#slideshow .coda-nav-left a{background:url('../images/template/hero-prev-next.png') no-repeat -42px 0;}#slideshow .coda-nav-left a:hover{background:url('../images/template/hero-prev-next.png') no-repeat -42px -100px;}
+#slideshow .coda-nav-right{right:0;}#slideshow .coda-nav-right a{background:url('../images/template/hero-prev-next.png') no-repeat 0 0;}#slideshow .coda-nav-right a:hover{background:url('../images/template/hero-prev-next.png') no-repeat 0 -100px;}
+#slideshow .coda-nav{display:none;}
+#slideshow .coda-slider .panel-wrapper{padding:0;}
+#slideshow .coda-slider .panel{width:940px;}
 #value_statement{width:940px;margin:20px auto;padding:10px 0 13px;border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;display:block;text-align:center;font-size:1.4em;}#value_statement strong{color:#d34f28;font-weight:normal;}
 h1{font-size:2.00em;margin-bottom:10px;}
 h2{font-size:1.75em;margin-bottom:10px;font-family:"freight-sans-pro",helvetica,arial,sans-serif;font-size:12px;font-weight:normal;line-height:20px;}
