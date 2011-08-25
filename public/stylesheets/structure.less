@@ -447,10 +447,7 @@ header,
 		
 		a {
 			background: url('../images/template/hero-prev-next.png') no-repeat -42px 0;
-			
-			&:hover {
-				background: url('../images/template/hero-prev-next.png') no-repeat -42px -100px;
-			}
+			&:hover { background: url('../images/template/hero-prev-next.png') no-repeat -42px -100px; }
 		}
 	}
 	
@@ -459,11 +456,7 @@ header,
 		
 		a {
 			background: url('../images/template/hero-prev-next.png') no-repeat 0 0 ;
-			
-			&:hover {
-				background: url('../images/template/hero-prev-next.png') no-repeat 0 -100px;	
-			}
-			
+			&:hover { background: url('../images/template/hero-prev-next.png') no-repeat 0 -100px; }
 		}		
 		
 	}
@@ -471,11 +464,43 @@ header,
 	.coda-nav { display: none; }
 	.coda-slider {
 		.panel-wrapper {
-			padding: 0;			
+			padding: 0;
+			position: relative;		
 		}
 		
 		.panel {
 			width: @siteWidth;
+			
+			img {
+				position: relative;
+				z-index: 1;
+			}
+			
+			h2, h3, h4, a {
+				position: absolute;
+				z-index: 2;
+				top: 0;
+				text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);				
+			}
+			
+			h2 {
+				font-size: 3.5em;
+				color: #ffffff;
+				top: 100px;
+				left: 40px;
+				text-transform: uppercase;
+				font-weight: 400;
+			}
+			
+			a.main {
+				top: 130px;
+				left: 40px;
+				color: #ffffff;
+				font-size: 1.55em;
+				text-decoration: none;
+				text-transform: uppercase;
+				font-weight: 400;				
+			}
 		}		
 	}	
 }
