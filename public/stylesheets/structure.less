@@ -436,7 +436,7 @@ header,
 	.coda-nav-left {
 		position: absolute;
 		z-index: 999;
-		top: 195px;
+		top: 190px;
 		width: 40px;
 		height: 81px;
 		
@@ -485,9 +485,9 @@ header,
 			
 			h2, h3, h4, a {
 				position: absolute;
-				z-index: 2;
-				top: 0;
-				text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);				
+				z-index: 3;
+				// top: 0;
+				text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);				
 			}
 			
 			h2 {
@@ -508,6 +508,25 @@ header,
 				text-transform: uppercase;
 				font-weight: 400;				
 			}
+			
+			a.product,
+			.pulsar {
+				display: block;
+				text-indent: -9999px;
+				height: 20px;
+				width: 20px;
+				.border-radius(20px);
+				background: rgba(0,0,0,0.0);
+				position: absolute;
+				
+			}
+			
+			.pulsar {
+				border: 10px solid rgba(211,79,40,0.25);
+				background: none;
+				z-index: 2;
+				-webkit-animation: pulsar 1s infinite;
+			}
 		}		
 	}	
 }
@@ -526,4 +545,31 @@ header,
 		color: @red;
 		font-weight: normal;
 	}
+}
+
+/* SLOTS */
+
+@-webkit-keyframes pulsar {
+        0% 		{ opacity: 0.75; 	}
+		50% 	{ opacity: 1.0		}
+        100% 	{ opacity: 0.75; 	}
+}
+
+#slot_1 {
+	.product.a 	{ top: 300px; 	left: 300px; }
+	.pulsar.a 	{ top: 290px; 	left: 290px; }
+	.product.b 	{ top: 250px; 	left: 620px; }
+	.pulsar.b 	{ top: 240px; 	left: 610px; }	
+	.product.c 	{ top: 50px; 	left: 670px; }
+	.pulsar.c 	{ top: 40px; 	left: 660px; }	
+}
+
+#slot_2 {
+	.a { top: 300px; left: 300px; }
+	.b { top: 250px; left: 620px; }	
+	.c { top: 100px; left: 570px; }
+}
+
+#slot_3 {
+	.a { top: 300px; left: 300px; }
 }
