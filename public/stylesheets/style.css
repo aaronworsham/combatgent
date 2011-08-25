@@ -83,7 +83,7 @@ header ul{margin:0 auto;width:940px;height:35px;overflow:hidden;}header ul li{di
 header ul li.lookbooks a{margin-left:0;}
 header ul li.sale a{border:none;padding-right:0;margin-right:0;color:#d64e28;}
 header ul li.search{float:right;}header ul li.search form{margin:0;background:#ffffff;border:1px solid #cccccc;}header ul li.search form input[type=text]{border:none;padding:4px;}
-header ul li.search form input[type=submit]{border:none;background:#fff;text-indent:-9999px;width:15px;height:15px;}
+header ul li.search form input[type=submit]{border:none;background:#fff;text-indent:-9999px;width:20px;height:15px;margin:0 3px 0 0;background:url('../images/template/search-glass-sprite.png') 0 0;border-left:1px solid #eaeaea;}header ul li.search form input[type=submit]:hover{background:url('../images/template/search-glass-sprite.png') 0 -20px;}
 footer{color:#ffffff;height:auto;background:#000000;min-height:300px;}footer #expanded_footer{width:940px;margin:0 auto;padding:20px 0;display:block;height:100px;border-bottom:1px solid #ffffff;}footer #expanded_footer div{display:inline;float:left;width:300px;margin-left:20px;}footer #expanded_footer div:first-child{margin-left:0;}
 footer #expanded_footer div h2{font-size:1.2em;text-transform:uppercase;font-weight:normal;}
 footer #expanded_footer div p{color:#999;font-size:1.15em;line-height:1.3em;margin:0 0 10px 0;}
