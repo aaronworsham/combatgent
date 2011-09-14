@@ -9,6 +9,8 @@ gem 'sqlite3'
 gem 'spree'
 gem "spree-homepager", :git => "git://github.com/pero-ict-solutions/spree-homepager.git", :require => "homepager"  
 
+gem 'mysql2', '~> 0.2.7'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
