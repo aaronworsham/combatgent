@@ -7,7 +7,9 @@ gem 'rails', '3.0.7'
 
 gem 'sqlite3'
 gem 'spree'
-gem "spree-homepager", :git => "git://github.com/pero-ict-solutions/spree-homepager.git", :require => "homepager"  
+gem 'spree-homepager', :git => 'git://github.com/pero-ict-solutions/spree-homepager.git', :require => 'homepager'
+gem 'spree_related_products', :git => 'git://raw.github.com/spree/spree_related_products.git', :branch => '0.60.1'
+# :ref => 'bee2e61193a713f8e993d250611a44a962ec7a2b'
 
 # Use unicorn as the web server
 # gem 'unicorn'
