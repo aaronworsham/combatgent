@@ -1,6 +1,8 @@
 <%= javascript_include_tag 'jquery-1.6.1.min' %>
+<%= javascript_include_tag 'jquery-ui-1.8.16.custom.min' %>
 <%= javascript_include_tag "plugins/coda-slider/jquery.coda-slider-2.0" %>
 <%= javascript_include_tag "jquery.easing.1.3" %>
+<%= javascript_include_tag 'combat_gent' %>
 <% unless I18n.locale.to_s[0..1] == 'en' %>
   <%= javascript_include_tag ['jquery.validate/localization/messages_', I18n.locale.to_s[0..1], '.js'].join %>
 <% end %>

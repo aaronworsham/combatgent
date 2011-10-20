@@ -1,0 +1,17 @@
+<h1><%= t("my_account") %></h1>
+
+<div id="tabs">
+	<ul>
+		<li><a href="#account_summary">My Account</a></li>
+		<li><a href="#account_my_orders">Order History</a></li>
+	</ul>
+
+  <div id="account_summary" data-hook="account_summary">
+    <%= render 'edit_user_form' %>
+  </div>
+
+  <div id="account_my_orders" data-hook="account_my_orders">
+    <%= render 'order_history' %>
+  </div>
+
+</div>

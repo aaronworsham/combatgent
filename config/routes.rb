@@ -7,5 +7,6 @@ Combatgent::Application.routes.draw do
   end
   
   match "lookbooks" => "products#lookbooks"
+  match "closet" => "users#closet"
   
 end
