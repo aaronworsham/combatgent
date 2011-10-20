@@ -5,6 +5,6 @@ Image.class_eval do
                     :bucket => 'combatgentlesirs',
                     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
                     :default_style => :product,
-                    :url => ":products/:id/:style/:basename.:extension",
-                    :path => ":products/:id/:style/:basename.:extension"
+                    :url => "products/:id/:style/:basename.:extension",
+                    :path => "products/:id/:style/:basename.:extension"
 end
