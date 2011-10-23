@@ -1,0 +1,46 @@
+<h3>Upper Body</h3>
+
+<p>
+  <%= f.label :neck_inches, t("neck_inches") %><br />
+  <%= f.select :neck_inches, options_for_select(small_inches, @user.neck_inches), :prompt => 'Select', :class => 'inches' %>
+</p>
+<p>
+  <%= f.label :chest_inches, t("chest_inches") %><br />
+  <%= f.select :chest_inches, options_for_select(small_inches, @user.chest_inches), :prompt => 'Select', :class => 'inches'  %>
+</p>
+<p>
+  <%= f.label :back_inches, t("back_inches") %><br />
+  <%= f.select :back_inches, options_for_select(small_inches, @user.back_inches), :prompt => 'Select', :class => 'inches'  %>
+</p>
+<p>
+  <%= f.label :shoulder_inches, t("shoulder_inches") %><br />
+  <%= f.select :shoulder_inches, options_for_select(small_inches, @user.shoulder_inches), :prompt => 'Select', :class => 'inches'  %>
+</p>
+<p>
+  <%= f.label :right_sleeve_inches, t("right_sleeve_inches") %><br />
+  <%= f.select :right_sleeve_inches, options_for_select(small_inches, @user.right_sleeve_inches), :prompt => 'Select', :class => 'inches'  %>
+</p>
+<p>
+  <%= f.label :left_sleeve_inches, t("left_sleeve_inches") %><br />
+  <%= f.select :left_sleeve_inches, options_for_select(small_inches, @user.left_sleeve_inches), :prompt => 'Select', :class => 'inches'  %>
+</p>
+<p>
+  <%= f.label :stomach_inches, t("stomach_inches") %><br />
+  <%= f.select :stomach_inches, options_for_select(large_inches, @user.stomach_inches), :prompt => 'Select', :class => 'inches'  %>
+</p>
+<p>
+  <%= f.label :bicep_inches, t("bicep_inches") %><br />
+  <%= f.select :bicep_inches, options_for_select(small_inches, @user.bicep_inches), :prompt => 'Select', :class => 'inches'  %>
+</p>
+<p>
+  <%= f.label :wrist_inches, t("wrist_inches") %><br />
+  <%= f.select :wrist_inches, options_for_select(small_inches, @user.wrist_inches), :prompt => 'Select', :class => 'inches'  %>
+</p>
+<p>
+  <%= f.label :waist_inches, t("waist_inches") %><br />
+  <%= f.select :waist_inches, options_for_select(large_inches, @user.waist_inches), :prompt => 'Select', :class => 'inches'  %>
+</p>
+
+<p>
+  <%=submit_tag t("save_changes") %>
+</p>

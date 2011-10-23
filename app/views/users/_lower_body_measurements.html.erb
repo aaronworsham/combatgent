@@ -1,0 +1,37 @@
+<h3>Lower Body</h3>
+
+<p>
+  <%= f.label :hip_inches, t("hip_inches") %><br />
+  <%= f.select :hip_inches, options_for_select(large_inches, @user.hip_inches), :prompt => 'Select', :class => 'inches'  %>
+</p>
+<p>
+  <%= f.label :belt_inches, t("belt_inches") %><br />
+  <%= f.select :belt_inches, options_for_select(large_inches, @user.belt_inches), :prompt => 'Select', :class => 'inches'  %>
+</p>
+<p>
+  <%= f.label :inseam_inches, t("inseam_inches") %><br />
+  <%= f.select :inseam_inches, options_for_select(large_inches, @user.inseam_inches), :prompt => 'Select', :class => 'inches'  %>
+</p>
+<p>
+  <%= f.label :outseam_inches, t("outseam_inches") %><br />
+  <%= f.select :outseam_inches, options_for_select(large_inches, @user.outseam_inches), :prompt => 'Select', :class => 'inches'  %>
+</p>
+<p>
+  <%= f.label :crotch_inches, t("crotch_inches") %><br />
+  <%= f.select :crotch_inches, options_for_select(large_inches, @user.crotch_inches), :prompt => 'Select', :class => 'inches'  %>
+</p>
+<p>
+  <%= f.label :thigh_inches, t("thigh_inches") %><br />
+  <%= f.select :thigh_inches, options_for_select(small_inches, @user.thigh_inches), :prompt => 'Select', :class => 'inches'  %>
+</p>
+<p>
+  <%= f.label :knee_inches, t("knee_inches") %><br />
+  <%= f.select :knee_inches, options_for_select(small_inches, @user.knee_inches), :prompt => 'Select', :class => 'inches'  %>
+</p>
+<p>
+  <%= f.label :ankle_inches, t("ankle_inches") %><br />
+  <%= f.select :ankle_inches, options_for_select(small_inches, @user.ankle_inches), :prompt => 'Select', :class => 'inches'  %>
+</p>
+<p>
+  <%=submit_tag t("save_changes") %>
+</p>

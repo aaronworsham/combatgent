@@ -1,1 +1,15 @@
-<p>User's measurements</p>
+<h2>My Measurements</h2>
+
+
+<%= form_for(@user, :html => { :method => :put }) do |f| %>
+  <%= hidden_field_tag 'redirect_to', my_closet_path %>
+  <div id='upper_body'>
+    <%= render 'upper_body_measurements', :f => f %>
+  </div>
+  <div id='lower_body'>
+    <%= render 'lower_body_measurements', :f => f %>
+  </div>
+  <div id='other_measurements'>
+    <%= render 'other_measurements', :f => f %>
+  </div>
+<% end %>

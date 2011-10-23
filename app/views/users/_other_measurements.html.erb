@@ -1,0 +1,26 @@
+<h3>Other Details</h3>
+
+<p>
+  <%= f.label :height_inches, t("height_inches") %><br />
+  <%= f.select :height_inches, options_for_select(heights, @user.height_inches), :prompt => 'Select' %>
+</p>
+<p>
+  <%= f.label :weight_pounds, t("weight_pounds") %><br />
+  <%= f.select :weight_pounds, options_for_select(pounds, @user.weight_pounds), :prompt => 'Select' %>
+</p>
+<p>
+  <%= f.label :jean_size, t("jean_size") %><br />
+  <%= f.select :jean_size, options_for_select(jean_sizes, @user.jean_size), :prompt => 'Select' %>
+</p>
+<p>
+  <%= f.label :shoe_size, t("shoe_size") %><br />
+  <%= f.select :shoe_size, options_for_select(shoe_sizes, @user.shoe_size), :prompt => 'Select' %>
+</p>
+<p>
+  <%= f.label :watch_hand, t("watch_hand") %><br />
+  <%= f.select :watch_hand, options_for_select(["Left","Right"], @user.watch_hand), :prompt => 'Select' %>
+</p>
+
+<p>
+  <%=submit_tag t("save_changes") %>
+</p>

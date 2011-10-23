@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110314192118) do
+ActiveRecord::Schema.define(:version => 20111020173556) do
 
   create_table "addresses", :force => true do |t|
     t.string   "firstname"
@@ -565,6 +565,30 @@ ActiveRecord::Schema.define(:version => 20110314192118) do
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.datetime "remember_created_at"
+    t.string   "openid_identifier"
+    t.float    "neck_inches"
+    t.float    "chest_inches"
+    t.float    "back_inches"
+    t.float    "shoulder_inches"
+    t.float    "right_sleeve_inches"
+    t.float    "left_sleeve_inches"
+    t.float    "stomach_inches"
+    t.float    "bicep_inches"
+    t.float    "wrist_inches"
+    t.float    "waist_inches"
+    t.float    "hip_inches"
+    t.float    "belt_inches"
+    t.float    "inseam_inches"
+    t.float    "outseam_inches"
+    t.float    "crotch_inches"
+    t.float    "thigh_inches"
+    t.float    "knee_inches"
+    t.float    "ankle_inches"
+    t.float    "height_inches"
+    t.integer  "weight_pounds"
+    t.string   "jean_size"
+    t.float    "shoe_size"
+    t.string   "watch_hand"
   end
 
   add_index "users", ["persistence_token"], :name => "index_users_on_persistence_token"
