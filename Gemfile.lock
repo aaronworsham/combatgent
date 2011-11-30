@@ -5,14 +5,6 @@ GIT
     spree-homepager (0.50.0)
       spree_core
 
-GIT
-  remote: git://raw.github.com/spree/spree_related_products.git
-  revision: 87c773aadacc4e08d8cdace183b086c02dd2da73
-  branch: 0.60.1
-  specs:
-    spree_related_products (3.1)
-      spree_core
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -182,5 +174,4 @@ DEPENDENCIES
   ruby-debug
   spree
   spree-homepager!
-  spree_related_products!
   sqlite3
