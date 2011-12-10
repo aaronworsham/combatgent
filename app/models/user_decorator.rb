@@ -4,4 +4,11 @@ User.class_eval do
                   :hip_inches, :belt_inches, :inseam_inches, :outseam_inches, :crotch_inches,
                   :thigh_inches, :knee_inches, :ankle_inches, :height_inches, :weight_pounds,
                   :jean_size, :shoe_size, :watch_hand
+  
+  has_many :closet_items
+  has_many :products_in_closet, :through => :closet_items, :source => :product
+  
+  def product_in_closet?(product)
+    products_in_closet.include? product
+  end
 end
