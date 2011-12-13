@@ -1,0 +1,6 @@
+<%= render :partial => 'admin/shared/outfit_tabs', :locals => {:current => "Outfit Description"} %>
+
+<% form_for @outfit, :url => admin_outfit_url(@outfit) do |f|%>
+  <%= render :partial => "form", :locals => { :f => f } %>
+  <%= f.submit 'Save' %>
+<% end %>

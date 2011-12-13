@@ -1,0 +1,6 @@
+<h1><%= t("new_outfit") %></h1>
+
+<% form_for @outfit, :url => { :controller => 'outfits', :action => 'create' } do |f| %>
+  <%= render :partial => "form", :locals => { :f => f } %>
+  <%= f.submit 'Create' %>
+<% end %>

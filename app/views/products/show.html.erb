@@ -25,5 +25,22 @@
   <%= render 'shared/add_to_closet', :product => @product %>
 </div>
 
+<div id="match-to-outfit">
+  <%= button_to "Match to outfit", outfit_url(@product.outfit) if @product.outfit.present? %>
+</div>
+
 <%= render 'taxons' %>
 
+<% if @product.outfit.present? %>
+  <div id='related-products'>
+    <% if @product.outfit.products.reject{|p| p == @product}.size > 0 %>
+      <strong>You'll look good in these items too:</strong>
+    <% end %>
+    <% @product.outfit.products.each do |product| %>
+      <% unless @product == product %>
+        <%= image_tag product.images.first.attachment.url(:thumb) %>
+        <%= link_to product.name, product_url(product) %>
+      <% end %>
+    <% end %>
+  <div>
+<% end %>

@@ -1,0 +1,32 @@
+<%= render :partial => 'admin/shared/outfit_tabs', :locals => {:current => "Products"} %>
+
+<p>
+  <%= link_to icon('add') + ' ' + t("new_outfit_product"), new_admin_outfit_outfit_product_url(@outfit) %>
+</p>
+
+<table class="index" id='listing_products'>
+  <tr data-hook="admin_products_index_headers">
+    <th><%= t("sku") %></th>
+    <th><%= t("name") %></th>
+    <th><%= t("master_price") %></th>
+    <th><%= t("image") %></th>
+    <th><th>
+  </tr>
+<% @outfit.outfit_products.each do |outfit_product| %>
+  <tr <%= 'style="color:red;"' if outfit_product.product.deleted? %> id="<%= dom_id outfit_product.product %>">
+    <td><%= outfit_product.product.sku %></td>
+    <td><%= outfit_product.product.name %></td>
+    <td><%= outfit_product.product.price %></td>
+    <td>
+      <% outfit_product.product.images.each do |image| %>
+        <%= image_tag image.attachment.url(:mini) %>
+      <% end %>
+    </td>
+    <td class="actions">
+      <%= link_to_with_icon('edit', t("edit"), edit_admin_outfit_outfit_product_url(@outfit, outfit_product), :class => 'edit') %>
+      &nbsp;
+      <%= link_to_delete outfit_product, {:url => admin_outfit_outfit_product_url(@outfit, outfit_product) }%>
+    </td>
+  </tr>
+<% end %>
+</table>

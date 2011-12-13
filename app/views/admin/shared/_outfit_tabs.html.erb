@@ -1,0 +1,21 @@
+<h1><%== t("editing_outfit") + " &ldquo;#{@outfit.title}&rdquo;" %></h1>
+
+<% content_for :sidebar do %>
+
+  <h3><%= @outfit.title %></h3>
+  <br class="clear" />
+
+  <ul class="sidebar outfit-menu">
+    <li<%== ' class="active"' if current == "Outfit Description" %>>
+      <%= link_to t("outfit_description"), edit_admin_outfit_url(@outfit) %>
+    </li>
+    <li<%== ' class="active"' if current == "Images" %>>
+      <%= link_to t("images"), admin_outfit_outfit_images_url(@outfit) %>
+    </li>
+    <li<%== ' class="active"' if current == "Products" %>>
+      <%= link_to t("products"), admin_outfit_outfit_products_url(@outfit) %>
+    </li>
+  </ul>
+  <br class="clear" />
+
+<% end %>

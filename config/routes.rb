@@ -10,5 +10,22 @@ Combatgent::Application.routes.draw do
   end
   
   resources :closet_items
+  resources :outfits
+  
+  namespace :admin do
+    resources :outfits do
+      resources :outfit_images
+      resources :outfit_products do
+        member do
+          get :select
+          get :remove
+        end
+        collection do
+          get :available
+          get :selected
+        end
+      end
+    end
+  end
   
 end

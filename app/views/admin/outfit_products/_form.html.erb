@@ -1,0 +1,5 @@
+<p>
+  <label for="product"><%= t('product') %></label>
+  <%= f.collection_select :product_id, @products, :id, :name, :prompt => true %>
+  <%= hidden_field_tag 'outfit_product[outfit_id]', @outfit.id %>
+</p>

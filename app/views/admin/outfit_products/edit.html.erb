@@ -1,0 +1,14 @@
+<%= render :partial => 'admin/shared/outfit_tabs', :locals => {:current => "Products"} %>
+
+<%= render "shared/error_messages", :target => @outfit_product %>
+
+<%= form_for(:outfit_product, :url => admin_outfit_outfit_product_url(@outfit, @outfit_product), :html => { :method => :put}) do |f| %>
+  <table class="basic-table">
+    <%= render :partial => "form", :locals => { :f => f } %>
+  </table>
+
+  <p class="form-buttons">
+    <%= button t("update") %>
+    <%= t('or') %> <%= link_to t("cancel"), admin_outfit_outfit_products_url(@outfit), :id => "cancel_link" %>
+  </p>
+<% end %>

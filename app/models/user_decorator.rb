@@ -11,4 +11,10 @@ User.class_eval do
   def product_in_closet?(product)
     products_in_closet.include? product
   end
+  
+  def purchased_products
+    purchased_products = []
+    orders.each{ |order| purchased_products << order.products }
+    purchased_products
+  end
 end

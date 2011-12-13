@@ -1,0 +1,17 @@
+<%= render :partial => 'admin/shared/outfit_tabs', :locals => {:current => "Images"} %>
+
+<%= render "shared/error_messages", :target => @outfit_image %>
+
+<%= form_for(:outfit_image, :url => admin_outfit_outfit_image_url(@outfit), :html => { :method => :put, :multipart => true }) do |f| %>
+  <table class="basic-table">
+    <tr>
+      <td><%= t("thumbnail") %>:</td>
+      <td><%= link_to(image_tag(@outfit_image.attachment.url(:mini)), @outfit_image.attachment.url(:product)) %></td>
+    </tr>
+    <%= render :partial => "form", :locals => { :f => f } %>
+  </table>
+  <p class="form-buttons">
+    <%= button t("update") %>
+    <%= t('or') %> <%= link_to t("cancel"), admin_outfit_outfit_images_url(@outfit), :id => "cancel_link" %>
+  </p>
+<% end %>

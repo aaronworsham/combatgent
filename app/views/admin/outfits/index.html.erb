@@ -1,0 +1,35 @@
+<h1><%= t("listing_outfits") %></h1>
+
+<%= render "shared/error_messages", :target => @outfit %>
+
+<p>
+  <%= link_to icon('add') + ' ' + t("new_outfit"), new_admin_outfit_url %>
+</p>
+
+<table class="index">
+  <thead>
+    <tr>
+      <th><%= t("title") %></th>
+      <th><%= t("description") %></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @outfits.each do |outfit| %>
+      <tr>
+        <td><%= link_to outfit.title, edit_admin_outfit_url(outfit) %></td>
+        <td><%= outfit.description %></td>
+        <td>
+          <% outfit.outfit_images.each do |outfit_image| %>
+            <%= image_tag(outfit_image.attachment.url(:mini)) %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to_edit outfit %>
+          <%= link_to_delete outfit %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
