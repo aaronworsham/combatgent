@@ -1,6 +1,8 @@
-<% unless current_user.product_in_closet?(product) %>
-  <%= form_for ClosetItem.new(:product => product) do |f| %>
-    <%= f.hidden_field :product_id %>
-    <%= f.submit "Save to closet" %>
+<% if current_user %>
+  <% unless current_user.product_in_closet?(product) %>
+    <%= form_for ClosetItem.new(:product => product) do |f| %>
+      <%= f.hidden_field :product_id %>
+      <%= f.submit "Save to closet" %>
+    <% end %>
   <% end %>
 <% end %>
