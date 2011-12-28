@@ -26,7 +26,12 @@
 </div>
 
 <div id="match-to-outfit">
-  <%= button_to "Match to outfit", outfit_url(@product.outfit) if @product.outfit.present? %>
+  <% if @product.outfit.present? %>
+    <%= form_tag outfit_url(@product.outfit), :method => :get do %>
+      <%= hidden_field_tag :product_id, @product.id %>
+      <%= submit_tag "Match to outfit" %>
+    <% end %>
+  <% end %>
 </div>
 
 <%= render 'taxons' %>
