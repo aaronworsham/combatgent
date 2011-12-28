@@ -10,36 +10,43 @@
   </div>
   
   <div id='products-owned'>
-    <% @outfit.products.each do |product| %>
-      <% if @user.purchased_products.include? product %>
-        <%= render 'product_info', :product => product %>
-        <%= link_to 'Buy another one?', product %>
+    <% if @user.present? %>
+      <% @outfit.products.each do |product| %>
+        <% if @user.present? %>
+          <% if @user.purchased_products.include? product %>
+            <%= render 'product_info', :product => product %>
+            <%= link_to 'Buy another one?', product %>
+          <% end %>
+        <% end %>
       <% end %>
     <% end %>
   </div>
 
-  <%= button_to 'Go back', :back %>
+  <%= button_to 'Go back', @product, :method => "get" %>
 </div>
 
 <div id='outfit-right'>
   <div id='outfit-images'>
-    <% @outfit.images.each do |image| %>
-      <%= image_tag image.url(:normal) %>
+    <% @outfit.outfit_images.each do |image| %>
+      <%= image_tag image.attachment.url(:normal) %>
     <% end %>
+
     <p><%= @outfit.title %></p>
     <p><%= @outfit.description %></p>
   </div>
   
   <div id='outfit-to-purchase'>
     <% @outfit.products.each do |product| %>
-      <% unless @user.purchased_products.include? product %>
-        <%= render 'product_info', :product => product %>
+      <% if @user.present? %>
+        <% unless @user.purchased_products.include? product %>
+          <%= render 'product_info', :product => product %>
         
-        <div id="cart-form" data-hook="cart_form">
-          <%= render 'cart_form' %>
-        </div>
+          <div id="cart-form" data-hook="cart_form">
+            <%= render 'cart_form' %>
+          </div>
         
-        <%= render 'shared/add_to_closet', :product => product %>
+          <%= render 'shared/add_to_closet', :product => product %>
+        <% end %>
       <% end %>
     <% end %>
   </div>
