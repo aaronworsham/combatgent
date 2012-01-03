@@ -1,10 +1,10 @@
 <div id="toolbar">
   <ul>
-    <li class="social facebook"><%= link_to 'Facebook', '#' %></li>
-    <li class="social twitter"><%= link_to 'Twitter', '#' %></li>
-    <li class="social blog"><%= link_to 'Blog', '#' %></li>
-    <li class="social feedback"><%= link_to 'Feedback', '#' %></li>	
-    <li class="social service"><span>24/7 Customer Service 1-800-123-456</span></li>
+    <li class="social facebook"><%= link_to 'Facebook', 'http://www.facebook.com/combatgent' %></li>
+    <li class="social twitter"><%= link_to 'Twitter', 'http://twitter.com/combatgent' %></li>
+    <li class="social blog"><%= link_to 'Blog', 'http://blog.combatgent.com' %></li>
+    <li class="social feedback"><%= link_to 'Feedback', 'mailto:feedback@combatgent.com' %></li>	
+    <li class="social service"><span>24/7 Customer Service 1-310-533-9774</span></li>
 		<li class="action cart">
 			<%= link_to_cart %>
 			<ul>
@@ -12,7 +12,7 @@
 			</ul>
 		</li>
 		<li class="action profile">
-			<a href="#">J. Morse</a>
+			<%= link_to 'SignUp', '/signup' %>
 			<ul>
 				<%= render 'shared/login_bar' %>				
 			</ul>
