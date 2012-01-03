@@ -59,6 +59,7 @@ GEM
       abstract (>= 1.0.0)
     faker (0.9.5)
       i18n (~> 0.4)
+    high_voltage (1.0.1)
     highline (1.5.1)
     i18n (0.5.0)
     jquery-rails (0.2.6)
@@ -169,6 +170,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-s3
+  high_voltage
   mysql2 (~> 0.2.7)
   rails (= 3.0.7)
   ruby-debug

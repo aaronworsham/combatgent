@@ -6,6 +6,7 @@ gem 'sqlite3'
 gem 'mysql2', '~> 0.2.7'
 
 gem 'aws-s3', :require => 'aws/s3'
+gem 'high_voltage'
 
 gem 'spree'
 gem 'spree-homepager', :git => 'git://github.com/pero-ict-solutions/spree-homepager.git', :require => 'homepager'
