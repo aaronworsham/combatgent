@@ -124,10 +124,24 @@ header {
 	
 	img#tagline,
 	img#logo,
+	a#logo_container,
 	.hline {
 		clear: both;
 		display: block;
 		margin: 0 auto;
+	}
+	
+	a#logo_container {
+		width: 447px;
+		height: 23px;
+		overflow: hidden;
+		
+		&:hover {
+			img {
+				margin-top: -50px
+			}
+		}
+		
 	}
 	
 	img#tagline {

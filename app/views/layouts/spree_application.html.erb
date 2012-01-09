@@ -8,7 +8,9 @@
   <body  id="<%= @body_id %>">
 		<%= render 'shared/header_toolbar' %>	
 		<header>			
-			<%= image_tag "combat-gentlemen-logo.png", :id => "logo" %>
+			<a href="/" id="logo_container">
+				<%= image_tag "combatant-gentleman-logo-sprite.png", :id => "logo", :alt => "Combat Gent Logo" %>
+			</a>
 			<%= image_tag "quality-fit-value.png", :id => "tagline" %>
 			<ul>
 			<%= render 'shared/product_category_menu' %>
