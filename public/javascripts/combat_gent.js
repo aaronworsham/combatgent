@@ -4,7 +4,7 @@ jQuery(document).ready(function(){
    $.getJSON('http://blog.combatgent.com/api/read/json?callback=?',
        function(response) {
           $('#tumblink').attr('href',response.posts[0].url);
-					$('#tumbtitle').text(response.posts[0]['regular-title']);
+					$('#tumblink').text(response.posts[0]['regular-title']);
 					// console.log(response.posts[0].title);
    });
 
