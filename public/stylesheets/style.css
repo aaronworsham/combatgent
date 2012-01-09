@@ -659,8 +659,11 @@ footer form fieldset {
   padding: 2px;
   border: 1px solid #ccc;
 }
-footer form fieldset input[type=text] {
+footer form fieldset input[type=text], footer form fieldset input[type=email] {
   border: none;
+}
+footer form fieldset .error {
+  display: none;
 }
 footer form fieldset input[type=submit] {
   border: none;
