@@ -715,6 +715,24 @@ header, #wrapper {
   width: 940px;
   margin: 0 auto 40px auto;
 }
+.pagination {
+  font-size: 15px;
+}
+.pagination span, .pagination em, .pagination a {
+  margin-right: 3px;
+}
+.pagination em {
+  color: #000;
+}
+.pagination .disabled {
+  color: #999;
+}
+.pagination a {
+  color: #d34f28;
+}
+.pagination a:hover {
+  color: #7d2f18;
+}
 /* HOME */
 #features {
   width: 940px;
@@ -903,33 +921,45 @@ header, #wrapper {
   float: left;
   width: 940px;
   list-style-type: none;
-  margin: 0 0 40px 0;
+  margin: 0;
 }
 #collection .product-listing li {
   display: inline-block;
-  display: inline;
-  float: left;
-  width: 140px;
-  margin-left: 20px;
+  width: 220px;
+  margin-right: 17px;
+  margin-bottom: 30px;
   text-align: left;
 }
-#collection .product-listing li:first-child {
-  margin-left: 0;
+#collection .product-listing li:nth-child(4n) {
+  margin-right: 0;
 }
 #collection .product-listing li img {
-  width: 140px;
-  height: 180px;
+  width: 220px;
+  border: 1px solid #cdcdcd;
+  /*height: 180px;*/
+
 }
 #collection .product-listing li a {
   text-decoration: none;
   color: #333;
 }
 #collection .product-listing li a h2 {
-  font-size: 20px;
+  font-size: 16px;
   margin: 0;
 }
-#collection .product-listing li a:hover {
+#collection .product-listing li a span.price {
+  font-family: "freight-sans-pro", helvetica, arial, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 20px;
+  font-size: 14px;
+  color: #666;
+}
+#collection .product-listing li a:hover h2, #collection .product-listing li a:hover span {
   color: #d34f28;
+}
+#collection .product-listing li a:hover img {
+  border: 1px solid #e6937b;
 }
 div#new-customer br, div#existing-customer br {
   display: none;
@@ -1070,7 +1100,7 @@ h1 {
   color: #000;
 }
 h2 {
-  font-size: 1.75em;
+  font-size: 24px;
   margin-bottom: 10px;
   font-family: "freight-sans-pro", helvetica, arial, sans-serif;
   font-size: 12px;
