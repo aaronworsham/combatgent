@@ -38,10 +38,13 @@
     </footer>
 		<%= render :partial => 'shared/javascript_footer' %>
 		<script type="text/javascript">
-			$().ready(function() {
+			$(document).ready(function() {
 				$('#slideshow_wrapper').codaSlider({
 					panelTitleSelector: "img.thumb"
 				});
+				$('#coda-slider-wrapper').codaSlider({
+					// panelTitleSelector: "img.thumb"
+				});				
 			});
 		</script>
   </body>
