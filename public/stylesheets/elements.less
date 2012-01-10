@@ -29,3 +29,45 @@ dl {
 	}
 	
 }
+
+.button_base {
+	display: block;
+	text-align: center;
+	padding: 4px 15px 0;
+	height: 24px;
+	text-transform: uppercase;
+	text-decoration: none;
+	letter-spacing: 2px;
+	font-size: 11px;
+	font-weight: bold;	
+	float: left;	
+	color: #ffffff;
+	
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.cg_button_green {
+	.button_base;
+	border: 1px solid #84a653;
+	text-shadow: 0 1px 1px darken(#84a653, 10%);
+	background: url(../images/button-sprite-green.png) 0 0 repeat-x;
+	
+	&:hover {
+		background: url(../images/button-sprite-green.png) 0 -30px repeat-x;
+	}
+		
+}
+
+.cg_button_gray {
+	.button_base;
+	border: 1px solid #84a653;
+	text-shadow: 0 1px 1px darken(#84a653, 10%);
+	background: url(../images/button-sprite-gray.png) 0 0 repeat-x;
+	
+	&:hover {
+		background: url(../images/button-sprite-gray.png) 0 -30px repeat-x;
+	}
+		
+}

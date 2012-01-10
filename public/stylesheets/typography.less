@@ -18,3 +18,15 @@ p  {
 }
 p:last-child { margin-bottom: 0; }
 span {}
+	
+a {
+	color: @red;
+
+	&:visited {
+		color: @red;
+	}
+	
+	&:hover {
+		color: darken(@red, 20%);
+	}
+}

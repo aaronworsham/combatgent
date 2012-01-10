@@ -1151,6 +1151,15 @@ p {
 p:last-child {
   margin-bottom: 0;
 }
+a {
+  color: #d34f28;
+}
+a:visited {
+  color: #d34f28;
+}
+a:hover {
+  color: #7d2f18;
+}
 /*
 	Reusable layout elements
 */
@@ -1170,6 +1179,66 @@ p:last-child {
 }
 .column.left {
   margin-left: 0;
+}
+.button_base {
+  display: block;
+  text-align: center;
+  padding: 4px 15px 0;
+  height: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 11px;
+  font-weight: bold;
+  float: left;
+  color: #ffffff;
+}
+.button_base:hover {
+  cursor: pointer;
+}
+.cg_button_green {
+  display: block;
+  text-align: center;
+  padding: 4px 15px 0;
+  height: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 11px;
+  font-weight: bold;
+  float: left;
+  color: #ffffff;
+  border: 1px solid #84a653;
+  text-shadow: 0 1px 1px #698442;
+  background: url(../images/button-sprite-green.png) 0 0 repeat-x;
+}
+.cg_button_green:hover {
+  cursor: pointer;
+}
+.cg_button_green:hover {
+  background: url(../images/button-sprite-green.png) 0 -30px repeat-x;
+}
+.cg_button_gray {
+  display: block;
+  text-align: center;
+  padding: 4px 15px 0;
+  height: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 11px;
+  font-weight: bold;
+  float: left;
+  color: #ffffff;
+  border: 1px solid #84a653;
+  text-shadow: 0 1px 1px #698442;
+  background: url(../images/button-sprite-gray.png) 0 0 repeat-x;
+}
+.cg_button_gray:hover {
+  cursor: pointer;
+}
+.cg_button_gray:hover {
+  background: url(../images/button-sprite-gray.png) 0 -30px repeat-x;
 }
 /*
 	Screen Stuff
@@ -1194,6 +1263,109 @@ p:last-child {
 }
 #product-details #product-images:first-child {
   margin-left: 0;
+}
+#cart #cart-detail {
+  width: 940px;
+}
+#cart #cart-detail thead th {
+  border-bottom: 1px solid #ccc;
+  padding: 0 0 10px 0;
+  font-size: 13px;
+}
+#cart #cart-detail thead th:first-child {
+  text-align: center;
+}
+#cart #cart-detail thead th:nth-child(2), #cart #cart-detail thead th:nth-child(3), #cart #cart-detail thead th:nth-child(4) {
+  text-align: right;
+}
+#cart #cart-detail tbody td {
+  padding: 10px 0;
+  border-bottom: 1px dotted #ccc;
+  font-size: 14px;
+}
+#cart #cart-detail tbody td:first-child {
+  width: 120px;
+}
+#cart #cart-detail tbody td:first-child img {
+  border: 1px solid #eaeaea;
+}
+#cart #cart-detail tbody td:nth-child(3), #cart #cart-detail tbody td:nth-child(4), #cart #cart-detail tbody td:nth-child(5) {
+  width: 75px;
+  text-align: right;
+}
+#cart #cart-detail tbody td:nth-child(6) {
+  width: 50px;
+  text-align: center;
+}
+#cart #cart-detail tbody td h4 {
+  font-size: 18px;
+  margin: 0 0 3px;
+}
+#cart #cart-detail tbody td h4 a {
+  text-decoration: none;
+  color: #d34f28;
+}
+#cart #cart-detail tbody td h4 a:hover {
+  color: #a83f20;
+}
+#cart #cart-detail tbody td input[type=text] {
+  margin: 0 auto;
+  width: 20px;
+  font-family: "freight-sans-pro", helvetica, arial, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 20px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  padding: 3px 5px;
+  text-align: right;
+}
+#cart a.continue {
+  text-decoration: none;
+  margin: 15px 0 0;
+  float: left;
+  font-size: 18px;
+}
+#cart #subtotal {
+  width: 500px;
+  float: right;
+  margin: 0 0 50px 0;
+  font-size: 20px;
+  text-align: right;
+}
+#cart #subtotal h3 {
+  margin: 15px 0;
+  font-size: 18px;
+}
+#cart #subtotal .links a {
+  display: block;
+  text-align: center;
+  padding: 4px 15px 0;
+  height: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 11px;
+  font-weight: bold;
+  float: left;
+  color: #ffffff;
+  border: 1px solid #84a653;
+  text-shadow: 0 1px 1px #698442;
+  background: url(../images/button-sprite-green.png) 0 0 repeat-x;
+  float: right;
+  margin: 0 0 0 10px;
+}
+#cart #subtotal .links a:hover {
+  cursor: pointer;
+}
+#cart #subtotal .links a:hover {
+  background: url(../images/button-sprite-green.png) 0 -30px repeat-x;
+}
+#cart #subtotal .links a img {
+  display: none;
+}
+#cart #clear_cart_link {
+  display: none;
 }
 .ir {
   display: block;
