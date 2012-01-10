@@ -8,4 +8,9 @@ jQuery(document).ready(function(){
 					// console.log(response.posts[0].title);
    });
 
+	$("#order_use_billing").change(function(){
+		$("#shipping .inner").slideToggle();
+	});
+
+
 });
