@@ -1367,6 +1367,20 @@ a:hover {
 #cart #clear_cart_link {
   display: none;
 }
+#cart a.delete {
+  margin: 3px 0 0 0;
+  float: right;
+  display: block;
+  width: 16px;
+  height: 16px;
+  background: url(../images/x-icon-sprite.png) 0 0 no-repeat;
+}
+#cart a.delete img {
+  display: none;
+}
+#cart a.delete:hover {
+  background: url(../images/x-icon-sprite.png) 0 -18px no-repeat;
+}
 .ir {
   display: block;
   text-indent: -999em;
