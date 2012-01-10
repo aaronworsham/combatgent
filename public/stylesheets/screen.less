@@ -186,11 +186,38 @@
 	#checkout-summary {
 		.columns(3);
 		float: right;	
+		
+		h3 {
+			font-size: 18px;
+		}
+		
+		table {
+			width: 100%;
+			
+			td {
+				border-top: 1px dotted #cccccc;
+				font-size: 12px;
+				
+				strong {
+					font-weight: normal;
+				}
+				
+				&:nth-child(2){
+					text-align: right;
+				}	
+			}			
+		}
+		
 	}
 	
 	.edit_order {
 		.columns(9);
 		margin: 0 0 50px 0;
+		
+		fieldset {
+			.columns(9);
+			margin-left: 0;
+		}
 		
 		input[type=submit]{
 			.cg_button_green;
@@ -209,7 +236,43 @@
 	#billing {
 		border-bottom: 1px solid #cccccc;
 	}
+}
+
+#tabs {
+	padding: 0;
+	
+	.ui-tabs-nav {
+		padding: 0;
+		float: left;
+		width: @siteWidth;
 		
+		li {
+			padding: 0 20px 0 0;
+			
+			a {
+				padding: 0;
+			}
+		}
+	}
+	
+	h2 {
+		margin: 10px 0;
+		font-size: 20px;
+	}
+	
+	#account_summary, 
+	#account_my_orders {
+		float: left;
+		width: @siteWidth;		
+		padding: 0;
+		margin-bottom: 50px;
+	}
+	
+	input[type=submit]{
+		.cg_button_green;
+		padding-bottom: 24px;
+		margin-top: 10px;
+	}
 	
 }
 
@@ -230,8 +293,7 @@
 					#order_use_billing {
 						vertical-align: middle;
 						margin-right: 2px;
-					}					
-					
+					}		
 				}
 
 			}

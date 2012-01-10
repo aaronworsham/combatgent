@@ -1279,7 +1279,7 @@ form fieldset span.req {
   color: #d34f28;
   margin: 0 0 0 5px;
 }
-form input[type=text], form input[type=email] {
+form input[type=text], form input[type=email], form input[type=password] {
   font-family: "freight-sans-pro", helvetica, arial, sans-serif;
   font-size: 12px;
   font-weight: normal;
@@ -1464,6 +1464,22 @@ form input[type=text], form input[type=email] {
 #checkout #checkout-summary:first-child {
   margin-left: 0;
 }
+#checkout #checkout-summary h3 {
+  font-size: 18px;
+}
+#checkout #checkout-summary table {
+  width: 100%;
+}
+#checkout #checkout-summary table td {
+  border-top: 1px dotted #cccccc;
+  font-size: 12px;
+}
+#checkout #checkout-summary table td strong {
+  font-weight: normal;
+}
+#checkout #checkout-summary table td:nth-child(2) {
+  text-align: right;
+}
 #checkout .edit_order {
   display: inline;
   float: left;
@@ -1472,6 +1488,16 @@ form input[type=text], form input[type=email] {
   margin: 0 0 50px 0;
 }
 #checkout .edit_order:first-child {
+  margin-left: 0;
+}
+#checkout .edit_order fieldset {
+  display: inline;
+  float: left;
+  width: 700px;
+  margin-left: 20px;
+  margin-left: 0;
+}
+#checkout .edit_order fieldset:first-child {
   margin-left: 0;
 }
 #checkout .edit_order input[type=submit] {
@@ -1508,6 +1534,58 @@ form input[type=text], form input[type=email] {
 }
 #checkout #billing {
   border-bottom: 1px solid #cccccc;
+}
+#tabs {
+  padding: 0;
+}
+#tabs .ui-tabs-nav {
+  padding: 0;
+  float: left;
+  width: 940px;
+}
+#tabs .ui-tabs-nav li {
+  padding: 0 20px 0 0;
+}
+#tabs .ui-tabs-nav li a {
+  padding: 0;
+}
+#tabs h2 {
+  margin: 10px 0;
+  font-size: 20px;
+}
+#tabs #account_summary, #tabs #account_my_orders {
+  float: left;
+  width: 940px;
+  padding: 0;
+  margin-bottom: 50px;
+}
+#tabs input[type=submit] {
+  font-family: "freight-sans-pro", helvetica, arial, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 20px;
+  display: block;
+  text-align: center;
+  padding: 4px 15px 0;
+  height: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 11px;
+  font-weight: bold;
+  float: left;
+  color: #ffffff;
+  border: 1px solid #84a653;
+  text-shadow: 0 1px 1px #698442;
+  background: url(../images/button-sprite-green.png) 0 0 repeat-x;
+  padding-bottom: 24px;
+  margin-top: 10px;
+}
+#tabs input[type=submit]:hover {
+  cursor: pointer;
+}
+#tabs input[type=submit]:hover {
+  background: url(../images/button-sprite-green.png) 0 -30px repeat-x;
 }
 /* EXCEPTIONS - WE SHOULD FIX THE CODE SO THAT THESE AREN'T NECESSARY */
 #shipping p.field.checkbox {
