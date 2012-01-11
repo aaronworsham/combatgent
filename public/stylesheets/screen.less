@@ -469,37 +469,42 @@
 	padding: 20px 0 0;
 	
 	#upper_body,
-	#lower_body,
+	#lower_body {
+		.columns(6);
+		margin-left: 0;
+	}
+	
 	#other_measurements {
 		width: @siteWidth;
 		float: left;
-		margin: 0 0 50px 0;
-		padding: 0 0 50px 0;
-		border-bottom: 1px dotted #cccccc;
-		
-		&:last-child {
-			border: none;
-		}
-		
+		margin: 50px 0 0 0;
+		padding: 50px 0 0 0;
+		border-top: 1px dotted #ccc;
+	}
+	
+	#upper_body,
+	#lower_body,
+	#other_measurements {
+
 		h3 {
-			font-size: 16px;
+			font-size: 18px;
+			
 		}
-		
+
 		p {
 			.columns(2);
 			margin-left: 0;
-			
+
 			label {
 				font-size: 13px;
 			}
-			
+
 			&:last-child {
 				width: @siteWidth;
 				float: left;
 			}
-		}
-	}
-	
+		}			
+	}	
 }
 
 

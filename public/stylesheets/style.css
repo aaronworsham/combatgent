@@ -1949,26 +1949,27 @@ form input[type=text], form input[type=email], form input[type=password] {
 #user_measurements #upper_body,
 #user_closet #lower_body,
 #user_saved_outfits #lower_body,
-#user_measurements #lower_body,
-#user_closet #other_measurements,
-#user_saved_outfits #other_measurements,
-#user_measurements #other_measurements {
+#user_measurements #lower_body {
+  display: inline;
+  float: left;
+  width: 460px;
+  margin-left: 20px;
+  margin-left: 0;
+}
+#user_closet #upper_body:first-child,
+#user_saved_outfits #upper_body:first-child,
+#user_measurements #upper_body:first-child,
+#user_closet #lower_body:first-child,
+#user_saved_outfits #lower_body:first-child,
+#user_measurements #lower_body:first-child {
+  margin-left: 0;
+}
+#user_closet #other_measurements, #user_saved_outfits #other_measurements, #user_measurements #other_measurements {
   width: 940px;
   float: left;
-  margin: 0 0 50px 0;
-  padding: 0 0 50px 0;
-  border-bottom: 1px dotted #cccccc;
-}
-#user_closet #upper_body:last-child,
-#user_saved_outfits #upper_body:last-child,
-#user_measurements #upper_body:last-child,
-#user_closet #lower_body:last-child,
-#user_saved_outfits #lower_body:last-child,
-#user_measurements #lower_body:last-child,
-#user_closet #other_measurements:last-child,
-#user_saved_outfits #other_measurements:last-child,
-#user_measurements #other_measurements:last-child {
-  border: none;
+  margin: 50px 0 0 0;
+  padding: 50px 0 0 0;
+  border-top: 1px dotted #ccc;
 }
 #user_closet #upper_body h3,
 #user_saved_outfits #upper_body h3,
@@ -1979,7 +1980,7 @@ form input[type=text], form input[type=email], form input[type=password] {
 #user_closet #other_measurements h3,
 #user_saved_outfits #other_measurements h3,
 #user_measurements #other_measurements h3 {
-  font-size: 16px;
+  font-size: 18px;
 }
 #user_closet #upper_body p,
 #user_saved_outfits #upper_body p,

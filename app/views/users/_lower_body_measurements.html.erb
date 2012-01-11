@@ -1,6 +1,11 @@
 <h3>Lower Body</h3>
 
 <p>
+  <%= f.label :waist_inches, t("waist_inches") %><br />
+  <%= f.select :waist_inches, options_for_select(large_inches, @user.waist_inches), :prompt => 'Select', :class => 'inches'  %>
+</p>
+
+<p>
   <%= f.label :hip_inches, t("hip_inches") %><br />
   <%= f.select :hip_inches, options_for_select(large_inches, @user.hip_inches), :prompt => 'Select', :class => 'inches'  %>
 </p>

@@ -36,10 +36,6 @@
   <%= f.label :wrist_inches, t("wrist_inches") %><br />
   <%= f.select :wrist_inches, options_for_select(small_inches, @user.wrist_inches), :prompt => 'Select', :class => 'inches'  %>
 </p>
-<p>
-  <%= f.label :waist_inches, t("waist_inches") %><br />
-  <%= f.select :waist_inches, options_for_select(large_inches, @user.waist_inches), :prompt => 'Select', :class => 'inches'  %>
-</p>
 
 <p>
   <%=submit_tag t("save_changes") %>
