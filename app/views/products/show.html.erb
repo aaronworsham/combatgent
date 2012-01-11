@@ -1,6 +1,6 @@
 <% @body_id = 'product-details' %>
 
-<h1><%= accurate_title %></h1>
+<h1 id="product-title"><%= accurate_title %></h1>
 <div id="product-images" data-hook="product_images">
   <div id="thumbnails">
     <%= render 'thumbnails', :product => @product %>
@@ -8,41 +8,49 @@
 </div>
 
 <div id="product-description" data-hook="product_description">
-  <%= product_description(@product) rescue t("product_has_no_description") %>
+	
+	<%= product_description(@product) rescue t("product_has_no_description") %>	
+	
   <div data-hook="product_properties">
     <%= render 'properties' %>
   </div>
+
 </div>
 
 <div id="cart-form" data-hook="cart_form">
   <%= render 'cart_form' %>
+
+	<div id="add-to-closet-form">
+	  <%= render 'shared/add_to_closet', :product => @product %>
+	</div>
+
+	<div id="match-to-outfit">
+	  <% if @product.outfit.present? %>
+	    <%= form_tag outfit_url(@product.outfit), :method => :get do %>
+	      <%= hidden_field_tag :product_id, @product.id %>
+	      <%= submit_tag "Match to outfit" %>
+	    <% end %>
+	  <% end %>
+	</div>
 </div>
 
-<div id="add-to-closet-form">
-  <%= render 'shared/add_to_closet', :product => @product %>
-</div>
 
-<div id="match-to-outfit">
-  <% if @product.outfit.present? %>
-    <%= form_tag outfit_url(@product.outfit), :method => :get do %>
-      <%= hidden_field_tag :product_id, @product.id %>
-      <%= submit_tag "Match to outfit" %>
-    <% end %>
-  <% end %>
-</div>
+<% # = render 'taxons' %>
 
-<%= render 'taxons' %>
 
 <% if @product.outfit.present? %>
   <div id='related-products'>
     <% if @product.outfit.products.reject{|p| p == @product}.size > 0 %>
-      <strong>You'll look good in these items too:</strong>
+      <h2>This will look great with:</h2>
     <% end %>
     <% @product.outfit.products.each do |product| %>
+		
       <% unless @product == product %>
-        <%= image_tag product.images.first.attachment.url(:thumb) %>
+			<div class="outfit-item">
+        <%= image_tag product.images.first.attachment.url(:small) %>
         <%= link_to product.name, product_url(product) %>
+			</div>
       <% end %>
     <% end %>
-  <div>
+  </div>
 <% end %>

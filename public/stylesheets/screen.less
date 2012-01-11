@@ -5,15 +5,159 @@
 #product-details {
 	
 	h1 {
-		.columns(6);
+		.columns(7);
 		float: right;
 		border-bottom: 1px solid #ccc;	
 		padding: 0 0 10px 0;
+		
+		span {
+			float: right;
+		}
+		
+	}
+
+	p.prices {
+		float: right;
 	}
 	
 	#product-images {
-		.columns(6);
+		.columns(5);
+		height: 600px;
+		margin-left: 0;
+		overflow: hidden;
+		
+		
+		ul {
+			list-style-type: none;
+			margin: 0;
+			
+			li {
+				&:first-child {
+					display: none;
+				}
+			}
+			
+		}
 	}
+	
+	#product-description {
+		.columns(7);
+	}
+	
+	#cart-form {
+		.columns(7);
+		position: relative;
+		margin-bottom: 30px;
+		
+		#product-variants {
+			.columns(3);
+			margin: 0 0 20px 0;
+			clear: both;
+
+			h2 {
+				display: none;
+			}
+
+			ul {
+				list-style-type: none;
+				margin: 0;
+			}
+		}		
+		
+		input#quantity {
+			.columns(1);
+			margin: 0;
+			clear: left;
+		}
+		
+		button[type=submit]{
+			.columns(4);
+			margin: 0;
+			img { display: none; }
+			.cg_button_green;
+			padding-bottom: 24px;
+			font-size: 14px;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}				
+		
+		#add-to-closet-form {
+			position: absolute;
+			top: 45px;
+			right: 0;
+
+			#closet_item_submit {
+				.columns(2);
+				margin: 0;
+				.cg_button_gray;
+				text-align: center;
+				padding: 4px 0 24px;
+				font-size: 10px;			
+			}
+		}
+
+		#match-to-outfit {
+			.columns(2);
+			position: absolute;
+			top: 45px;
+			right: 160px;
+
+			input[type=submit]{
+					.columns(2);
+					margin: 0;
+					.cg_button_gray;
+					font-size: 10px;				
+					text-align: center;
+					padding: 4px 0 24px;
+			}
+
+		}			
+	}
+	
+	#related-products {
+		.columns(7);
+		
+		h2 {
+			font-size: 18px;
+		}
+		
+		.outfit-item {
+			width: 100px;
+			float: left;
+			margin: 0 10px 10px 0;
+			
+			img {
+				border: 1px solid #ccc;
+				margin: 0 0 3px;
+				float: left;
+			}
+			
+			a {
+				color: #333;
+				text-decoration: none;
+				float: left;
+				
+				&:hover {
+					color: @red;
+				}
+				
+			}
+			
+		}
+		
+	}
+	
+
+	
+	#taxon-crumbs {
+		.columns(12);
+		margin: 0;
+	}
+	
+
+	
+
 
 }
 

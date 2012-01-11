@@ -2,9 +2,4 @@
 <% Taxon.header_navigation.each do |taxon| %>
   <li><%= link_to taxon.name, seo_url(taxon) %></li>
 <% end %>
-<!-- <li class="shirts"><a href="#">Shirts</a></li>
-<li class="pants_shorts"><a href="#">Pants &amp; Shorts</a></li>
-<li class="sweaters_outerwear"><a href="#">Sweaters &amp; Outerwear</a></li>
-<li class="suiting"><a href="#">Suiting</a></li>
-<li class="accessories"><a href="#">Accessories</a></li> -->
 <li class="sale"><%= link_to 'Sale', '#' %></li>
