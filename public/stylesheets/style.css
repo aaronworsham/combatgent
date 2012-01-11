@@ -978,41 +978,48 @@ div#new-customer form, div#existing-customer form {
   float: left;
   width: 940px;
 }
-#password-credentials {
+div#new-customer #password-credentials, div#existing-customer #password-credentials {
   float: left;
   width: 940px;
 }
-#password-credentials p {
+div#new-customer #password-credentials p, div#existing-customer #password-credentials p {
   display: inline;
   float: left;
   width: 460px;
   margin-left: 20px;
-  margin-bottom: 10px;
 }
-#password-credentials p:first-child {
+div#new-customer #password-credentials p:first-child, div#existing-customer #password-credentials p:first-child {
   margin-left: 0;
 }
-#password-credentials p label {
+div#new-customer label, div#existing-customer label {
   clear: both;
   display: block;
-  font-size: 14px;
+  font-size: 13px;
 }
-#password-credentials p input[type=text], #password-credentials p input[type=password] {
+div#new-customer input[type=text],
+div#existing-customer input[type=text],
+div#new-customer input[type=password],
+div#existing-customer input[type=password] {
   width: 95%;
   font-size: 18px;
   padding: 5px 10px;
   color: #333;
   background: #fff;
 }
-p {
+div#new-customer p, div#existing-customer p {
   float: left;
   width: 940px;
 }
-p #user_remember_me {
-  vertical-align: middle;
-  margin-right: 2px;
+div#new-customer p #user_remember_me, div#existing-customer p #user_remember_me {
+  margin: 7px 5px 0 0;
+  float: left;
 }
-p input[type=submit] {
+div#new-customer p label[for=user_remember_me], div#existing-customer p label[for=user_remember_me] {
+  clear: none;
+  padding: 0;
+  margin-top: -5px;
+}
+div#new-customer p input[type=submit], div#existing-customer p input[type=submit] {
   font-family: "freight-sans-pro", helvetica, arial, sans-serif;
   font-size: 12px;
   font-weight: normal;
@@ -1034,11 +1041,136 @@ p input[type=submit] {
   padding: 4px 20px 24px;
   font-size: 14px;
 }
-p input[type=submit]:hover {
+div#new-customer p input[type=submit]:hover, div#existing-customer p input[type=submit]:hover {
   cursor: pointer;
 }
-p input[type=submit]:hover {
+div#new-customer p input[type=submit]:hover, div#existing-customer p input[type=submit]:hover {
   background: url(../images/button-sprite-green.png) 0 -30px repeat-x;
+}
+div#new-customer p {
+  display: inline;
+  float: left;
+  width: 300px;
+  margin-left: 20px;
+  margin-left: 0;
+}
+div#new-customer p:first-child {
+  margin-left: 0;
+}
+div#new-customer #password-credentials {
+  display: inline;
+  float: left;
+  width: 620px;
+  margin-left: 20px;
+}
+div#new-customer #password-credentials:first-child {
+  margin-left: 0;
+}
+div#new-customer #password-credentials p {
+  display: inline;
+  float: left;
+  width: 300px;
+  margin-left: 20px;
+}
+div#new-customer #password-credentials p:first-child {
+  margin-left: 0;
+}
+form#user_new p {
+  display: inline;
+  float: left;
+  width: 460px;
+  margin-left: 20px;
+  clear: both;
+  margin: 0 0 20px;
+}
+form#user_new p:first-child {
+  margin-left: 0;
+}
+form#user_new p label {
+  font-size: 13px;
+}
+form#user_new p input[type=email] {
+  width: 100%;
+}
+form#user_new input[type=submit] {
+  font-family: "freight-sans-pro", helvetica, arial, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 20px;
+  display: block;
+  text-align: center;
+  padding: 4px 15px 0;
+  height: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 11px;
+  font-weight: bold;
+  float: left;
+  color: #ffffff;
+  border: 1px solid #84a653;
+  text-shadow: 0 1px 1px #698442;
+  background: url(../images/button-sprite-green.png) 0 0 repeat-x;
+  padding: 4px 20px 24px;
+  font-size: 14px;
+}
+form#user_new input[type=submit]:hover {
+  cursor: pointer;
+}
+form#user_new input[type=submit]:hover {
+  background: url(../images/button-sprite-green.png) 0 -30px repeat-x;
+}
+/* SLOTS */
+@-webkit-keyframes pulsar {
+  0% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.75;
+  }
+}
+#slot_1 .product.a {
+  top: 300px;
+  left: 300px;
+}
+#slot_1 .pulsar.a {
+  top: 290px;
+  left: 290px;
+}
+#slot_1 .product.b {
+  top: 250px;
+  left: 620px;
+}
+#slot_1 .pulsar.b {
+  top: 240px;
+  left: 610px;
+}
+#slot_1 .product.c {
+  top: 50px;
+  left: 670px;
+}
+#slot_1 .pulsar.c {
+  top: 40px;
+  left: 660px;
+}
+#slot_2 .a {
+  top: 300px;
+  left: 300px;
+}
+#slot_2 .b {
+  top: 250px;
+  left: 620px;
+}
+#slot_2 .c {
+  top: 100px;
+  left: 570px;
+}
+#slot_3 .a {
+  top: 300px;
+  left: 300px;
 }
 h1 {
   font-family: "freight-sans-pro", helvetica, arial, sans-serif;

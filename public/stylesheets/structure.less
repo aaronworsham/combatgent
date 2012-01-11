@@ -677,24 +677,17 @@ header,
 div#new-customer,
 div#existing-customer {
 	br { display: none; }
+	font-size: 14px;
 
 	h2 {
 		font-size: 18px;
 	}
-
-	font-size: 14px;	
 	
 	form {
 		margin: 0 0 20px 0;
 		float: left;
-		width: @siteWidth;	
-		
-
+		width: @siteWidth;		
 	}
-
-
-
-}
 	
 	#password-credentials {
 		float: left;
@@ -702,33 +695,39 @@ div#existing-customer {
 		
 		p {
 			.columns(6);
-			margin-bottom: 10px;
-
-			label {
-				clear: both;
-				display: block;
-				font-size: 14px;
-			}
-
-			input[type=text],
-			input[type=password]{
-				width: 95%;
-				font-size: 18px;
-				padding: 5px 10px;
-				color: #333;
-				background: #fff;
-			}		
+		
 		}
 	}
+	
+	label {
+		clear: both;
+		display: block;
+		font-size: 13px;
+	}
+
+	input[type=text],
+	input[type=password]{
+		width: 95%;
+		font-size: 18px;
+		padding: 5px 10px;
+		color: #333;
+		background: #fff;
+	}	
 	
 	p {
 		float: left;
 		width: @siteWidth;
 		
 		#user_remember_me {
-			vertical-align: middle;
-			margin-right: 2px;
-		}		
+			margin: 7px 5px 0 0;
+			float: left;
+		}
+		
+		label[for=user_remember_me]{
+			clear: none;
+			padding: 0;
+			margin-top: -5px;
+		}
 		
 		input[type=submit]{
 			.cg_button_green;
@@ -737,13 +736,47 @@ div#existing-customer {
 		}
 		
 	}
+}
 
-
-
-
-		
+div#new-customer {
+	p {
+		.columns(4);
+		margin-left: 0;
+	}
 	
+	#password-credentials {
+		.columns(8);
+		
+		p {
+			.columns(4);
+		}
+		
+		
+	}
+}
 
+form#user_new {
+	
+	p {
+		.columns(6);
+		clear: both;
+		margin: 0 0 20px;
+		
+		label {
+			font-size: 13px;
+		}
+			
+		
+		input[type=email]{
+			width: 100%;
+		}
+	}
+	
+	input[type=submit]{
+		.cg_button_green;
+		padding: 4px 20px 24px;
+		font-size: 14px;
+	}
 }
 
 /* SLOTS */
