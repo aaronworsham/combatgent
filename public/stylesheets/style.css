@@ -1516,6 +1516,32 @@ form input[type=text], form input[type=email], form input[type=password] {
 #product-details #cart-form #match-to-outfit input[type=submit]:hover {
   background: url(../images/button-sprite-gray.png) 0 -30px repeat-x;
 }
+#product-details #product-thumbnails {
+  display: inline;
+  float: left;
+  width: 540px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+#product-details #product-thumbnails:first-child {
+  margin-left: 0;
+}
+#product-details #product-thumbnails ul {
+  list-style-type: none;
+}
+#product-details #product-thumbnails ul li {
+  display: inline;
+  margin: 0 5px 5px 0;
+}
+#product-details #product-thumbnails ul li img {
+  border: 1px solid #cccccc;
+}
+#product-details #product-thumbnails ul li:first-child {
+  display: none;
+}
+#product-details #product-thumbnails ul li:hover img {
+  border: 1px solid #e6937b;
+}
 #product-details #related-products {
   display: inline;
   float: left;

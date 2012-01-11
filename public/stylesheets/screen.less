@@ -111,8 +111,39 @@
 					text-align: center;
 					padding: 4px 0 24px;
 			}
-
 		}			
+	}
+	
+	#product-thumbnails {
+		.columns(7);
+		margin-bottom: 10px;
+		
+		ul {
+			list-style-type: none;
+			
+			li {
+				display: inline;
+				margin: 0 5px 5px 0;
+				
+				img {
+					border: 1px solid #cccccc;
+				}
+				
+				&:first-child {
+					display: none;
+				}
+				
+				&:hover {
+					img {
+						border: 1px solid lighten(@red, 20%);
+					}
+				}
+				
+			}
+			
+		}
+		
+		
 	}
 	
 	#related-products {

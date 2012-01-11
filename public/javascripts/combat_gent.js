@@ -21,4 +21,12 @@ jQuery(document).ready(function(){
 	// $("#match-to-outfit").appendTo("#cart-form");	
 
 
+	$("#product-thumbnails a").click(function(e){
+		e.preventDefault;
+		// Load the new image
+		var newImg = $(this).attr("href");
+		$("#product-images img").attr("src", newImg);
+		return false;
+	});
+
 });

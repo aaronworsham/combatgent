@@ -2,15 +2,11 @@
 
 <h1 id="product-title"><%= accurate_title %></h1>
 <div id="product-images" data-hook="product_images">
-  <div id="thumbnails">
-    <%= render 'thumbnails', :product => @product %>
-  </div>
+	<%= render 'fullsize', :product => @product %>
 </div>
 
 <div id="product-description" data-hook="product_description">
-	
 	<%= product_description(@product) rescue t("product_has_no_description") %>	
-	
   <div data-hook="product_properties">
     <%= render 'properties' %>
   </div>
@@ -36,6 +32,10 @@
 
 
 <% # = render 'taxons' %>
+
+<div id="product-thumbnails">
+  <%= render 'thumbnails', :product => @product %>
+</div>
 
 
 <% if @product.outfit.present? %>
