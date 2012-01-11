@@ -678,67 +678,71 @@ div#new-customer,
 div#existing-customer {
 	br { display: none; }
 
+	h2 {
+		font-size: 18px;
+	}
+
+	font-size: 14px;	
 	
 	form {
-		margin: 20px 0;
+		margin: 0 0 20px 0;
 		float: left;
-		width: @siteWidth;		
-	}
+		width: @siteWidth;	
 		
+
+	}
+
+
+
+}
+	
+	#password-credentials {
+		float: left;
+		width: @siteWidth;
+		
+		p {
+			.columns(6);
+			margin-bottom: 10px;
+
+			label {
+				clear: both;
+				display: block;
+				font-size: 14px;
+			}
+
+			input[type=text],
+			input[type=password]{
+				width: 95%;
+				font-size: 18px;
+				padding: 5px 10px;
+				color: #333;
+				background: #fff;
+			}		
+		}
+	}
+	
 	p {
 		float: left;
 		width: @siteWidth;
-		margin: 0 0 10px 0;
 		
-		label {
-			float: left;
-			.columns(3);
-			font-size: 14px;
-			padding: 10px 0 0 0;
-		}
-
-		input[type=text],
-		input[type=password] {
-			#font.tk-freight-sans-pro;			
-			float: left;
-			border: 1px solid #cccccc;
-			font-size: 14px;
-			padding: 10px 14px;
-			background: #ffffff !important;
-			width: 688px;
-		}	
+		#user_remember_me {
+			vertical-align: middle;
+			margin-right: 2px;
+		}		
 		
-		input[type=button],
-		input[type=submit] {
-			#font.tk-freight-sans-pro;				
-			float: left;
-			border: none;
+		input[type=submit]{
+			.cg_button_green;
+			padding: 4px 20px 24px;
 			font-size: 14px;
-			background: @red;
-			padding: 5px 9px;
-			border: 1px solid darken(@red, 10%);
-			color: #fff;
-			font-weight: bold;			
-			text-shadow: 1px 1px 1px darken(@red, 20%);
-			
-			&.primary {
-				margin-left: 220px;
-			}
-			
-			&:hover {
-				background: darken(@red, 10%);
-			}
-		}	
-		
- 		#user_remember_me {
-			margin-left: 220px;
-			float: left;
 		}
 		
-		label[for=user_remember_me] {
-			float: none;
-		}
 	}
+
+
+
+
+		
+	
 
 }
 

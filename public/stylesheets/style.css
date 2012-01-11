@@ -964,134 +964,81 @@ header, #wrapper {
 #collection .product-listing li a:hover img {
   border: 1px solid #e6937b;
 }
+div#new-customer, div#existing-customer {
+  font-size: 14px;
+}
 div#new-customer br, div#existing-customer br {
   display: none;
 }
+div#new-customer h2, div#existing-customer h2 {
+  font-size: 18px;
+}
 div#new-customer form, div#existing-customer form {
-  margin: 20px 0;
+  margin: 0 0 20px 0;
   float: left;
   width: 940px;
 }
-div#new-customer p, div#existing-customer p {
+#password-credentials {
   float: left;
   width: 940px;
-  margin: 0 0 10px 0;
 }
-div#new-customer p label, div#existing-customer p label {
-  float: left;
+#password-credentials p {
   display: inline;
   float: left;
-  width: 220px;
+  width: 460px;
   margin-left: 20px;
-  font-size: 14px;
-  padding: 10px 0 0 0;
+  margin-bottom: 10px;
 }
-div#new-customer p label:first-child, div#existing-customer p label:first-child {
+#password-credentials p:first-child {
   margin-left: 0;
 }
-div#new-customer p input[type=text],
-div#existing-customer p input[type=text],
-div#new-customer p input[type=password],
-div#existing-customer p input[type=password] {
-  font-family: "freight-sans-pro", helvetica, arial, sans-serif;
-  font-size: 12px;
-  font-weight: normal;
-  line-height: 20px;
-  float: left;
-  border: 1px solid #cccccc;
+#password-credentials p label {
+  clear: both;
+  display: block;
   font-size: 14px;
-  padding: 10px 14px;
-  background: #ffffff !important;
-  width: 688px;
 }
-div#new-customer p input[type=button],
-div#existing-customer p input[type=button],
-div#new-customer p input[type=submit],
-div#existing-customer p input[type=submit] {
+#password-credentials p input[type=text], #password-credentials p input[type=password] {
+  width: 95%;
+  font-size: 18px;
+  padding: 5px 10px;
+  color: #333;
+  background: #fff;
+}
+p {
+  float: left;
+  width: 940px;
+}
+p #user_remember_me {
+  vertical-align: middle;
+  margin-right: 2px;
+}
+p input[type=submit] {
   font-family: "freight-sans-pro", helvetica, arial, sans-serif;
   font-size: 12px;
   font-weight: normal;
   line-height: 20px;
-  float: left;
-  border: none;
-  font-size: 14px;
-  background: #d34f28;
-  padding: 5px 9px;
-  border: 1px solid #a83f20;
-  color: #fff;
+  display: block;
+  text-align: center;
+  padding: 4px 15px 0;
+  height: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 11px;
   font-weight: bold;
-  text-shadow: 1px 1px 1px #7d2f18;
-}
-div#new-customer p input[type=button].primary,
-div#existing-customer p input[type=button].primary,
-div#new-customer p input[type=submit].primary,
-div#existing-customer p input[type=submit].primary {
-  margin-left: 220px;
-}
-div#new-customer p input[type=button]:hover,
-div#existing-customer p input[type=button]:hover,
-div#new-customer p input[type=submit]:hover,
-div#existing-customer p input[type=submit]:hover {
-  background: #a83f20;
-}
-div#new-customer p #user_remember_me, div#existing-customer p #user_remember_me {
-  margin-left: 220px;
   float: left;
+  color: #ffffff;
+  border: 1px solid #84a653;
+  text-shadow: 0 1px 1px #698442;
+  background: url(../images/button-sprite-green.png) 0 0 repeat-x;
+  padding: 4px 20px 24px;
+  font-size: 14px;
 }
-div#new-customer p label[for=user_remember_me], div#existing-customer p label[for=user_remember_me] {
-  float: none;
+p input[type=submit]:hover {
+  cursor: pointer;
 }
-/* SLOTS */
-@-webkit-keyframes pulsar {
-  0% {
-    opacity: 0.75;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.75;
-  }
-}
-#slot_1 .product.a {
-  top: 300px;
-  left: 300px;
-}
-#slot_1 .pulsar.a {
-  top: 290px;
-  left: 290px;
-}
-#slot_1 .product.b {
-  top: 250px;
-  left: 620px;
-}
-#slot_1 .pulsar.b {
-  top: 240px;
-  left: 610px;
-}
-#slot_1 .product.c {
-  top: 50px;
-  left: 670px;
-}
-#slot_1 .pulsar.c {
-  top: 40px;
-  left: 660px;
-}
-#slot_2 .a {
-  top: 300px;
-  left: 300px;
-}
-#slot_2 .b {
-  top: 250px;
-  left: 620px;
-}
-#slot_2 .c {
-  top: 100px;
-  left: 570px;
-}
-#slot_3 .a {
-  top: 300px;
-  left: 300px;
+p input[type=submit]:hover {
+  background: url(../images/button-sprite-green.png) 0 -30px repeat-x;
 }
 h1 {
   font-family: "freight-sans-pro", helvetica, arial, sans-serif;
@@ -1326,6 +1273,10 @@ form input[type=text], form input[type=email], form input[type=password] {
 }
 #product-details #product-images:first-child {
   margin-left: 0;
+}
+#product-details #product-images img {
+  max-width: 378px;
+  border: 1px solid #ccc;
 }
 #product-details #product-images ul {
   list-style-type: none;
