@@ -198,88 +198,148 @@
 
 }
 
-#cart {
-	#cart-detail {
-		width: @siteWidth;
-		
-		thead {
-			th {
-				border-bottom: 1px solid #ccc;
-				padding: 0 0 10px 0;
-				font-size: 13px;
-				
-				&:first-child {
-					text-align: center;
-				}
-				
-				&:nth-child(2),
-				&:nth-child(3),
-				&:nth-child(4) {
-					text-align: right;
-				}				
-				
+#cart-detail,
+#closet-detail {
+	width: @siteWidth;
+	
+	thead {
+		th {
+			border-bottom: 1px solid #ccc;
+			padding: 0 0 10px 0;
+			font-size: 13px;
+			
+			&:first-child {
+				text-align: center;
 			}
+			
+			&:nth-child(2),
+			&:nth-child(3),
+			&:nth-child(4) {
+				text-align: right;
+			}				
+			
 		}
-		
-		tbody {
-			td {
-				padding: 10px 0;
-				border-bottom: 1px dotted #ccc;
-				font-size: 14px;
-				
-				&:first-child {
-					width: 120px;
-					img {
-						border: 1px solid #eaeaea;
-					}
-				}				
-				
-				&:nth-child(2) {
-
-				}
-				
-				&:nth-child(3),
-				&:nth-child(4),
-				&:nth-child(5) {
-					width: 75px;
-					text-align: right;
-				}
-				
-				&:nth-child(6){
-					width: 50px;
-					text-align: center;
-				}
-				
-				h4 {
-					font-size: 18px;
-					margin: 0 0 3px;
-					
-					a {
-						text-decoration: none;
-						color: @red;
-						
-						&:hover {
-							color: darken(@red, 10%);
-						}
-						
-					}
-				}
-				
-				input[type=text]{
-					margin: 0 auto;
-					width: 20px;
-					#font.tk-freight-sans-pro;
-					font-size: 14px;
-					border: 1px solid #ccc;
-					padding: 3px 5px;
-					text-align: right;
-				}				
-			}
-		}
-		
-
-		
 	}
+	
+	tbody {
+		td {
+			padding: 10px 0;
+			border-bottom: 1px dotted #ccc;
+			font-size: 14px;
+			
+			&:first-child {
+				width: 120px;
+				img {
+					border: 1px solid #eaeaea;
+				}
+			}				
+			
+			&:nth-child(2) {
+
+			}
+			
+			&:nth-child(3),
+			&:nth-child(4),
+			&:nth-child(5) {
+				width: 75px;
+				text-align: right;
+			}
+			
+			&:nth-child(6){
+				width: 50px;
+				text-align: center;
+			}
+			
+			h4 {
+				font-size: 18px;
+				margin: 0 0 3px;
+				
+				a {
+					text-decoration: none;
+					color: @red;
+					
+					&:hover {
+						color: darken(@red, 10%);
+					}
+					
+				}
+			}
+			
+			input[type=text]{
+				margin: 0 auto;
+				width: 20px;
+				#font.tk-freight-sans-pro;
+				font-size: 14px;
+				border: 1px solid #ccc;
+				padding: 3px 5px;
+				text-align: right;
+			}				
+		}
+	}
+	
+
+	th.info {
+		text-align: center !important;
+	}
+
+	td.thumbnail {
+		img {
+			max-width: 100px;
+			border: 1px solid #ccc;
+		}
+	}
+	
+	td.price {
+		width: 100px !important;
+		text-align: right;
+	}
+	
+	th.size {
+		text-align: center !important;
+	}
+	
+	td.size {
+		width: 120px !important;
+		text-align: left;
+	}
+	
+	th.buy,
+	td.buy {
+		width: 70px !important;
+		text-align: center;
+		
+		a {
+			margin-left: 14px;
+			.cg_button_green;
+			padding: 1px 10px 6px;
+			height: 15px;
+		}
+	}
+	
+	
+	th.match,
+	td.match {
+		width: 80px !important;
+		text-align: center;
+		
+		a {
+			margin-left: 10px;
+			.cg_button_gray;
+			padding: 1px 10px 6px;
+			height: 15px;
+		}
+	}	
+	
+	th.remove,
+	td.remove {
+		width: 30px !important;
+	}
+	
+	
+}
+
+#cart {
+
 
 	a.continue {
 		text-decoration: none;
@@ -319,22 +379,23 @@
 		display: none;
 	}
 	
-	a.delete {
-		margin: 3px 0 0 0;
-		float: right;
-		display: block;
-		width: 16px;
-		height: 16px;
-		background: url(../images/x-icon-sprite.png) 0 0 no-repeat;
-		
-		img {
-			display: none;			
-		}
-		
-		&:hover {
-			background: url(../images/x-icon-sprite.png) 0 -18px no-repeat;			
-		}
-		
+}
+
+a.delete {
+	margin: 3px 0 0 0;
+	float: right;
+	display: block;
+	width: 16px;
+	height: 16px;
+	background: url(../images/x-icon-sprite.png) 0 0 no-repeat;
+	text-indent: -9999px;
+	
+	img {
+		display: none;			
+	}
+	
+	&:hover {
+		background: url(../images/x-icon-sprite.png) 0 -18px no-repeat;			
 	}
 	
 }

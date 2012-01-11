@@ -1,27 +1,60 @@
-<% @user.products_in_closet.each do |product| %>
-  <p><%= product.name %><p>
-  <p><%= product.description %></p>
-<% end %>
-
 <% if @user.products_in_closet.any? %>
-  <ul class="product-listing">
+<table id="closet-detail">
+  <thead>
+    <tr>
+				<th class="thumbnail"></th>
+        <th class="info">Item</th>
+        <th class="price">Price</th>
+        <th class="size">Size</th>
+        <th class="buy">Buy</th>
+        <th class="match">Match</th>
+				<th class="remove"></th>
+    </tr>
+  </thead>
+  <tbody id="line_items">
     <% @user.products_in_closet.each do |product| %>
       <% if Spree::Config[:show_zero_stock_products] || product.has_stock? %>
-        <li id="product_<%= product.id %>" data-hook="products_list_item" class="product">
-          <%= link_to  product, :class => 'product_link' do %>
-            <%= product_image(product) %>
-            <div class='info'>
-              <h2><%= product.name %></h2>
-              <span class='price selling'><%= product_price(product) %></span>
-              <% unless product.categorise_variants_from_option('color').size == 0%>
-                <p><%= product.categorise_variants_from_option('color').size %> colors available</p>
-              <% end %>
-            </div>
-          <% end %>
-        </li>
+				<tr id="product_<%= product.id %>" data-hook="products_list_item" class="product">
+					<td class="thumbnail">
+	          <%= link_to  product, :class => 'product_link' do %>
+	            <%= product_image(product) %>
+						<% end %>
+					</td>
+					<td class="info">
+						<h4>
+							<%= link_to  product, :class => 'product_link' do %><%= product.name %><% end %>
+						</h4>
+						<%= product.description %>
+					</td>
+					<td class="price">
+						<%= product_price(product) %>
+					</td>
+					<td class="size">
+            <% unless product.categorise_variants_from_option('color').size == 0%>
+              <p><%= product.categorise_variants_from_option('color').size %> colors available</p>
+            <% end %>
+						<!-- FOR DEMO -->
+						<select name="some_name" id="some_name" size="1">
+							<option value="option1">Small</option>
+							<option value="option2">Medium</option>
+							<option value="option2">Large</option>							
+						</select>
+					</td>
+					<td class="buy">
+						<a href="#">Buy</a>
+					</td>
+					<td class="match">
+						<a href="#">Match</a>
+					</td>
+					<td class="remove">
+						<a class="delete">Remove</a>
+					</td>
+        </tr>
       <% end %>
     <% end %>
-  </ul>
+	</tbody>
+	</table>
 <% else %>
   <p>No products in your closet.</p>
 <% end %>
+ 

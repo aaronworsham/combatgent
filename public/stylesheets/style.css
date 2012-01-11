@@ -1665,51 +1665,61 @@ form input[type=text], form input[type=email], form input[type=password] {
 #product-details #taxon-crumbs:first-child {
   margin-left: 0;
 }
-#cart #cart-detail {
+#cart-detail, #closet-detail {
   width: 940px;
 }
-#cart #cart-detail thead th {
+#cart-detail thead th, #closet-detail thead th {
   border-bottom: 1px solid #ccc;
   padding: 0 0 10px 0;
   font-size: 13px;
 }
-#cart #cart-detail thead th:first-child {
+#cart-detail thead th:first-child, #closet-detail thead th:first-child {
   text-align: center;
 }
-#cart #cart-detail thead th:nth-child(2), #cart #cart-detail thead th:nth-child(3), #cart #cart-detail thead th:nth-child(4) {
+#cart-detail thead th:nth-child(2),
+#closet-detail thead th:nth-child(2),
+#cart-detail thead th:nth-child(3),
+#closet-detail thead th:nth-child(3),
+#cart-detail thead th:nth-child(4),
+#closet-detail thead th:nth-child(4) {
   text-align: right;
 }
-#cart #cart-detail tbody td {
+#cart-detail tbody td, #closet-detail tbody td {
   padding: 10px 0;
   border-bottom: 1px dotted #ccc;
   font-size: 14px;
 }
-#cart #cart-detail tbody td:first-child {
+#cart-detail tbody td:first-child, #closet-detail tbody td:first-child {
   width: 120px;
 }
-#cart #cart-detail tbody td:first-child img {
+#cart-detail tbody td:first-child img, #closet-detail tbody td:first-child img {
   border: 1px solid #eaeaea;
 }
-#cart #cart-detail tbody td:nth-child(3), #cart #cart-detail tbody td:nth-child(4), #cart #cart-detail tbody td:nth-child(5) {
+#cart-detail tbody td:nth-child(3),
+#closet-detail tbody td:nth-child(3),
+#cart-detail tbody td:nth-child(4),
+#closet-detail tbody td:nth-child(4),
+#cart-detail tbody td:nth-child(5),
+#closet-detail tbody td:nth-child(5) {
   width: 75px;
   text-align: right;
 }
-#cart #cart-detail tbody td:nth-child(6) {
+#cart-detail tbody td:nth-child(6), #closet-detail tbody td:nth-child(6) {
   width: 50px;
   text-align: center;
 }
-#cart #cart-detail tbody td h4 {
+#cart-detail tbody td h4, #closet-detail tbody td h4 {
   font-size: 18px;
   margin: 0 0 3px;
 }
-#cart #cart-detail tbody td h4 a {
+#cart-detail tbody td h4 a, #closet-detail tbody td h4 a {
   text-decoration: none;
   color: #d34f28;
 }
-#cart #cart-detail tbody td h4 a:hover {
+#cart-detail tbody td h4 a:hover, #closet-detail tbody td h4 a:hover {
   color: #a83f20;
 }
-#cart #cart-detail tbody td input[type=text] {
+#cart-detail tbody td input[type=text], #closet-detail tbody td input[type=text] {
   margin: 0 auto;
   width: 20px;
   font-family: "freight-sans-pro", helvetica, arial, sans-serif;
@@ -1720,6 +1730,120 @@ form input[type=text], form input[type=email], form input[type=password] {
   border: 1px solid #ccc;
   padding: 3px 5px;
   text-align: right;
+}
+#cart-detail th.info, #closet-detail th.info {
+  text-align: center !important;
+}
+#cart-detail td.thumbnail img, #closet-detail td.thumbnail img {
+  max-width: 100px;
+  border: 1px solid #ccc;
+}
+#cart-detail td.price, #closet-detail td.price {
+  width: 100px !important;
+  text-align: right;
+}
+#cart-detail th.size, #closet-detail th.size {
+  text-align: center !important;
+}
+#cart-detail td.size, #closet-detail td.size {
+  width: 120px !important;
+  text-align: left;
+}
+#cart-detail th.buy,
+#closet-detail th.buy,
+#cart-detail td.buy,
+#closet-detail td.buy {
+  width: 70px !important;
+  text-align: center;
+}
+#cart-detail th.buy a,
+#closet-detail th.buy a,
+#cart-detail td.buy a,
+#closet-detail td.buy a {
+  margin-left: 14px;
+  font-family: "freight-sans-pro", helvetica, arial, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 20px;
+  display: block;
+  text-align: center;
+  padding: 4px 15px 0;
+  height: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 11px;
+  font-weight: bold;
+  float: left;
+  color: #ffffff;
+  border: 1px solid #84a653;
+  text-shadow: 0 1px 1px #698442;
+  background: url(../images/button-sprite-green.png) 0 0 repeat-x;
+  padding: 1px 10px 6px;
+  height: 15px;
+}
+#cart-detail th.buy a:hover,
+#closet-detail th.buy a:hover,
+#cart-detail td.buy a:hover,
+#closet-detail td.buy a:hover {
+  cursor: pointer;
+}
+#cart-detail th.buy a:hover,
+#closet-detail th.buy a:hover,
+#cart-detail td.buy a:hover,
+#closet-detail td.buy a:hover {
+  background: url(../images/button-sprite-green.png) 0 -30px repeat-x;
+}
+#cart-detail th.match,
+#closet-detail th.match,
+#cart-detail td.match,
+#closet-detail td.match {
+  width: 80px !important;
+  text-align: center;
+}
+#cart-detail th.match a,
+#closet-detail th.match a,
+#cart-detail td.match a,
+#closet-detail td.match a {
+  margin-left: 10px;
+  font-family: "freight-sans-pro", helvetica, arial, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 20px;
+  display: block;
+  text-align: center;
+  padding: 4px 15px 0;
+  height: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 11px;
+  font-weight: bold;
+  float: left;
+  color: #ffffff;
+  border: 1px solid #999999;
+  text-shadow: 0 1px 1px #808080;
+  background: url(../images/button-sprite-gray.png) 0 0 repeat-x;
+  padding: 1px 10px 6px;
+  height: 15px;
+}
+#cart-detail th.match a:hover,
+#closet-detail th.match a:hover,
+#cart-detail td.match a:hover,
+#closet-detail td.match a:hover {
+  cursor: pointer;
+}
+#cart-detail th.match a:hover,
+#closet-detail th.match a:hover,
+#cart-detail td.match a:hover,
+#closet-detail td.match a:hover {
+  background: url(../images/button-sprite-gray.png) 0 -30px repeat-x;
+}
+#cart-detail th.remove,
+#closet-detail th.remove,
+#cart-detail td.remove,
+#closet-detail td.remove {
+  width: 30px !important;
 }
 #cart a.continue {
   text-decoration: none;
@@ -1772,18 +1896,19 @@ form input[type=text], form input[type=email], form input[type=password] {
 #cart #clear_cart_link {
   display: none;
 }
-#cart a.delete {
+a.delete {
   margin: 3px 0 0 0;
   float: right;
   display: block;
   width: 16px;
   height: 16px;
   background: url(../images/x-icon-sprite.png) 0 0 no-repeat;
+  text-indent: -9999px;
 }
-#cart a.delete img {
+a.delete img {
   display: none;
 }
-#cart a.delete:hover {
+a.delete:hover {
   background: url(../images/x-icon-sprite.png) 0 -18px no-repeat;
 }
 #checkout ol.progress-steps {
