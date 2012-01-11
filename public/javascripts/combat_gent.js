@@ -21,11 +21,18 @@ jQuery(document).ready(function(){
 	// $("#match-to-outfit").appendTo("#cart-form");	
 
 
+	$("#product-thumbnails li:nth-child(2)").addClass("current");
+
 	$("#product-thumbnails a").click(function(e){
-		e.preventDefault;
+		e.preventDefault();
 		// Load the new image
 		var newImg = $(this).attr("href");
 		$("#product-images img").attr("src", newImg);
+		
+		// Change nav state
+		$(this).parent("li").siblings().removeClass("current");
+		$(this).parent("li").addClass("current");
+		
 		return false;
 	});
 

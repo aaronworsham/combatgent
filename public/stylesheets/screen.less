@@ -138,7 +138,8 @@
 					display: none;
 				}
 				
-				&:hover {
+				&:hover,
+				&.current {
 					img {
 						border: 1px solid lighten(@red, 20%);
 					}
@@ -425,12 +426,17 @@
 		padding: 0;
 		float: left;
 		width: @siteWidth;
+		margin: 0 0 20px 0;
 		
 		li {
 			padding: 0 20px 0 0;
 			
 			a {
 				padding: 0;
+			}
+			
+			&.ui-state-active {
+				font-weight: bold;
 			}
 		}
 	}
@@ -452,6 +458,46 @@
 		.cg_button_green;
 		padding-bottom: 24px;
 		margin-top: 10px;
+	}
+	
+}
+
+
+#user_closet,
+#user_saved_outfits,
+#user_measurements {
+	padding: 20px 0 0;
+	
+	#upper_body,
+	#lower_body,
+	#other_measurements {
+		width: @siteWidth;
+		float: left;
+		margin: 0 0 50px 0;
+		padding: 0 0 50px 0;
+		border-bottom: 1px dotted #cccccc;
+		
+		&:last-child {
+			border: none;
+		}
+		
+		h3 {
+			font-size: 16px;
+		}
+		
+		p {
+			.columns(2);
+			margin-left: 0;
+			
+			label {
+				font-size: 13px;
+			}
+			
+			&:last-child {
+				width: @siteWidth;
+				float: left;
+			}
+		}
 	}
 	
 }

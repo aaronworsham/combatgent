@@ -582,7 +582,7 @@ header ul li.search form {
 }
 header ul li.search form input[type=text] {
   border: none;
-  padding: 4px;
+  padding: 1px 5px;
 }
 header ul li.search form input[type=submit] {
   border: none;
@@ -920,37 +920,37 @@ header, #wrapper {
   color: #d34f28;
   font-weight: normal;
 }
-#collection .product-listing {
+.product-listing {
   float: left;
   width: 940px;
   list-style-type: none;
   margin: 0;
 }
-#collection .product-listing li {
+.product-listing li {
   display: inline-block;
   width: 220px;
   margin-right: 17px;
   margin-bottom: 30px;
   text-align: left;
 }
-#collection .product-listing li:nth-child(4n) {
+.product-listing li:nth-child(4n) {
   margin-right: 0;
 }
-#collection .product-listing li img {
+.product-listing li img {
   width: 220px;
   border: 1px solid #cdcdcd;
   /*height: 180px;*/
 
 }
-#collection .product-listing li a {
+.product-listing li a {
   text-decoration: none;
   color: #333;
 }
-#collection .product-listing li a h2 {
+.product-listing li a h2 {
   font-size: 16px;
   margin: 0;
 }
-#collection .product-listing li a span.price {
+.product-listing li a span.price {
   font-family: "freight-sans-pro", helvetica, arial, sans-serif;
   font-size: 12px;
   font-weight: normal;
@@ -958,10 +958,10 @@ header, #wrapper {
   font-size: 14px;
   color: #666;
 }
-#collection .product-listing li a:hover h2, #collection .product-listing li a:hover span {
+.product-listing li a:hover h2, .product-listing li a:hover span {
   color: #d34f28;
 }
-#collection .product-listing li a:hover img {
+.product-listing li a:hover img {
   border: 1px solid #e6937b;
 }
 div#new-customer, div#existing-customer {
@@ -1622,7 +1622,7 @@ form input[type=text], form input[type=email], form input[type=password] {
 #product-details #product-thumbnails ul li:first-child {
   display: none;
 }
-#product-details #product-thumbnails ul li:hover img {
+#product-details #product-thumbnails ul li:hover img, #product-details #product-thumbnails ul li.current img {
   border: 1px solid #e6937b;
 }
 #product-details #related-products {
@@ -1892,12 +1892,16 @@ form input[type=text], form input[type=email], form input[type=password] {
   padding: 0;
   float: left;
   width: 940px;
+  margin: 0 0 20px 0;
 }
 #tabs .ui-tabs-nav li {
   padding: 0 20px 0 0;
 }
 #tabs .ui-tabs-nav li a {
   padding: 0;
+}
+#tabs .ui-tabs-nav li.ui-state-active {
+  font-weight: bold;
 }
 #tabs h2 {
   margin: 10px 0;
@@ -1936,6 +1940,95 @@ form input[type=text], form input[type=email], form input[type=password] {
 }
 #tabs input[type=submit]:hover {
   background: url(../images/button-sprite-green.png) 0 -30px repeat-x;
+}
+#user_closet, #user_saved_outfits, #user_measurements {
+  padding: 20px 0 0;
+}
+#user_closet #upper_body,
+#user_saved_outfits #upper_body,
+#user_measurements #upper_body,
+#user_closet #lower_body,
+#user_saved_outfits #lower_body,
+#user_measurements #lower_body,
+#user_closet #other_measurements,
+#user_saved_outfits #other_measurements,
+#user_measurements #other_measurements {
+  width: 940px;
+  float: left;
+  margin: 0 0 50px 0;
+  padding: 0 0 50px 0;
+  border-bottom: 1px dotted #cccccc;
+}
+#user_closet #upper_body:last-child,
+#user_saved_outfits #upper_body:last-child,
+#user_measurements #upper_body:last-child,
+#user_closet #lower_body:last-child,
+#user_saved_outfits #lower_body:last-child,
+#user_measurements #lower_body:last-child,
+#user_closet #other_measurements:last-child,
+#user_saved_outfits #other_measurements:last-child,
+#user_measurements #other_measurements:last-child {
+  border: none;
+}
+#user_closet #upper_body h3,
+#user_saved_outfits #upper_body h3,
+#user_measurements #upper_body h3,
+#user_closet #lower_body h3,
+#user_saved_outfits #lower_body h3,
+#user_measurements #lower_body h3,
+#user_closet #other_measurements h3,
+#user_saved_outfits #other_measurements h3,
+#user_measurements #other_measurements h3 {
+  font-size: 16px;
+}
+#user_closet #upper_body p,
+#user_saved_outfits #upper_body p,
+#user_measurements #upper_body p,
+#user_closet #lower_body p,
+#user_saved_outfits #lower_body p,
+#user_measurements #lower_body p,
+#user_closet #other_measurements p,
+#user_saved_outfits #other_measurements p,
+#user_measurements #other_measurements p {
+  display: inline;
+  float: left;
+  width: 140px;
+  margin-left: 20px;
+  margin-left: 0;
+}
+#user_closet #upper_body p:first-child,
+#user_saved_outfits #upper_body p:first-child,
+#user_measurements #upper_body p:first-child,
+#user_closet #lower_body p:first-child,
+#user_saved_outfits #lower_body p:first-child,
+#user_measurements #lower_body p:first-child,
+#user_closet #other_measurements p:first-child,
+#user_saved_outfits #other_measurements p:first-child,
+#user_measurements #other_measurements p:first-child {
+  margin-left: 0;
+}
+#user_closet #upper_body p label,
+#user_saved_outfits #upper_body p label,
+#user_measurements #upper_body p label,
+#user_closet #lower_body p label,
+#user_saved_outfits #lower_body p label,
+#user_measurements #lower_body p label,
+#user_closet #other_measurements p label,
+#user_saved_outfits #other_measurements p label,
+#user_measurements #other_measurements p label {
+  font-size: 13px;
+}
+#user_closet #upper_body p:last-child,
+#user_saved_outfits #upper_body p:last-child,
+#user_measurements #upper_body p:last-child,
+#user_closet #lower_body p:last-child,
+#user_saved_outfits #lower_body p:last-child,
+#user_measurements #lower_body p:last-child,
+#user_closet #other_measurements p:last-child,
+#user_saved_outfits #other_measurements p:last-child,
+#user_measurements #other_measurements p:last-child {
+  width: 940px;
+  float: left;
 }
 /* EXCEPTIONS - WE SHOULD FIX THE CODE SO THAT THESE AREN'T NECESSARY */
 #shipping p.field.checkbox {
