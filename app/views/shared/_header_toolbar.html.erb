@@ -11,11 +11,23 @@
 				<li><a href="#">Checkout</a></li>
 			</ul>
 		</li>
+		<% if current_user %>
 		<li class="action profile">
-			<%= link_to 'SignUp', '/signup' %>
+			<%= link_to t('my_account'), account_path %>
 			<ul>
-				<%= render 'shared/login_bar' %>				
+		  	<li><%= link_to t('my_closet'), my_closet_path %></li>
+		  	<li><%= link_to t('logout'), destroy_user_session_path %></li>
 			</ul>
 		</li>
+		<% else %>
+		<li>
+			<li class="action profile">
+			<%= link_to 'SignUp', '/signup' %>	
+				<ul>
+		  		<li><%= link_to t('log_in'), login_path %></li>
+				</ul>
+			</li>
+		<% end %>
   <ul>
 </div>
+

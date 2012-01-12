@@ -1,0 +1,2282 @@
+# Sequel Pro dump
+# Version 2492
+# http://code.google.com/p/sequel-pro
+#
+# Host: localhost (MySQL 5.5.17)
+# Database: combatgent
+# Generation Time: 2012-01-11 11:05:30 +0000
+# ************************************************************
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+# Dump of table addresses
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `addresses`;
+
+CREATE TABLE `addresses` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(255) DEFAULT NULL,
+  `lastname` varchar(255) DEFAULT NULL,
+  `address1` varchar(255) DEFAULT NULL,
+  `address2` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `state_id` int(11) DEFAULT NULL,
+  `zipcode` varchar(255) DEFAULT NULL,
+  `country_id` int(11) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `state_name` varchar(255) DEFAULT NULL,
+  `alternative_phone` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_addresses_on_firstname` (`firstname`),
+  KEY `index_addresses_on_lastname` (`lastname`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table adjustments
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `adjustments`;
+
+CREATE TABLE `adjustments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_id` int(11) DEFAULT NULL,
+  `amount` decimal(8,2) DEFAULT NULL,
+  `label` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `source_id` int(11) DEFAULT NULL,
+  `source_type` varchar(255) DEFAULT NULL,
+  `mandatory` tinyint(1) DEFAULT NULL,
+  `locked` tinyint(1) DEFAULT NULL,
+  `originator_id` int(11) DEFAULT NULL,
+  `originator_type` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_adjustments_on_order_id` (`order_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table assets
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `assets`;
+
+CREATE TABLE `assets` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `viewable_id` int(11) DEFAULT NULL,
+  `viewable_type` varchar(50) DEFAULT NULL,
+  `attachment_content_type` varchar(255) DEFAULT NULL,
+  `attachment_file_name` varchar(255) DEFAULT NULL,
+  `attachment_size` int(11) DEFAULT NULL,
+  `position` int(11) DEFAULT NULL,
+  `type` varchar(75) DEFAULT NULL,
+  `attachment_updated_at` datetime DEFAULT NULL,
+  `attachment_width` int(11) DEFAULT NULL,
+  `attachment_height` int(11) DEFAULT NULL,
+  `alt` text,
+  PRIMARY KEY (`id`),
+  KEY `index_assets_on_viewable_id` (`viewable_id`),
+  KEY `index_assets_on_viewable_type_and_type` (`viewable_type`,`type`)
+) ENGINE=InnoDB AUTO_INCREMENT=139 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `assets` WRITE;
+/*!40000 ALTER TABLE `assets` DISABLE KEYS */;
+INSERT INTO `assets` (`id`,`viewable_id`,`viewable_type`,`attachment_content_type`,`attachment_file_name`,`attachment_size`,`position`,`type`,`attachment_updated_at`,`attachment_width`,`attachment_height`,`alt`)
+VALUES
+	(3,2,'Product','image/jpeg','dress-pants-2.jpg',NULL,1,'Image','2011-10-11 18:22:15',320,520,''),
+	(4,2,'Product','image/jpeg','dress-pants-stacked.jpg',NULL,2,'Image','2011-10-11 18:22:25',333,500,''),
+	(5,2,'Product','image/jpeg','dress-pants.jpg',NULL,3,'Image','2011-10-11 18:22:38',260,345,''),
+	(6,3,'Product','image/jpeg','mens_merino_cashmere_suit.jpg',NULL,1,'Image','2011-10-07 14:21:09',241,420,''),
+	(7,3,'Product','image/jpeg','mens_suits.jpg',NULL,2,'Image','2011-10-07 14:21:20',302,370,''),
+	(8,4,'Product','image/jpeg','mens-ties.jpg',NULL,1,'Image','2011-10-07 14:22:33',800,683,''),
+	(9,5,'Product','image/jpeg','mens-engraved-cufflinks.jpg',NULL,1,'Image','2011-10-07 14:24:13',400,320,''),
+	(10,6,'Product','image/jpeg','wool-jacket.jpg',NULL,1,'Image','2011-10-07 14:26:27',393,393,''),
+	(11,6,'Product','image/jpeg','wool-jacket-2.jpg',NULL,2,'Image','2011-10-07 14:26:36',356,356,''),
+	(14,1,'Product','image/jpeg','CG_9_23_2011-1194.jpg',NULL,1,'Image','2012-01-03 04:16:11',280,280,''),
+	(15,8,'Product','image/jpeg','CG_Products_7_29_2011-0089.jpg',NULL,1,'Image','2012-01-09 04:44:29',NULL,NULL,'TEst'),
+	(16,9,'Product','image/jpeg','CG_Products_7_29_2011-0093.jpg',NULL,1,'Image','2012-01-09 04:47:35',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.'),
+	(17,10,'Product','image/jpeg','CG_Products_7_29_2011-0094.jpg',NULL,1,'Image','2012-01-09 04:49:27',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.'),
+	(18,11,'Product','image/jpeg','CG_Products_7_29_2011 0095.jpg',NULL,1,'Image','2012-01-09 05:07:12',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(19,12,'Product','image/jpeg','CG_Products_7_29_2011 0096.jpg',NULL,1,'Image','2012-01-09 05:08:40',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(20,13,'Product','image/jpeg','CG_Products_7_29_2011 0097.jpg',NULL,1,'Image','2012-01-09 05:10:27',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(21,14,'Product','image/jpeg','CG_Products_7_29_2011 0098.jpg',NULL,1,'Image','2012-01-09 05:12:42',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(22,15,'Product','image/jpeg','CG_Products_7_29_2011 0099.jpg',NULL,1,'Image','2012-01-09 05:14:18',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(23,16,'Product','image/jpeg','CG_Products_7_29_2011 0100.jpg',NULL,1,'Image','2012-01-09 05:17:05',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(24,17,'Product','image/jpeg','CG_Products_7_29_2011 0101.jpg',NULL,1,'Image','2012-01-09 05:19:10',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(25,18,'Product','image/jpeg','CG_Products_7_29_2011 0102.jpg',NULL,1,'Image','2012-01-09 05:22:29',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(26,19,'Product','image/jpeg','CG_Products_7_29_2011 0103.jpg',NULL,1,'Image','2012-01-09 05:24:17',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(27,20,'Product','image/jpeg','CG_Products_7_29_2011 0104.jpg',NULL,1,'Image','2012-01-09 05:33:16',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(28,21,'Product','image/jpeg','CG_Products_7_29_2011 0105.jpg',NULL,1,'Image','2012-01-09 05:37:35',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(29,22,'Product','image/jpeg','CG_Products_7_29_2011 0108.jpg',NULL,1,'Image','2012-01-09 05:39:27',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(30,23,'Product','image/jpeg','CG_Products_7_29_2011 0109.jpg',NULL,1,'Image','2012-01-09 05:42:09',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(31,24,'Product','image/jpeg','CG_Products_7_29_2011 0110.jpg',NULL,1,'Image','2012-01-09 05:44:38',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(32,25,'Product','image/jpeg','CG_Products_7_29_2011 0113.jpg',NULL,1,'Image','2012-01-09 05:46:40',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(33,26,'Product','image/jpeg','CG_Products_7_29_2011 0114.jpg',NULL,1,'Image','2012-01-09 05:48:27',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(34,27,'Product','image/jpeg','CG_Products_7_29_2011 0115.jpg',NULL,1,'Image','2012-01-09 05:50:04',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(35,28,'Product','image/jpeg','CG_Products_7_29_2011 0116.jpg',NULL,1,'Image','2012-01-09 05:51:50',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(36,29,'Product','image/jpeg','CG_Products_7_29_2011 0117.jpg',NULL,1,'Image','2012-01-09 05:54:04',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(37,30,'Product','image/jpeg','CG_Products_7_29_2011 0118.jpg',NULL,1,'Image','2012-01-09 05:55:59',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(38,31,'Product','image/jpeg','CG_Products_7_29_2011 0120.jpg',NULL,1,'Image','2012-01-09 05:57:28',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(39,32,'Product','image/jpeg','CG_Products_7_29_2011 0121.jpg',NULL,1,'Image','2012-01-09 05:59:30',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(40,33,'Product','image/jpeg','CG_Products_7_29_2011 0122.jpg',NULL,1,'Image','2012-01-09 06:09:50',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(41,34,'Product','image/jpeg','CG_Products_7_29_2011 0146.jpg',NULL,1,'Image','2012-01-09 06:12:14',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(42,35,'Product','image/jpeg','CG_Products_7_29_2011 0123.jpg',NULL,1,'Image','2012-01-09 06:19:01',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(43,36,'Product','image/jpeg','CG_Products_7_29_2011 0124.jpg',NULL,1,'Image','2012-01-09 06:20:45',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(44,37,'Product','image/jpeg','CG_Products_7_29_2011 0126.jpg',NULL,1,'Image','2012-01-09 06:27:39',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(45,38,'Product','image/jpeg','CG_Products_7_29_2011 0128.jpg',NULL,1,'Image','2012-01-09 06:29:38',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(46,39,'Product','image/jpeg','CG_Products_7_29_2011 0130.jpg',NULL,1,'Image','2012-01-09 06:34:08',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(47,40,'Product','image/jpeg','CG_Products_7_29_2011 0129.jpg',NULL,1,'Image','2012-01-09 06:31:51',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(48,41,'Product','image/jpeg','CG_Products_7_29_2011 0131.jpg',NULL,1,'Image','2012-01-09 06:36:32',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(49,42,'Product','image/jpeg','CG_Products_7_29_2011 0132.jpg',NULL,1,'Image','2012-01-09 06:38:46',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(50,43,'Product','image/jpeg','CG_Products_7_29_2011 0133.jpg',NULL,1,'Image','2012-01-09 06:40:39',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(51,44,'Product','image/jpeg','CG_Products_7_29_2011 0150.jpg',NULL,1,'Image','2012-01-09 06:42:35',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(52,45,'Product','image/jpeg','CG_Products_7_29_2011 0153.jpg',NULL,1,'Image','2012-01-09 06:50:22',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(53,46,'Product','image/jpeg','CG_Products_7_29_2011 0162.jpg',NULL,1,'Image','2012-01-09 06:49:36',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(54,47,'Product','image/jpeg','CG_Products_7_29_2011 0167.jpg',NULL,1,'Image','2012-01-09 06:52:23',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(55,48,'Product','image/jpeg','CG_Products_7_29_2011 0173.jpg',NULL,1,'Image','2012-01-09 06:53:29',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(56,49,'Product','image/jpeg','CG_Products_7_29_2011 0175.jpg',NULL,1,'Image','2012-01-09 06:55:04',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(57,50,'Product','image/jpeg','CG_Products_7_29_2011 0181.jpg',NULL,1,'Image','2012-01-09 06:56:16',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(58,51,'Product','image/jpeg','CG_Products_7_29_2011 0184.jpg',NULL,1,'Image','2012-01-09 06:57:37',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(59,52,'Product','image/jpeg','CG_Products_7_29_2011 0185.jpg',NULL,1,'Image','2012-01-09 06:59:17',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(60,53,'Product','image/jpeg','CG_Products_7_29_2011 0190.jpg',NULL,1,'Image','2012-01-09 07:01:46',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(61,54,'Product','image/jpeg','CG_Products_7_29_2011 0194.jpg',NULL,1,'Image','2012-01-09 07:03:28',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(62,55,'Product','image/jpeg','CG_Products_7_29_2011 0198.jpg',NULL,1,'Image','2012-01-09 07:05:33',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(63,56,'Product','image/jpeg','CG_Products_7_29_2011 0202.jpg',NULL,1,'Image','2012-01-09 07:08:01',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(64,57,'Product','image/jpeg','CG_Products_7_29_2011 0204.jpg',NULL,1,'Image','2012-01-09 07:09:57',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(65,58,'Product','image/jpeg','CG_Products_7_29_2011 0208.jpg',NULL,1,'Image','2012-01-09 07:11:17',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(66,59,'Product','image/jpeg','CG_Products_7_29_2011 0212.jpg',NULL,1,'Image','2012-01-09 07:12:49',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(67,60,'Product','image/jpeg','CG_Products_7_29_2011 0218.jpg',NULL,1,'Image','2012-01-09 07:15:06',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(68,61,'Product','image/jpeg','CG_Products_7_29_2011 0219.jpg',NULL,1,'Image','2012-01-09 07:17:09',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(69,62,'Product','image/jpeg','CG_Products_7_29_2011 0222.jpg',NULL,1,'Image','2012-01-09 07:18:42',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(70,63,'Product','image/jpeg','CG_Products_7_29_2011 0224.jpg',NULL,1,'Image','2012-01-09 07:19:54',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(71,64,'Product','image/jpeg','CG_Products_7_29_2011 0226.jpg',NULL,1,'Image','2012-01-09 07:21:50',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(72,65,'Product','image/jpeg','CG_Products_7_29_2011 0227.jpg',NULL,1,'Image','2012-01-09 07:29:44',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(73,66,'Product','image/jpeg','CG_Products_7_29_2011 0232.jpg',NULL,1,'Image','2012-01-09 07:43:55',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(74,67,'Product','image/jpeg','CG_Products_7_29_2011 0234.jpg',NULL,1,'Image','2012-01-09 07:45:29',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(75,68,'Product','image/jpeg','CG_Products_7_29_2011 0237.jpg',NULL,1,'Image','2012-01-09 07:46:46',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(76,69,'Product','image/jpeg','CG_Products_7_29_2011 0243.jpg',NULL,1,'Image','2012-01-09 07:49:16',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(77,70,'Product','image/jpeg','CG_Products_7_29_2011 0247.jpg',NULL,1,'Image','2012-01-09 07:51:20',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(78,71,'Product','image/jpeg','CG_Products_7_29_2011 0251.jpg',NULL,1,'Image','2012-01-09 07:53:13',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(79,72,'Product','image/jpeg','CG_Products_7_29_2011-008920120108-1620-10jps1u-0.jpg',NULL,1,'Image','2012-01-09 07:54:32',NULL,NULL,'TEst'),
+	(80,73,'Product','image/jpeg','CG_Products_7_29_2011 0252.jpg',NULL,1,'Image','2012-01-09 08:00:59',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.'),
+	(81,74,'Product','image/jpeg','CG_Products_7_29_2011 0254.jpg',NULL,1,'Image','2012-01-09 07:59:43',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.'),
+	(82,75,'Product','image/jpeg','CG_Products_7_29_2011 0255.jpg',NULL,1,'Image','2012-01-09 08:02:30',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.'),
+	(83,76,'Product','image/jpeg','CG_Products_7_29_2011 0257.jpg',NULL,1,'Image','2012-01-09 08:03:52',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.'),
+	(84,77,'Product','image/jpeg','CG_Products_7_29_2011 0258.jpg',NULL,1,'Image','2012-01-09 08:05:06',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.'),
+	(85,78,'Product','image/jpeg','CG_Products_7_29_2011 0274.jpg',NULL,1,'Image','2012-01-09 08:08:54',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(86,79,'Product','image/jpeg','CG_Products_7_29_2011 0276.jpg',NULL,1,'Image','2012-01-09 08:11:34',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(87,80,'Product','image/jpeg','CG_Products_7_29_2011 0277.jpg',NULL,1,'Image','2012-01-09 08:13:49',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(88,81,'Product','image/jpeg','CG_Products_7_29_2011 0278.jpg',NULL,1,'Image','2012-01-09 08:15:30',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(89,82,'Product','image/jpeg','CG_Products_7_29_2011 0282.jpg',NULL,1,'Image','2012-01-09 08:16:51',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(90,83,'Product','image/jpeg','CG_Products_7_29_2011 0283.jpg',NULL,1,'Image','2012-01-09 08:21:05',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(91,84,'Product','image/jpeg','CG_Products_7_29_2011 028220120108-1620-19rbg5t-020120108-3628-g10pko-0.jpg',NULL,1,'Image','2012-01-09 08:20:31',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(92,85,'Product','image/jpeg','CG_Products_7_29_2011 0285.jpg',NULL,1,'Image','2012-01-09 08:22:20',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(93,86,'Product','image/jpeg','CG_Products_7_29_2011 0286.jpg',NULL,1,'Image','2012-01-09 08:25:09',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(94,87,'Product','image/jpeg','CG_Products_7_29_2011 028620120108-3628-wtceed-0.jpg',NULL,1,'Image','2012-01-09 08:24:32',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(95,88,'Product','image/jpeg','CG_Products_7_29_2011 0293.jpg',NULL,1,'Image','2012-01-09 08:27:33',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(96,89,'Product','image/jpeg','CG_Products_7_29_2011 0294.jpg',NULL,1,'Image','2012-01-09 08:29:22',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(97,90,'Product','image/jpeg','CG_Products_7_29_2011 029420120108-3628-p920yc-0.jpg',NULL,1,'Image','2012-01-09 08:33:11',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(98,91,'Product','image/jpeg','CG_Products_7_29_2011 0295.jpg',NULL,1,'Image','2012-01-09 08:42:51',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(99,92,'Product','image/jpeg','CG_Products_7_29_2011 029520120108-3628-75kw1z-0.jpg',NULL,1,'Image','2012-01-09 08:52:28',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(100,93,'Product','image/jpeg','CG_Products_7_29_2011 0298.jpg',NULL,1,'Image','2012-01-09 08:55:00',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(101,94,'Product','image/jpeg','CG_Products_7_29_2011 0301.jpg',NULL,1,'Image','2012-01-09 08:58:56',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(102,95,'Product','image/jpeg','CG_Products_7_29_2011 0302.jpg',NULL,1,'Image','2012-01-09 09:01:54',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(103,96,'Product','image/jpeg','CG_Products_7_29_2011 0303.jpg',NULL,1,'Image','2012-01-09 09:03:13',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(104,97,'Product','image/jpeg','CG_Products_7_29_2011 0304.jpg',NULL,1,'Image','2012-01-09 09:04:49',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(105,98,'Product','image/jpeg','CG_Products_7_29_2011 0305.jpg',NULL,1,'Image','2012-01-09 09:09:44',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(106,99,'Product','image/jpeg','CG_Products_7_29_2011 0306.jpg',NULL,1,'Image','2012-01-09 09:11:45',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(107,100,'Product','image/jpeg','CG_Products_7_29_2011 0307.jpg',NULL,1,'Image','2012-01-09 09:13:00',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(108,101,'Product','image/jpeg','CG_Products_7_29_2011 0308.jpg',NULL,1,'Image','2012-01-09 09:14:34',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.'),
+	(109,73,'Product','image/jpeg','CG_9_23_2011 1777.jpg',NULL,2,'Image','2012-01-09 10:11:48',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.'),
+	(110,73,'Product','image/jpeg','CG_9_23_2011 1782.jpg',NULL,3,'Image','2012-01-09 10:12:22',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.'),
+	(111,73,'Product','image/jpeg','CG_9_23_2011 1780.jpg',NULL,4,'Image','2012-01-09 10:12:44',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.'),
+	(112,73,'Product','image/jpeg','CG_9_23_2011 1776.jpg',NULL,5,'Image','2012-01-09 10:13:11',NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.'),
+	(113,8,'Product','image/jpeg','CG_Products_7_29_2011 0349.jpg',NULL,2,'Image','2012-01-11 09:58:10',NULL,NULL,''),
+	(114,9,'Product','image/jpeg','CG_Products_7_29_2011 0329.jpg',NULL,2,'Image','2012-01-11 10:00:29',NULL,NULL,''),
+	(115,11,'Product','image/jpeg','CG_Products_7_29_2011 0331.jpg',NULL,2,'Image','2012-01-11 10:13:42',NULL,NULL,''),
+	(116,12,'Product','image/jpeg','CG_Products_7_29_2011 0323.jpg',NULL,2,'Image','2012-01-11 10:14:44',NULL,NULL,''),
+	(117,13,'Product','image/jpeg','CG_Products_7_29_2011 0324.jpg',NULL,2,'Image','2012-01-11 10:16:17',NULL,NULL,''),
+	(118,14,'Product','image/jpeg','CG_Products_7_29_2011 0330.jpg',NULL,2,'Image','2012-01-11 10:17:14',NULL,NULL,''),
+	(119,16,'Product','image/jpeg','CG_Products_7_29_2011 0322.jpg',NULL,2,'Image','2012-01-11 10:20:25',NULL,NULL,''),
+	(120,17,'Product','image/jpeg','CG_Products_7_29_2011 0328.jpg',NULL,2,'Image','2012-01-11 10:24:31',NULL,NULL,''),
+	(121,18,'Product','image/jpeg','CG_Products_7_29_2011 0322.jpg',NULL,2,'Image','2012-01-11 10:26:20',NULL,NULL,''),
+	(122,18,'Product','image/jpeg','CG_Products_7_29_2011 0322.jpg',NULL,3,'Image','2012-01-11 10:26:25',NULL,NULL,''),
+	(123,19,'Product','image/jpeg','CG_Products_7_29_2011 0320.jpg',NULL,2,'Image','2012-01-11 10:30:59',NULL,NULL,''),
+	(124,20,'Product','image/jpeg','CG_Products_7_29_2011 0330.jpg',NULL,2,'Image','2012-01-11 10:33:54',NULL,NULL,''),
+	(125,21,'Product','image/jpeg','CG_Products_7_29_2011 0321.jpg',NULL,2,'Image','2012-01-11 10:35:01',NULL,NULL,''),
+	(126,22,'Product','image/jpeg','CG_Products_7_29_2011 0319.jpg',NULL,2,'Image','2012-01-11 10:37:20',NULL,NULL,''),
+	(127,23,'Product','image/jpeg','CG_Products_7_29_2011 0332.jpg',NULL,2,'Image','2012-01-11 10:44:19',NULL,NULL,''),
+	(128,24,'Product','image/jpeg','CG_Products_7_29_2011 0333.jpg',NULL,2,'Image','2012-01-11 10:46:48',NULL,NULL,''),
+	(129,25,'Product','image/jpeg','CG_Products_7_29_2011 0335.jpg',NULL,2,'Image','2012-01-11 10:51:12',NULL,NULL,''),
+	(130,26,'Product','image/jpeg','CG_Products_7_29_2011 0334.jpg',NULL,2,'Image','2012-01-11 10:52:20',NULL,NULL,''),
+	(131,27,'Product','image/jpeg','CG_Products_7_29_2011 0337.jpg',NULL,2,'Image','2012-01-11 10:53:29',NULL,NULL,''),
+	(132,28,'Product','image/jpeg','CG_Products_7_29_2011 0336.jpg',NULL,2,'Image','2012-01-11 10:54:21',NULL,NULL,''),
+	(133,29,'Product','image/jpeg','CG_Products_7_29_2011 0339.jpg',NULL,2,'Image','2012-01-11 10:56:10',NULL,NULL,''),
+	(134,30,'Product','image/jpeg','CG_Products_7_29_2011 0338.jpg',NULL,2,'Image','2012-01-11 10:59:04',NULL,NULL,''),
+	(135,31,'Product','image/jpeg','CG_Products_7_29_2011 0340.jpg',NULL,2,'Image','2012-01-11 11:00:32',NULL,NULL,''),
+	(136,32,'Product','image/jpeg','CG_Products_7_29_2011 0343.jpg',NULL,2,'Image','2012-01-11 11:01:19',NULL,NULL,''),
+	(137,33,'Product','image/jpeg','CG_Products_7_29_2011 0341.jpg',NULL,2,'Image','2012-01-11 11:03:17',NULL,NULL,''),
+	(138,35,'Product','image/jpeg','CG_Products_7_29_2011 0342.jpg',NULL,2,'Image','2012-01-11 11:04:41',NULL,NULL,'');
+
+/*!40000 ALTER TABLE `assets` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table banners
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `banners`;
+
+CREATE TABLE `banners` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `position` int(11) DEFAULT NULL,
+  `tagline` varchar(255) DEFAULT NULL,
+  `target_url` varchar(255) DEFAULT NULL,
+  `image_file_name` varchar(255) DEFAULT NULL,
+  `image_content_type` varchar(255) DEFAULT NULL,
+  `image_file_size` int(11) DEFAULT NULL,
+  `image_updated_at` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `visible` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table calculators
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `calculators`;
+
+CREATE TABLE `calculators` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(255) DEFAULT NULL,
+  `calculable_id` int(11) NOT NULL,
+  `calculable_type` varchar(255) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table closet_items
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `closet_items`;
+
+CREATE TABLE `closet_items` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `product_id` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+LOCK TABLES `closet_items` WRITE;
+/*!40000 ALTER TABLE `closet_items` DISABLE KEYS */;
+INSERT INTO `closet_items` (`id`,`user_id`,`product_id`,`created_at`,`updated_at`)
+VALUES
+	(1,5,1,'2011-12-28 16:33:17','2011-12-28 16:33:17'),
+	(2,7,1,'2012-01-05 07:18:19','2012-01-05 07:18:19'),
+	(3,7,73,'2012-01-11 04:49:02','2012-01-11 04:49:02'),
+	(4,7,97,'2012-01-11 09:32:12','2012-01-11 09:32:12');
+
+/*!40000 ALTER TABLE `closet_items` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table configurations
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `configurations`;
+
+CREATE TABLE `configurations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `type` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_configurations_on_name_and_type` (`name`,`type`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `configurations` WRITE;
+/*!40000 ALTER TABLE `configurations` DISABLE KEYS */;
+INSERT INTO `configurations` (`id`,`name`,`created_at`,`updated_at`,`type`)
+VALUES
+	(1,'Default configuration','2011-09-14 18:03:41','2011-09-14 18:03:41','AppConfiguration'),
+	(2,'Default spree_auth configuration','2011-10-07 14:29:10','2011-10-07 14:29:10','SpreeAuthConfiguration');
+
+/*!40000 ALTER TABLE `configurations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table countries
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `countries`;
+
+CREATE TABLE `countries` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `iso_name` varchar(255) DEFAULT NULL,
+  `iso` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `iso3` varchar(255) DEFAULT NULL,
+  `numcode` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=227 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `countries` WRITE;
+/*!40000 ALTER TABLE `countries` DISABLE KEYS */;
+INSERT INTO `countries` (`id`,`iso_name`,`iso`,`name`,`iso3`,`numcode`)
+VALUES
+	(1,'AFGHANISTAN','AF','Afghanistan','AFG',4),
+	(2,'ALBANIA','AL','Albania','ALB',8),
+	(3,'ALGERIA','DZ','Algeria','DZA',12),
+	(4,'AMERICAN SAMOA','AS','American Samoa','ASM',16),
+	(5,'ANDORRA','AD','Andorra','AND',20),
+	(6,'ANGOLA','AO','Angola','AGO',24),
+	(7,'ANGUILLA','AI','Anguilla','AIA',660),
+	(8,'ANTIGUA AND BARBUDA','AG','Antigua and Barbuda','ATG',28),
+	(9,'ARGENTINA','AR','Argentina','ARG',32),
+	(10,'ARMENIA','AM','Armenia','ARM',51),
+	(11,'ARUBA','AW','Aruba','ABW',533),
+	(12,'AUSTRALIA','AU','Australia','AUS',36),
+	(13,'AUSTRIA','AT','Austria','AUT',40),
+	(14,'AZERBAIJAN','AZ','Azerbaijan','AZE',31),
+	(15,'BAHAMAS','BS','Bahamas','BHS',44),
+	(16,'BAHRAIN','BH','Bahrain','BHR',48),
+	(17,'BANGLADESH','BD','Bangladesh','BGD',50),
+	(18,'BARBADOS','BB','Barbados','BRB',52),
+	(19,'BELARUS','BY','Belarus','BLR',112),
+	(20,'BELGIUM','BE','Belgium','BEL',56),
+	(21,'BELIZE','BZ','Belize','BLZ',84),
+	(22,'BENIN','BJ','Benin','BEN',204),
+	(23,'BERMUDA','BM','Bermuda','BMU',60),
+	(24,'BHUTAN','BT','Bhutan','BTN',64),
+	(25,'BOLIVIA','BO','Bolivia','BOL',68),
+	(26,'BOSNIA AND HERZEGOVINA','BA','Bosnia and Herzegovina','BIH',70),
+	(27,'BOTSWANA','BW','Botswana','BWA',72),
+	(28,'BRAZIL','BR','Brazil','BRA',76),
+	(29,'BRUNEI DARUSSALAM','BN','Brunei Darussalam','BRN',96),
+	(30,'BULGARIA','BG','Bulgaria','BGR',100),
+	(31,'BURKINA FASO','BF','Burkina Faso','BFA',854),
+	(32,'BURUNDI','BI','Burundi','BDI',108),
+	(33,'CAMBODIA','KH','Cambodia','KHM',116),
+	(34,'CAMEROON','CM','Cameroon','CMR',120),
+	(35,'CANADA','CA','Canada','CAN',124),
+	(36,'CAPE VERDE','CV','Cape Verde','CPV',132),
+	(37,'CAYMAN ISLANDS','KY','Cayman Islands','CYM',136),
+	(38,'CENTRAL AFRICAN REPUBLIC','CF','Central African Republic','CAF',140),
+	(39,'CHAD','TD','Chad','TCD',148),
+	(40,'CHILE','CL','Chile','CHL',152),
+	(41,'CHINA','CN','China','CHN',156),
+	(42,'COLOMBIA','CO','Colombia','COL',170),
+	(43,'COMOROS','KM','Comoros','COM',174),
+	(44,'CONGO','CG','Congo','COG',178),
+	(45,'CONGO, THE DEMOCRATIC REPUBLIC OF THE','CD','Congo, the Democratic Republic of the','COD',180),
+	(46,'COOK ISLANDS','CK','Cook Islands','COK',184),
+	(47,'COSTA RICA','CR','Costa Rica','CRI',188),
+	(48,'COTE D\'IVOIRE','CI','Cote D\'Ivoire','CIV',384),
+	(49,'CROATIA','HR','Croatia','HRV',191),
+	(50,'CUBA','CU','Cuba','CUB',192),
+	(51,'CYPRUS','CY','Cyprus','CYP',196),
+	(52,'CZECH REPUBLIC','CZ','Czech Republic','CZE',203),
+	(53,'DENMARK','DK','Denmark','DNK',208),
+	(54,'DJIBOUTI','DJ','Djibouti','DJI',262),
+	(55,'DOMINICA','DM','Dominica','DMA',212),
+	(56,'DOMINICAN REPUBLIC','DO','Dominican Republic','DOM',214),
+	(57,'ECUADOR','EC','Ecuador','ECU',218),
+	(58,'EGYPT','EG','Egypt','EGY',818),
+	(59,'EL SALVADOR','SV','El Salvador','SLV',222),
+	(60,'EQUATORIAL GUINEA','GQ','Equatorial Guinea','GNQ',226),
+	(61,'ERITREA','ER','Eritrea','ERI',232),
+	(62,'ESTONIA','EE','Estonia','EST',233),
+	(63,'ETHIOPIA','ET','Ethiopia','ETH',231),
+	(64,'FALKLAND ISLANDS (MALVINAS)','FK','Falkland Islands (Malvinas)','FLK',238),
+	(65,'FAROE ISLANDS','FO','Faroe Islands','FRO',234),
+	(66,'FIJI','FJ','Fiji','FJI',242),
+	(67,'FINLAND','FI','Finland','FIN',246),
+	(68,'FRANCE','FR','France','FRA',250),
+	(69,'FRENCH GUIANA','GF','French Guiana','GUF',254),
+	(70,'FRENCH POLYNESIA','PF','French Polynesia','PYF',258),
+	(71,'GABON','GA','Gabon','GAB',266),
+	(72,'GAMBIA','GM','Gambia','GMB',270),
+	(73,'GEORGIA','GE','Georgia','GEO',268),
+	(74,'GERMANY','DE','Germany','DEU',276),
+	(75,'GHANA','GH','Ghana','GHA',288),
+	(76,'GIBRALTAR','GI','Gibraltar','GIB',292),
+	(77,'GREECE','GR','Greece','GRC',300),
+	(78,'GREENLAND','GL','Greenland','GRL',304),
+	(79,'GRENADA','GD','Grenada','GRD',308),
+	(80,'GUADELOUPE','GP','Guadeloupe','GLP',312),
+	(81,'GUAM','GU','Guam','GUM',316),
+	(82,'GUATEMALA','GT','Guatemala','GTM',320),
+	(83,'GUINEA','GN','Guinea','GIN',324),
+	(84,'GUINEA-BISSAU','GW','Guinea-Bissau','GNB',624),
+	(85,'GUYANA','GY','Guyana','GUY',328),
+	(86,'HAITI','HT','Haiti','HTI',332),
+	(87,'HOLY SEE (VATICAN CITY STATE)','VA','Holy See (Vatican City State)','VAT',336),
+	(88,'HONDURAS','HN','Honduras','HND',340),
+	(89,'HONG KONG','HK','Hong Kong','HKG',344),
+	(90,'HUNGARY','HU','Hungary','HUN',348),
+	(91,'ICELAND','IS','Iceland','ISL',352),
+	(92,'INDIA','IN','India','IND',356),
+	(93,'INDONESIA','ID','Indonesia','IDN',360),
+	(94,'IRAN, ISLAMIC REPUBLIC OF','IR','Iran, Islamic Republic of','IRN',364),
+	(95,'IRAQ','IQ','Iraq','IRQ',368),
+	(96,'IRELAND','IE','Ireland','IRL',372),
+	(97,'ISRAEL','IL','Israel','ISR',376),
+	(98,'ITALY','IT','Italy','ITA',380),
+	(99,'JAMAICA','JM','Jamaica','JAM',388),
+	(100,'JAPAN','JP','Japan','JPN',392),
+	(101,'JORDAN','JO','Jordan','JOR',400),
+	(102,'KAZAKHSTAN','KZ','Kazakhstan','KAZ',398),
+	(103,'KENYA','KE','Kenya','KEN',404),
+	(104,'KIRIBATI','KI','Kiribati','KIR',296),
+	(105,'KOREA, DEMOCRATIC PEOPLE\'S REPUBLIC OF','KP','North Korea','PRK',408),
+	(106,'KOREA, REPUBLIC OF','KR','South Korea','KOR',410),
+	(107,'KUWAIT','KW','Kuwait','KWT',414),
+	(108,'KYRGYZSTAN','KG','Kyrgyzstan','KGZ',417),
+	(109,'LAO PEOPLE\'S DEMOCRATIC REPUBLIC','LA','Lao People\'s Democratic Republic','LAO',418),
+	(110,'LATVIA','LV','Latvia','LVA',428),
+	(111,'LEBANON','LB','Lebanon','LBN',422),
+	(112,'LESOTHO','LS','Lesotho','LSO',426),
+	(113,'LIBERIA','LR','Liberia','LBR',430),
+	(114,'LIBYAN ARAB JAMAHIRIYA','LY','Libyan Arab Jamahiriya','LBY',434),
+	(115,'LIECHTENSTEIN','LI','Liechtenstein','LIE',438),
+	(116,'LITHUANIA','LT','Lithuania','LTU',440),
+	(117,'LUXEMBOURG','LU','Luxembourg','LUX',442),
+	(118,'MACAO','MO','Macao','MAC',446),
+	(119,'MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF','MK','Macedonia','MKD',807),
+	(120,'MADAGASCAR','MG','Madagascar','MDG',450),
+	(121,'MALAWI','MW','Malawi','MWI',454),
+	(122,'MALAYSIA','MY','Malaysia','MYS',458),
+	(123,'MALDIVES','MV','Maldives','MDV',462),
+	(124,'MALI','ML','Mali','MLI',466),
+	(125,'MALTA','MT','Malta','MLT',470),
+	(126,'MARSHALL ISLANDS','MH','Marshall Islands','MHL',584),
+	(127,'MARTINIQUE','MQ','Martinique','MTQ',474),
+	(128,'MAURITANIA','MR','Mauritania','MRT',478),
+	(129,'MAURITIUS','MU','Mauritius','MUS',480),
+	(130,'MEXICO','MX','Mexico','MEX',484),
+	(131,'MICRONESIA, FEDERATED STATES OF','FM','Micronesia, Federated States of','FSM',583),
+	(132,'MOLDOVA, REPUBLIC OF','MD','Moldova, Republic of','MDA',498),
+	(133,'MONACO','MC','Monaco','MCO',492),
+	(134,'MONGOLIA','MN','Mongolia','MNG',496),
+	(135,'MONTSERRAT','MS','Montserrat','MSR',500),
+	(136,'MOROCCO','MA','Morocco','MAR',504),
+	(137,'MOZAMBIQUE','MZ','Mozambique','MOZ',508),
+	(138,'MYANMAR','MM','Myanmar','MMR',104),
+	(139,'NAMIBIA','NA','Namibia','NAM',516),
+	(140,'NAURU','NR','Nauru','NRU',520),
+	(141,'NEPAL','NP','Nepal','NPL',524),
+	(142,'NETHERLANDS','NL','Netherlands','NLD',528),
+	(143,'NETHERLANDS ANTILLES','AN','Netherlands Antilles','ANT',530),
+	(144,'NEW CALEDONIA','NC','New Caledonia','NCL',540),
+	(145,'NEW ZEALAND','NZ','New Zealand','NZL',554),
+	(146,'NICARAGUA','NI','Nicaragua','NIC',558),
+	(147,'NIGER','NE','Niger','NER',562),
+	(148,'NIGERIA','NG','Nigeria','NGA',566),
+	(149,'NIUE','NU','Niue','NIU',570),
+	(150,'NORFOLK ISLAND','NF','Norfolk Island','NFK',574),
+	(151,'NORTHERN MARIANA ISLANDS','MP','Northern Mariana Islands','MNP',580),
+	(152,'NORWAY','NO','Norway','NOR',578),
+	(153,'OMAN','OM','Oman','OMN',512),
+	(154,'PAKISTAN','PK','Pakistan','PAK',586),
+	(155,'PALAU','PW','Palau','PLW',585),
+	(156,'PANAMA','PA','Panama','PAN',591),
+	(157,'PAPUA NEW GUINEA','PG','Papua New Guinea','PNG',598),
+	(158,'PARAGUAY','PY','Paraguay','PRY',600),
+	(159,'PERU','PE','Peru','PER',604),
+	(160,'PHILIPPINES','PH','Philippines','PHL',608),
+	(161,'PITCAIRN','PN','Pitcairn','PCN',612),
+	(162,'POLAND','PL','Poland','POL',616),
+	(163,'PORTUGAL','PT','Portugal','PRT',620),
+	(164,'PUERTO RICO','PR','Puerto Rico','PRI',630),
+	(165,'QATAR','QA','Qatar','QAT',634),
+	(166,'REUNION','RE','Reunion','REU',638),
+	(167,'ROMANIA','RO','Romania','ROM',642),
+	(168,'RUSSIAN FEDERATION','RU','Russian Federation','RUS',643),
+	(169,'RWANDA','RW','Rwanda','RWA',646),
+	(170,'SAINT HELENA','SH','Saint Helena','SHN',654),
+	(171,'SAINT KITTS AND NEVIS','KN','Saint Kitts and Nevis','KNA',659),
+	(172,'SAINT LUCIA','LC','Saint Lucia','LCA',662),
+	(173,'SAINT PIERRE AND MIQUELON','PM','Saint Pierre and Miquelon','SPM',666),
+	(174,'SAINT VINCENT AND THE GRENADINES','VC','Saint Vincent and the Grenadines','VCT',670),
+	(175,'SAMOA','WS','Samoa','WSM',882),
+	(176,'SAN MARINO','SM','San Marino','SMR',674),
+	(177,'SAO TOME AND PRINCIPE','ST','Sao Tome and Principe','STP',678),
+	(178,'SAUDI ARABIA','SA','Saudi Arabia','SAU',682),
+	(179,'SENEGAL','SN','Senegal','SEN',686),
+	(180,'SEYCHELLES','SC','Seychelles','SYC',690),
+	(181,'SIERRA LEONE','SL','Sierra Leone','SLE',694),
+	(182,'SINGAPORE','SG','Singapore','SGP',702),
+	(183,'SLOVAKIA','SK','Slovakia','SVK',703),
+	(184,'SLOVENIA','SI','Slovenia','SVN',705),
+	(185,'SOLOMON ISLANDS','SB','Solomon Islands','SLB',90),
+	(186,'SOMALIA','SO','Somalia','SOM',706),
+	(187,'SOUTH AFRICA','ZA','South Africa','ZAF',710),
+	(188,'SPAIN','ES','Spain','ESP',724),
+	(189,'SRI LANKA','LK','Sri Lanka','LKA',144),
+	(190,'SUDAN','SD','Sudan','SDN',736),
+	(191,'SURINAME','SR','Suriname','SUR',740),
+	(192,'SVALBARD AND JAN MAYEN','SJ','Svalbard and Jan Mayen','SJM',744),
+	(193,'SWAZILAND','SZ','Swaziland','SWZ',748),
+	(194,'SWEDEN','SE','Sweden','SWE',752),
+	(195,'SWITZERLAND','CH','Switzerland','CHE',756),
+	(196,'SYRIAN ARAB REPUBLIC','SY','Syrian Arab Republic','SYR',760),
+	(197,'TAIWAN, PROVINCE OF CHINA','TW','Taiwan','TWN',158),
+	(198,'TAJIKISTAN','TJ','Tajikistan','TJK',762),
+	(199,'TANZANIA, UNITED REPUBLIC OF','TZ','Tanzania, United Republic of','TZA',834),
+	(200,'THAILAND','TH','Thailand','THA',764),
+	(201,'TOGO','TG','Togo','TGO',768),
+	(202,'TOKELAU','TK','Tokelau','TKL',772),
+	(203,'TONGA','TO','Tonga','TON',776),
+	(204,'TRINIDAD AND TOBAGO','TT','Trinidad and Tobago','TTO',780),
+	(205,'TUNISIA','TN','Tunisia','TUN',788),
+	(206,'TURKEY','TR','Turkey','TUR',792),
+	(207,'TURKMENISTAN','TM','Turkmenistan','TKM',795),
+	(208,'TURKS AND CAICOS ISLANDS','TC','Turks and Caicos Islands','TCA',796),
+	(209,'TUVALU','TV','Tuvalu','TUV',798),
+	(210,'UGANDA','UG','Uganda','UGA',800),
+	(211,'UKRAINE','UA','Ukraine','UKR',804),
+	(212,'UNITED ARAB EMIRATES','AE','United Arab Emirates','ARE',784),
+	(213,'UNITED KINGDOM','GB','United Kingdom','GBR',826),
+	(214,'UNITED STATES','US','United States','USA',840),
+	(215,'URUGUAY','UY','Uruguay','URY',858),
+	(216,'UZBEKISTAN','UZ','Uzbekistan','UZB',860),
+	(217,'VANUATU','VU','Vanuatu','VUT',548),
+	(218,'VENEZUELA','VE','Venezuela','VEN',862),
+	(219,'VIET NAM','VN','Viet Nam','VNM',704),
+	(220,'VIRGIN ISLANDS, BRITISH','VG','Virgin Islands, British','VGB',92),
+	(221,'VIRGIN ISLANDS, U.S.','VI','Virgin Islands, U.S.','VIR',850),
+	(222,'WALLIS AND FUTUNA','WF','Wallis and Futuna','WLF',876),
+	(223,'WESTERN SAHARA','EH','Western Sahara','ESH',732),
+	(224,'YEMEN','YE','Yemen','YEM',887),
+	(225,'ZAMBIA','ZM','Zambia','ZMB',894),
+	(226,'ZIMBABWE','ZW','Zimbabwe','ZWE',716);
+
+/*!40000 ALTER TABLE `countries` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table creditcards
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `creditcards`;
+
+CREATE TABLE `creditcards` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `month` varchar(255) DEFAULT NULL,
+  `year` varchar(255) DEFAULT NULL,
+  `cc_type` varchar(255) DEFAULT NULL,
+  `last_digits` varchar(255) DEFAULT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `start_month` varchar(255) DEFAULT NULL,
+  `start_year` varchar(255) DEFAULT NULL,
+  `issue_number` varchar(255) DEFAULT NULL,
+  `address_id` int(11) DEFAULT NULL,
+  `gateway_customer_profile_id` varchar(255) DEFAULT NULL,
+  `gateway_payment_profile_id` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table gateways
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `gateways`;
+
+CREATE TABLE `gateways` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `description` text,
+  `active` tinyint(1) DEFAULT '1',
+  `environment` varchar(255) DEFAULT 'development',
+  `server` varchar(255) DEFAULT 'test',
+  `test_mode` tinyint(1) DEFAULT '1',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table inventory_units
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `inventory_units`;
+
+CREATE TABLE `inventory_units` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `variant_id` int(11) DEFAULT NULL,
+  `order_id` int(11) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `lock_version` int(11) DEFAULT '0',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `shipment_id` int(11) DEFAULT NULL,
+  `return_authorization_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_inventory_units_on_variant_id` (`variant_id`),
+  KEY `index_inventory_units_on_order_id` (`order_id`),
+  KEY `index_inventory_units_on_shipment_id` (`shipment_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table line_items
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `line_items`;
+
+CREATE TABLE `line_items` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_id` int(11) DEFAULT NULL,
+  `variant_id` int(11) DEFAULT NULL,
+  `quantity` int(11) NOT NULL,
+  `price` decimal(8,2) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_line_items_on_order_id` (`order_id`),
+  KEY `index_line_items_on_variant_id` (`variant_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `line_items` WRITE;
+/*!40000 ALTER TABLE `line_items` DISABLE KEYS */;
+INSERT INTO `line_items` (`id`,`order_id`,`variant_id`,`quantity`,`price`,`created_at`,`updated_at`)
+VALUES
+	(1,1,2,1,34.99,'2011-10-07 14:18:36','2011-10-07 14:18:36'),
+	(2,1,6,1,79.99,'2011-10-07 14:29:04','2011-10-07 14:29:04'),
+	(3,2,1,1,29.99,'2011-10-17 13:22:54','2011-10-17 13:22:54'),
+	(4,3,1,1,29.99,'2011-10-18 14:35:29','2011-10-18 14:35:29'),
+	(5,6,2,1,34.99,'2011-12-28 16:14:37','2011-12-28 16:14:37'),
+	(6,7,1,1,29.99,'2012-01-05 07:09:03','2012-01-05 07:09:03'),
+	(7,7,2,1,34.99,'2012-01-05 07:15:51','2012-01-05 07:15:51'),
+	(8,8,62,1,10.00,'2012-01-09 23:36:34','2012-01-09 23:36:34'),
+	(9,8,9,1,10.00,'2012-01-09 23:36:48','2012-01-09 23:36:48'),
+	(10,8,26,1,10.00,'2012-01-09 23:37:23','2012-01-09 23:37:23'),
+	(11,8,53,1,10.00,'2012-01-10 10:02:31','2012-01-10 10:02:31'),
+	(12,10,10,3,10.00,'2012-01-11 09:37:27','2012-01-11 09:37:35'),
+	(13,11,9,1,10.00,'2012-01-11 10:49:42','2012-01-11 10:49:42'),
+	(14,11,91,1,10.00,'2012-01-11 10:49:57','2012-01-11 10:49:57'),
+	(15,11,48,1,10.00,'2012-01-11 10:50:11','2012-01-11 10:50:11'),
+	(16,11,23,1,10.00,'2012-01-11 10:50:24','2012-01-11 10:50:24'),
+	(17,11,93,1,10.00,'2012-01-11 10:50:37','2012-01-11 10:50:37');
+
+/*!40000 ALTER TABLE `line_items` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table log_entries
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `log_entries`;
+
+CREATE TABLE `log_entries` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `source_id` int(11) DEFAULT NULL,
+  `source_type` varchar(255) DEFAULT NULL,
+  `details` text,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table mail_methods
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `mail_methods`;
+
+CREATE TABLE `mail_methods` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `environment` varchar(255) DEFAULT NULL,
+  `active` tinyint(1) DEFAULT '1',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table option_types
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `option_types`;
+
+CREATE TABLE `option_types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
+  `presentation` varchar(100) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `position` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `option_types` WRITE;
+/*!40000 ALTER TABLE `option_types` DISABLE KEYS */;
+INSERT INTO `option_types` (`id`,`name`,`presentation`,`created_at`,`updated_at`,`position`)
+VALUES
+	(1,'Size','Size','2012-01-03 04:20:56','2012-01-03 04:20:56',0);
+
+/*!40000 ALTER TABLE `option_types` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table option_types_prototypes
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `option_types_prototypes`;
+
+CREATE TABLE `option_types_prototypes` (
+  `prototype_id` int(11) DEFAULT NULL,
+  `option_type_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table option_values
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `option_values`;
+
+CREATE TABLE `option_values` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `option_type_id` int(11) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `position` int(11) DEFAULT NULL,
+  `presentation` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `option_values` WRITE;
+/*!40000 ALTER TABLE `option_values` DISABLE KEYS */;
+INSERT INTO `option_values` (`id`,`option_type_id`,`name`,`position`,`presentation`,`created_at`,`updated_at`)
+VALUES
+	(1,1,'Small',1,'Small','2012-01-03 04:21:16','2012-01-03 04:21:16'),
+	(2,1,'Medium',2,'Medium','2012-01-03 04:21:16','2012-01-03 04:21:16'),
+	(3,1,'Large',3,'Large','2012-01-03 04:21:16','2012-01-03 04:21:16');
+
+/*!40000 ALTER TABLE `option_values` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table option_values_variants
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `option_values_variants`;
+
+CREATE TABLE `option_values_variants` (
+  `variant_id` int(11) DEFAULT NULL,
+  `option_value_id` int(11) DEFAULT NULL,
+  KEY `index_option_values_variants_on_variant_id` (`variant_id`),
+  KEY `index_option_values_variants_on_variant_id_and_option_value_id` (`variant_id`,`option_value_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `option_values_variants` WRITE;
+/*!40000 ALTER TABLE `option_values_variants` DISABLE KEYS */;
+INSERT INTO `option_values_variants` (`variant_id`,`option_value_id`)
+VALUES
+	(102,1),
+	(103,2),
+	(104,3);
+
+/*!40000 ALTER TABLE `option_values_variants` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table orders
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `orders`;
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `number` varchar(15) DEFAULT NULL,
+  `item_total` decimal(8,2) NOT NULL DEFAULT '0.00',
+  `total` decimal(8,2) NOT NULL DEFAULT '0.00',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `adjustment_total` decimal(8,2) NOT NULL DEFAULT '0.00',
+  `credit_total` decimal(8,2) NOT NULL DEFAULT '0.00',
+  `completed_at` datetime DEFAULT NULL,
+  `bill_address_id` int(11) DEFAULT NULL,
+  `ship_address_id` int(11) DEFAULT NULL,
+  `payment_total` decimal(8,2) DEFAULT '0.00',
+  `shipping_method_id` int(11) DEFAULT NULL,
+  `shipment_state` varchar(255) DEFAULT NULL,
+  `payment_state` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `special_instructions` text,
+  PRIMARY KEY (`id`),
+  KEY `index_orders_on_number` (`number`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `orders` WRITE;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` (`id`,`user_id`,`number`,`item_total`,`total`,`created_at`,`updated_at`,`state`,`adjustment_total`,`credit_total`,`completed_at`,`bill_address_id`,`ship_address_id`,`payment_total`,`shipping_method_id`,`shipment_state`,`payment_state`,`email`,`special_instructions`)
+VALUES
+	(1,5,'R122022042',114.98,114.98,'2011-10-07 14:18:36','2011-10-07 14:38:45','cart',0.00,0.00,NULL,NULL,NULL,0.00,NULL,NULL,'balance_due','admin@combatgent.com',NULL),
+	(2,5,'R717711435',29.99,29.99,'2011-10-17 13:22:45','2011-10-17 13:22:45','cart',0.00,0.00,NULL,NULL,NULL,0.00,NULL,NULL,'balance_due','admin@combatgent.com',NULL),
+	(3,5,'R870477801',29.99,29.99,'2011-10-18 14:34:34','2011-10-18 14:34:34','cart',0.00,0.00,NULL,NULL,NULL,0.00,NULL,NULL,'balance_due','admin@combatgent.com',NULL),
+	(4,9,'R207448355',0.00,0.00,'2011-12-14 23:25:40','2011-12-14 23:25:40','cart',0.00,0.00,NULL,NULL,NULL,0.00,NULL,NULL,NULL,NULL,NULL),
+	(5,11,'R830046455',0.00,0.00,'2011-12-22 05:59:17','2011-12-22 05:59:17','cart',0.00,0.00,NULL,NULL,NULL,0.00,NULL,NULL,NULL,NULL,NULL),
+	(6,5,'R512321085',34.99,34.99,'2011-12-28 16:14:37','2011-12-28 16:16:22','cart',0.00,0.00,NULL,NULL,NULL,0.00,NULL,NULL,'balance_due','admin@combatgent.com',NULL),
+	(7,7,'R881074676',64.98,64.98,'2012-01-05 07:09:03','2012-01-05 07:09:03','cart',0.00,0.00,NULL,NULL,NULL,0.00,NULL,NULL,'balance_due','nate@workwithgrid.com',NULL),
+	(8,7,'R115855777',40.00,40.00,'2012-01-09 23:36:34','2012-01-09 23:36:34','cart',0.00,0.00,NULL,NULL,NULL,0.00,NULL,NULL,'balance_due','nate@workwithgrid.com',NULL),
+	(9,7,'R732547853',0.00,0.00,'2012-01-10 20:21:44','2012-01-11 00:19:38','cart',0.00,0.00,NULL,NULL,NULL,0.00,NULL,NULL,NULL,'nate@workwithgrid.com',NULL),
+	(10,7,'R676024645',30.00,30.00,'2012-01-11 09:37:27','2012-01-11 09:37:27','cart',0.00,0.00,NULL,NULL,NULL,0.00,NULL,NULL,'balance_due','nate@workwithgrid.com',NULL),
+	(11,7,'R174280152',50.00,50.00,'2012-01-11 10:49:42','2012-01-11 10:49:42','cart',0.00,0.00,NULL,NULL,NULL,0.00,NULL,NULL,'balance_due','nate@workwithgrid.com',NULL);
+
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table outfit_products
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `outfit_products`;
+
+CREATE TABLE `outfit_products` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `outfit_id` int(11) DEFAULT NULL,
+  `product_id` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+LOCK TABLES `outfit_products` WRITE;
+/*!40000 ALTER TABLE `outfit_products` DISABLE KEYS */;
+INSERT INTO `outfit_products` (`id`,`outfit_id`,`product_id`,`created_at`,`updated_at`)
+VALUES
+	(3,1,73,'2012-01-11 04:08:40','2012-01-11 04:08:40'),
+	(4,1,78,'2012-01-11 04:29:32','2012-01-11 04:29:32'),
+	(5,1,15,'2012-01-11 04:45:03','2012-01-11 04:45:03');
+
+/*!40000 ALTER TABLE `outfit_products` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table outfits
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `outfits`;
+
+CREATE TABLE `outfits` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `description` text,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+LOCK TABLES `outfits` WRITE;
+/*!40000 ALTER TABLE `outfits` DISABLE KEYS */;
+INSERT INTO `outfits` (`id`,`title`,`description`,`created_at`,`updated_at`)
+VALUES
+	(1,'Test Outfit','blah blah blah','2011-12-28 16:24:38','2011-12-28 16:24:38');
+
+/*!40000 ALTER TABLE `outfits` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table payment_methods
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `payment_methods`;
+
+CREATE TABLE `payment_methods` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `description` text,
+  `active` tinyint(1) DEFAULT '1',
+  `environment` varchar(255) DEFAULT 'development',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `display_on` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table payments
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `payments`;
+
+CREATE TABLE `payments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_id` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `amount` decimal(8,2) NOT NULL DEFAULT '0.00',
+  `source_id` int(11) DEFAULT NULL,
+  `source_type` varchar(255) DEFAULT NULL,
+  `payment_method_id` int(11) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `response_code` varchar(255) DEFAULT NULL,
+  `avs_response` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table preferences
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `preferences`;
+
+CREATE TABLE `preferences` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `owner_id` int(11) NOT NULL,
+  `owner_type` varchar(50) NOT NULL,
+  `group_id` int(11) DEFAULT NULL,
+  `group_type` varchar(50) DEFAULT NULL,
+  `value` text,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `ix_prefs_on_owner_attr_pref` (`owner_id`,`owner_type`,`name`,`group_id`,`group_type`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `preferences` WRITE;
+/*!40000 ALTER TABLE `preferences` DISABLE KEYS */;
+INSERT INTO `preferences` (`id`,`name`,`owner_id`,`owner_type`,`group_id`,`group_type`,`value`,`created_at`,`updated_at`)
+VALUES
+	(1,'products_per_page',1,'Configuration',NULL,NULL,'20','2012-01-09 06:22:06','2012-01-11 11:05:29');
+
+/*!40000 ALTER TABLE `preferences` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table product_groups
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `product_groups`;
+
+CREATE TABLE `product_groups` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `permalink` varchar(255) DEFAULT NULL,
+  `order` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_product_groups_on_name` (`name`),
+  KEY `index_product_groups_on_permalink` (`permalink`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table product_groups_products
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `product_groups_products`;
+
+CREATE TABLE `product_groups_products` (
+  `product_id` int(11) DEFAULT NULL,
+  `product_group_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table product_option_types
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `product_option_types`;
+
+CREATE TABLE `product_option_types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) DEFAULT NULL,
+  `option_type_id` int(11) DEFAULT NULL,
+  `position` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `product_option_types` WRITE;
+/*!40000 ALTER TABLE `product_option_types` DISABLE KEYS */;
+INSERT INTO `product_option_types` (`id`,`product_id`,`option_type_id`,`position`,`created_at`,`updated_at`)
+VALUES
+	(1,1,1,1,'2012-01-03 04:21:50','2012-01-03 04:21:50'),
+	(2,73,1,1,'2012-01-11 00:21:22','2012-01-11 00:21:22');
+
+/*!40000 ALTER TABLE `product_option_types` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table product_properties
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `product_properties`;
+
+CREATE TABLE `product_properties` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) DEFAULT NULL,
+  `property_id` int(11) DEFAULT NULL,
+  `value` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_product_properties_on_product_id` (`product_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table product_scopes
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `product_scopes`;
+
+CREATE TABLE `product_scopes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_group_id` int(11) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `arguments` text,
+  PRIMARY KEY (`id`),
+  KEY `index_product_scopes_on_name` (`name`),
+  KEY `index_product_scopes_on_product_group_id` (`product_group_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table products
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `products`;
+
+CREATE TABLE `products` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL DEFAULT '',
+  `description` text,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `permalink` varchar(255) DEFAULT NULL,
+  `available_on` datetime DEFAULT NULL,
+  `tax_category_id` int(11) DEFAULT NULL,
+  `shipping_category_id` int(11) DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `meta_description` varchar(255) DEFAULT NULL,
+  `meta_keywords` varchar(255) DEFAULT NULL,
+  `count_on_hand` int(11) NOT NULL DEFAULT '0',
+  `show_on_homepage` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `index_products_on_available_on` (`available_on`),
+  KEY `index_products_on_deleted_at` (`deleted_at`),
+  KEY `index_products_on_name` (`name`),
+  KEY `index_products_on_permalink` (`permalink`)
+) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `products` WRITE;
+/*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT INTO `products` (`id`,`name`,`description`,`created_at`,`updated_at`,`permalink`,`available_on`,`tax_category_id`,`shipping_category_id`,`deleted_at`,`meta_description`,`meta_keywords`,`count_on_hand`,`show_on_homepage`)
+VALUES
+	(1,'Dress Shirt','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porttitor vulputate est elementum ullamcorper. Nunc velit lorem, ornare ut sagittis ac, vehicula eu ligula. Donec consectetur malesuada elementum. Donec consequat pharetra justo, ac sagittis dolor condimentum eu. Nulla laoreet molestie magna id dictum. Aliquam sodales libero ac nibh venenatis et cursus urna faucibus. Vestibulum nisi orci, elementum ut suscipit vel, condimentum tristique nisi. Mauris lacinia interdum quam quis fringilla. Donec rutrum venenatis tincidunt. Maecenas at lorem lacus, eu congue nisl. Aenean a augue odio, in laoreet ligula. Morbi vel purus vitae neque accumsan dignissim.','2011-10-07 14:05:31','2012-01-09 09:33:39','dress-shirt','2011-10-07 00:00:00',NULL,NULL,'2012-01-09 09:33:39','mens gingham dress shirt','shirt, dress shirt',10,0),
+	(2,'Dress Pants','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum, eros eget pharetra pharetra, massa sapien mollis orci, nec venenatis lectus nisi ut nibh. Donec vestibulum ipsum ullamcorper augue commodo a euismod purus fringilla. Maecenas nec mauris leo, quis sollicitudin tortor. Curabitur vestibulum ipsum placerat nibh eleifend in pulvinar felis laoreet. Suspendisse laoreet, nisl id bibendum porta, urna quam volutpat eros, ac sodales odio sapien ut odio.','2011-10-07 14:14:54','2011-10-07 14:15:31','dress-pants','2011-10-07 00:00:00',NULL,NULL,NULL,'mens dress pants','pants, dress pants',10,0),
+	(3,'Suit','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum, eros eget pharetra pharetra, massa sapien mollis orci, nec venenatis lectus nisi ut nibh. Donec vestibulum ipsum ullamcorper augue commodo a euismod purus fringilla. Maecenas nec mauris leo, quis sollicitudin tortor. Curabitur vestibulum ipsum placerat nibh eleifend in pulvinar felis laoreet. Suspendisse laoreet, nisl id bibendum porta, urna quam volutpat eros, ac sodales odio sapien ut odio.\r\n\r\nDonec sollicitudin lectus eget nisl scelerisque rhoncus a ut sem. Maecenas quis diam vitae arcu adipiscing viverra. Nulla nec mi et diam suscipit suscipit. Nullam semper aliquet nisi in ullamcorper. Etiam lacinia odio sit amet urna sagittis vehicula. Mauris iaculis dictum turpis, quis iaculis justo pulvinar ut. Proin dignissim, lectus scelerisque rhoncus porta, dui odio sollicitudin massa, nec pellentesque nisi justo quis lorem.','2011-10-07 14:19:25','2012-01-09 09:33:35','suit','2011-10-07 00:00:00',NULL,NULL,'2012-01-09 09:33:35','mens suit','suit, pants, shirt, tie',10,0),
+	(4,'Tie','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque neque tellus, ornare quis pretium eget, commodo vitae dui. In hac habitasse platea dictumst. Sed ultrices justo at metus mollis vitae rhoncus dolor volutpat. Nunc sollicitudin vestibulum leo at volutpat. Vestibulum dolor enim, ornare nec tincidunt sed, consectetur eget dolor.','2011-10-07 14:21:42','2012-01-09 04:50:14','tie','2011-10-07 00:00:00',NULL,NULL,'2012-01-09 04:50:14','mens ties','ties',0,0),
+	(5,'Cuff Links','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque neque tellus, ornare quis pretium eget, commodo vitae dui. In hac habitasse platea dictumst. Sed ultrices justo at metus mollis vitae rhoncus dolor volutpat. Nunc sollicitudin vestibulum leo at volutpat. Vestibulum dolor enim, ornare nec tincidunt sed, consectetur eget dolor. Sed at magna vel ipsum interdum pellentesque. Sed porta, enim congue gravida hendrerit, lorem risus aliquet nulla, et fermentum est est sed orci. Aenean ut eleifend purus.','2011-10-07 14:23:34','2012-01-09 04:50:07','cuff-links','2011-10-07 00:00:00',NULL,NULL,'2012-01-09 04:50:07','cuff links','cuff links, cuff-links, suit, silver, silver cuff links',0,0),
+	(6,'Wool Jacket','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque neque tellus, ornare quis pretium eget, commodo vitae dui. In hac habitasse platea dictumst. Sed ultrices justo at metus mollis vitae rhoncus dolor volutpat. Nunc sollicitudin vestibulum leo at volutpat. Vestibulum dolor enim, ornare nec tincidunt sed, consectetur eget dolor. Sed at magna vel ipsum interdum pellentesque. Sed porta, enim congue gravida hendrerit, lorem risus aliquet nulla, et fermentum est est sed orci. Aenean ut eleifend purus.','2011-10-07 14:25:49','2012-01-09 09:33:31','wool-jacket','2011-10-07 00:00:00',NULL,NULL,'2012-01-09 09:33:31','wool jacket','wool jacket',10,0),
+	(7,'Test Shirt 2','','2011-12-28 16:19:18','2012-01-09 09:33:54','test-shirt-2','2011-12-06 00:00:00',NULL,NULL,'2012-01-09 09:33:53','','',100,0),
+	(8,'CG-LCT001','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.','2012-01-09 04:43:20','2012-01-09 04:45:52','CG-LCT001','2012-01-08 00:00:00',NULL,NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.','tie, gold, accessory, men, business, casual, affordable',100,0),
+	(9,'CG-LCT002','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.','2012-01-09 04:46:46','2012-01-09 04:47:21','cg-lct002','2012-01-08 00:00:00',NULL,NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.','',100,0),
+	(10,'CG-LCT003','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.','2012-01-09 04:48:37','2012-01-09 04:48:55','cg-lct003','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(11,'CG-LCT004','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 05:06:11','2012-01-09 05:06:43','cg-lct004','2012-01-08 00:00:00',NULL,NULL,NULL,'','',0,0),
+	(12,'CG-LCT005','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 05:08:17','2012-01-09 05:09:25','cg-lct005','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(13,'CG-LCT006','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 05:09:55','2012-01-09 05:10:08','cg-lct006','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(14,'CG-LCT007','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 05:12:04','2012-01-09 05:12:21','cg-lct007','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(15,'CG-LCT008','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 05:13:37','2012-01-09 05:13:52','cg-lct008','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(16,'CG-LCT009','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 05:16:21','2012-01-09 05:16:42','cg-lct009','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(17,'CG-LCT010','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 05:18:23','2012-01-09 05:18:39','cg-lct010','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(18,'CG-LCT011','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 05:21:50','2012-01-09 05:22:06','cg-lct011','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(19,'CG-LCT012','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 05:23:15','2012-01-09 05:23:33','CG-LCT012','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(20,'CG-LCT013','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 05:25:46','2012-01-09 05:27:27','CG-LCT013','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(21,'CG-LCT014','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 05:34:48','2012-01-09 05:36:36','CG-LCT014','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(22,'CG-LCT015','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 05:38:42','2012-01-09 05:38:58','CG-LCT015','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(23,'CG-LCT016','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 05:40:46','2012-01-09 05:41:41','CG-LCT016','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(24,'CG-LCT017','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 05:43:24','2012-01-09 05:43:41','CG-LCT017','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(25,'CG-LCT018','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 05:45:30','2012-01-09 05:46:08','CG-LCT018','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(26,'CG-LCT019','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 05:47:37','2012-01-09 05:48:04','CG-LCT019','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(27,'CG-LCT020','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 05:49:18','2012-01-09 05:49:37','CG-LCT020','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(28,'CG-LCT021','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 05:51:05','2012-01-09 05:51:23','CG-LCT021','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(29,'CG-LCT022','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 05:52:51','2012-01-09 05:53:36','CG-LCT022','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(30,'CG-LCT023','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 05:55:16','2012-01-09 05:55:34','CG-LCT023','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(31,'CG-LCT024','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 05:56:46','2012-01-09 05:57:04','CG-LCT024','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(32,'CG-LCT025','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 05:58:45','2012-01-09 05:58:58','CG-LCT025','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(33,'CG-LCT026','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 06:08:25','2012-01-09 06:08:52','CG-LCT026','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(34,'CG-LCSH001','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 06:11:33','2012-01-09 06:11:50','CG-LCSH001','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(35,'CG-LCT027','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 06:15:52','2012-01-09 06:17:50','CG-LCT027','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(36,'CG-LCT028','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 06:19:48','2012-01-09 06:20:18','CG-LCT028','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(37,'CG-LCT029','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 06:26:11','2012-01-09 06:26:34','CG-LCT029','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(38,'CG-LCT030','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 06:28:45','2012-01-09 06:29:02','CG-LCT030','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(39,'CG-LCT032','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 06:30:46','2012-01-09 06:32:45','CG-LCT032','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(40,'CG-LCT031','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 06:31:01','2012-01-09 06:31:22','CG-LCT031','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(41,'CG-LCT033','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 06:34:56','2012-01-09 06:35:31','CG-LCT033','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(42,'CG-LCT034','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 06:37:31','2012-01-09 06:38:10','CG-LCT034','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(43,'CG-LCT035','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 06:39:14','2012-01-09 06:40:04','CG-LCT035','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(44,'CG-LCSH002','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 06:41:34','2012-01-09 06:41:51','CG-LCSH002','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(45,'CG-LCSH003','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 06:43:01','2012-01-09 06:43:38','CG-LCSH003','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(46,'CG-LCSH004','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 06:48:19','2012-01-09 06:48:38','CG-LCSH004','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(47,'CG-LCSH005','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 06:50:47','2012-01-09 06:51:53','CG-LCSH005','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(48,'CG-LCSH006','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 06:52:50','2012-01-09 06:53:07','CG-LCSH006','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(49,'CG-LCSH007','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 06:54:02','2012-01-09 06:54:33','CG-LCSH007','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(50,'CG-LCSH008','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 06:55:34','2012-01-09 06:55:51','CG-LCSH008','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(51,'CG-LCSH009','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 06:56:48','2012-01-09 06:57:04','CG-LCSH009','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(52,'CG-LCSH010','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 06:58:22','2012-01-09 06:58:40','CG-LCSH010','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(53,'CG-LCSH011','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 07:00:02','2012-01-09 07:00:26','CG-LCSH011','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(54,'CG-LCSH012','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 07:02:25','2012-01-09 07:02:47','CG-LCSH012','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(55,'CG-LCSH013','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 07:04:26','2012-01-09 07:04:41','CG-LCSH013','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(56,'CG-LCSH014','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 07:06:09','2012-01-09 07:06:25','CG-LCSH014','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(57,'CG-LCSH015','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 07:08:39','2012-01-09 07:08:55','CG-LCSH015','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(58,'CG-LCSH016','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 07:10:27','2012-01-09 07:10:45','CG-LCSH016','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(59,'CG-LCSH017','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 07:12:08','2012-01-09 07:12:26','CG-LCSH017','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(60,'CG-LCSH018','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 07:14:02','2012-01-09 07:14:30','CG-LCSH018','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(61,'CG-LCSH019','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 07:16:24','2012-01-09 07:16:45','CG-LCSH019','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(62,'CG-LCSH020','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 07:17:45','2012-01-09 07:18:03','CG-LCSH020','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(63,'CG-LCSH021','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 07:19:12','2012-01-09 07:19:32','CG-LCSH021','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(64,'CG-LCSH022','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 07:20:34','2012-01-09 07:21:21','CG-LCSH022','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(65,'CG-LCSH023','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 07:24:10','2012-01-09 07:24:39','CG-LCSH023','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(66,'CG-LCSH024','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 07:32:16','2012-01-09 07:39:10','CG-LCSH024','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(67,'CG-LCSH025','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 07:44:41','2012-01-09 07:45:02','CG-LCSH025','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(68,'CG-LCSH026','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 07:46:07','2012-01-09 07:46:23','CG-LCSH026','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(69,'CG-LCSH027','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 07:47:47','2012-01-09 07:48:27','CG-LCSH027','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(70,'CG-LCSH028','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 07:50:09','2012-01-09 07:50:37','CG-LCSH028','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(71,'CG-LCSH029','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 07:52:02','2012-01-09 07:52:33','CG-LCSH029','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(72,'COPY OF CG-LCT001','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.','2012-01-09 07:54:32','2012-01-09 07:57:46','CG-LCT001-1','2012-01-08 00:00:00',NULL,NULL,'2012-01-09 07:57:46','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.','tie, gold, accessory, men, business, casual, affordable',100,0),
+	(73,'CGLCP001','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.','2012-01-09 07:55:08','2012-01-11 00:29:35','CGLCP001','2012-01-08 00:00:00',NULL,NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.','',100,0),
+	(74,'CGLCP002','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.','2012-01-09 07:58:52','2012-01-09 07:59:12','CGLCP002','2012-01-08 00:00:00',NULL,NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.','',100,0),
+	(75,'CGLCP003','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.','2012-01-09 08:01:39','2012-01-09 08:02:03','CGLCP003','2012-01-08 00:00:00',NULL,NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.','',100,0),
+	(76,'CGLCP004','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.','2012-01-09 08:02:56','2012-01-09 08:03:25','CGLCP004','2012-01-08 00:00:00',NULL,NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.','',100,0),
+	(77,'CGLCP005','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.','2012-01-09 08:04:21','2012-01-09 08:04:37','CGLCP005','2012-01-08 00:00:00',NULL,NULL,NULL,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus nisl vel mi convallis a ullamcorper orci consectetur. Vestibulum ut arcu lectus.','',100,0),
+	(78,'CG-LCSU001','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 08:07:54','2012-01-09 08:08:29','CG-LCSU001','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(79,'CG-LCSU002','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 08:10:24','2012-01-09 08:10:55','CG-LCSU002','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(80,'CG-LCSU003','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 08:12:28','2012-01-09 08:12:51','CG-LCSU003','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(81,'CG-LCSU004','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 08:14:19','2012-01-09 08:14:39','CG-LCSU004','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(82,'CG-LCSU005','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 08:16:11','2012-01-09 08:16:31','CG-LCSU005','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(83,'CG-LCSU006','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 08:17:23','2012-01-09 08:17:49','CG-LCSU006','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(84,'COPY OF CG-LCSU006','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 08:20:31','2012-01-09 09:00:28','CG-LCSU006-1','2012-01-08 00:00:00',NULL,NULL,'2012-01-09 09:00:28','','',100,0),
+	(85,'CG-LCSU007','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 08:21:38','2012-01-09 08:21:58','CG-LCSU007','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(86,'CG-LCSU008','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 08:22:54','2012-01-09 08:23:12','CG-LCSU008','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(87,'COPY OF CG-LCSU008','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 08:24:33','2012-01-09 09:00:32','CG-LCSU008-1','2012-01-08 00:00:00',NULL,NULL,'2012-01-09 09:00:32','','',100,0),
+	(88,'CG-LCSU009','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 08:25:41','2012-01-09 08:25:58','CG-LCSU009','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(89,'CG-LCSU010','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 08:28:23','2012-01-09 08:28:40','CG-LCSU010','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(90,'COPY OF CG-LCSU010','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 08:33:11','2012-01-09 09:00:36','CG-LCSU010-1','2012-01-08 00:00:00',NULL,NULL,'2012-01-09 09:00:36','','',100,0),
+	(91,'CG-LCSU011','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 08:34:16','2012-01-09 08:34:37','CG-LCSU011','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(92,'COPY OF CG-LCSU011','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 08:52:28','2012-01-09 09:00:42','CG-LCSU011-1','2012-01-08 00:00:00',NULL,NULL,'2012-01-09 09:00:42','','',100,0),
+	(93,'CG-LCSU012','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 08:52:39','2012-01-09 08:53:01','CG-LCSU012','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(94,'CGLCTC001','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 08:55:42','2012-01-09 08:57:00','CGLCTC001','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(95,'CGLCTC002','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 09:00:50','2012-01-09 09:01:05','CGLCTC002','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(96,'CGLCTC003','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 09:02:28','2012-01-09 09:02:42','CGLCTC003','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(97,'CGLCTC004','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 09:03:42','2012-01-09 09:03:59','CGLCTC004','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(98,'CGLCSP001','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 09:07:04','2012-01-09 09:07:19','CGLCSP001','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(99,'CGLCSP002','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 09:10:44','2012-01-09 09:11:12','CGLCSP002','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(100,'CGLCSP003','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 09:12:15','2012-01-09 09:12:37','CGLCSP003','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0),
+	(101,'CGLCSP004','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at convallis lectus. Aliquam erat volutpat. Vivamus sapien velit, condimentum id lobortis dictum, adipiscing aliquet nibh. Aenean ultrices lacinia lorem, et varius libero semper commodo. Vestibulum viverra dolor volutpat velit consequat et dictum eros eleifend. Maecenas quis blandit est. Duis at.','2012-01-09 09:13:44','2012-01-09 09:14:01','CGLCSP004','2012-01-08 00:00:00',NULL,NULL,NULL,'','',100,0);
+
+/*!40000 ALTER TABLE `products` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table products_promotion_rules
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `products_promotion_rules`;
+
+CREATE TABLE `products_promotion_rules` (
+  `product_id` int(11) DEFAULT NULL,
+  `promotion_rule_id` int(11) DEFAULT NULL,
+  KEY `index_products_promotion_rules_on_product_id` (`product_id`),
+  KEY `index_products_promotion_rules_on_promotion_rule_id` (`promotion_rule_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table products_taxons
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `products_taxons`;
+
+CREATE TABLE `products_taxons` (
+  `product_id` int(11) DEFAULT NULL,
+  `taxon_id` int(11) DEFAULT NULL,
+  KEY `index_products_taxons_on_product_id` (`product_id`),
+  KEY `index_products_taxons_on_taxon_id` (`taxon_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `products_taxons` WRITE;
+/*!40000 ALTER TABLE `products_taxons` DISABLE KEYS */;
+INSERT INTO `products_taxons` (`product_id`,`taxon_id`)
+VALUES
+	(1,1),
+	(2,2),
+	(3,4),
+	(4,5),
+	(4,4),
+	(5,5),
+	(6,3),
+	(7,1),
+	(8,5),
+	(9,5),
+	(10,5),
+	(11,5),
+	(12,5),
+	(13,5),
+	(14,5),
+	(15,5),
+	(16,5),
+	(17,5),
+	(18,5),
+	(19,5),
+	(20,5),
+	(21,5),
+	(22,5),
+	(23,5),
+	(24,5),
+	(25,5),
+	(26,5),
+	(27,5),
+	(28,5),
+	(29,5),
+	(30,5),
+	(31,5),
+	(32,5),
+	(33,5),
+	(34,1),
+	(35,5),
+	(36,5),
+	(37,5),
+	(38,5),
+	(39,5),
+	(40,5),
+	(41,5),
+	(42,5),
+	(43,5),
+	(44,1),
+	(45,1),
+	(46,1),
+	(47,1),
+	(48,1),
+	(49,1),
+	(50,1),
+	(51,1),
+	(52,1),
+	(53,1),
+	(54,1),
+	(55,1),
+	(56,1),
+	(57,1),
+	(58,1),
+	(59,1),
+	(60,1),
+	(61,1),
+	(62,1),
+	(63,1),
+	(64,1),
+	(65,1),
+	(66,1),
+	(67,1),
+	(68,1),
+	(69,1),
+	(70,1),
+	(71,1),
+	(72,5),
+	(73,1),
+	(74,1),
+	(75,1),
+	(76,1),
+	(77,1),
+	(78,4),
+	(79,4),
+	(80,4),
+	(81,4),
+	(82,4),
+	(83,4),
+	(84,4),
+	(85,4),
+	(86,4),
+	(87,4),
+	(88,4),
+	(89,4),
+	(90,4),
+	(91,4),
+	(92,4),
+	(93,4),
+	(94,5),
+	(95,5),
+	(96,5),
+	(97,5),
+	(98,5),
+	(99,5),
+	(100,5),
+	(101,5);
+
+/*!40000 ALTER TABLE `products_taxons` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table promotion_rules
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `promotion_rules`;
+
+CREATE TABLE `promotion_rules` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `promotion_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `product_group_id` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_promotion_rules_on_product_group_id` (`product_group_id`),
+  KEY `index_promotion_rules_on_user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table promotion_rules_users
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `promotion_rules_users`;
+
+CREATE TABLE `promotion_rules_users` (
+  `user_id` int(11) DEFAULT NULL,
+  `promotion_rule_id` int(11) DEFAULT NULL,
+  KEY `index_promotion_rules_users_on_user_id` (`user_id`),
+  KEY `index_promotion_rules_users_on_promotion_rule_id` (`promotion_rule_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table promotions
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `promotions`;
+
+CREATE TABLE `promotions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `code` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `usage_limit` int(11) DEFAULT NULL,
+  `combine` tinyint(1) DEFAULT NULL,
+  `expires_at` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `starts_at` datetime DEFAULT NULL,
+  `match_policy` varchar(255) DEFAULT 'all',
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table properties
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `properties`;
+
+CREATE TABLE `properties` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `presentation` varchar(255) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table properties_prototypes
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `properties_prototypes`;
+
+CREATE TABLE `properties_prototypes` (
+  `prototype_id` int(11) DEFAULT NULL,
+  `property_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table prototypes
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `prototypes`;
+
+CREATE TABLE `prototypes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table relation_types
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `relation_types`;
+
+CREATE TABLE `relation_types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `description` text,
+  `applies_to` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table relations
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `relations`;
+
+CREATE TABLE `relations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `relation_type_id` int(11) DEFAULT NULL,
+  `relatable_id` int(11) DEFAULT NULL,
+  `relatable_type` varchar(255) DEFAULT NULL,
+  `related_to_id` int(11) DEFAULT NULL,
+  `related_to_type` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `discount_amount` decimal(8,2) DEFAULT '0.00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table return_authorizations
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `return_authorizations`;
+
+CREATE TABLE `return_authorizations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `number` varchar(255) DEFAULT NULL,
+  `amount` decimal(8,2) NOT NULL DEFAULT '0.00',
+  `order_id` int(11) DEFAULT NULL,
+  `reason` text,
+  `state` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table roles
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `roles`;
+
+CREATE TABLE `roles` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `roles` WRITE;
+/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` (`id`,`name`)
+VALUES
+	(1,'admin'),
+	(2,'user');
+
+/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table roles_users
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `roles_users`;
+
+CREATE TABLE `roles_users` (
+  `role_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  KEY `index_roles_users_on_role_id` (`role_id`),
+  KEY `index_roles_users_on_user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `roles_users` WRITE;
+/*!40000 ALTER TABLE `roles_users` DISABLE KEYS */;
+INSERT INTO `roles_users` (`role_id`,`user_id`)
+VALUES
+	(1,1),
+	(1,1),
+	(1,2),
+	(1,3),
+	(1,4),
+	(1,5),
+	(1,5),
+	(1,6),
+	(1,8),
+	(1,7),
+	(1,13);
+
+/*!40000 ALTER TABLE `roles_users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table schema_migrations
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `schema_migrations`;
+
+CREATE TABLE `schema_migrations` (
+  `version` varchar(255) NOT NULL,
+  UNIQUE KEY `unique_schema_migrations` (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `schema_migrations` WRITE;
+/*!40000 ALTER TABLE `schema_migrations` DISABLE KEYS */;
+INSERT INTO `schema_migrations` (`version`)
+VALUES
+	('20090823005402'),
+	('20090904192342'),
+	('20090923100315'),
+	('20091007134354'),
+	('20091008091614'),
+	('20091012120519'),
+	('20091015110842'),
+	('20091015153048'),
+	('20091016174634'),
+	('20091017175558'),
+	('20091021133257'),
+	('20091104151730'),
+	('20091126190904'),
+	('20091209153045'),
+	('20091209202200'),
+	('20091211203813'),
+	('20091212161118'),
+	('20091213222815'),
+	('20091214183826'),
+	('20100105090147'),
+	('20100105132138'),
+	('20100107141738'),
+	('20100111205525'),
+	('20100112151511'),
+	('20100113090919'),
+	('20100113203104'),
+	('20100121160010'),
+	('20100121183934'),
+	('20100125145351'),
+	('20100126103714'),
+	('20100209025806'),
+	('20100209144531'),
+	('20100213103131'),
+	('20100214212536'),
+	('20100223170312'),
+	('20100223183812'),
+	('20100224153127'),
+	('20100301163454'),
+	('20100306153445'),
+	('20100308090631'),
+	('20100308092101'),
+	('20100317120946'),
+	('20100324123835'),
+	('20100419190933'),
+	('20100419194457'),
+	('20100426100726'),
+	('20100427121301'),
+	('20100501084722'),
+	('20100501095202'),
+	('20100502163939'),
+	('20100504142133'),
+	('20100506180619'),
+	('20100506185838'),
+	('20100528155333'),
+	('20100528185820'),
+	('20100605152042'),
+	('20100624110730'),
+	('20100624123336'),
+	('20100624175547'),
+	('20100811163637'),
+	('20100811205836'),
+	('20100812162326'),
+	('20100813023502'),
+	('20100813185745'),
+	('20100816212146'),
+	('20100817152723'),
+	('20100819170125'),
+	('20100820135707'),
+	('20100901171814'),
+	('20100903203949'),
+	('20100923095305'),
+	('20100923162011'),
+	('20100929151905'),
+	('20101008190536'),
+	('20101026184700'),
+	('20101026184714'),
+	('20101026184746'),
+	('20101026184808'),
+	('20101026184833'),
+	('20101026184855'),
+	('20101026184916'),
+	('20101026184932'),
+	('20101026184950'),
+	('20101026184959'),
+	('20101026185022'),
+	('20101026192225'),
+	('20101028151745'),
+	('20101103212716'),
+	('20101111133551'),
+	('20101117031806'),
+	('20101214150824'),
+	('20101217012656'),
+	('20101219201531'),
+	('20101223215658'),
+	('20110110130847'),
+	('20110111122537'),
+	('20110219124511'),
+	('20110222140303'),
+	('20110224163222'),
+	('20110314192118'),
+	('20111020173556'),
+	('20111206163838'),
+	('20111211232541');
+
+/*!40000 ALTER TABLE `schema_migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table shipments
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `shipments`;
+
+CREATE TABLE `shipments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_id` int(11) DEFAULT NULL,
+  `shipping_method_id` int(11) DEFAULT NULL,
+  `tracking` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `number` varchar(255) DEFAULT NULL,
+  `cost` decimal(8,2) DEFAULT NULL,
+  `shipped_at` datetime DEFAULT NULL,
+  `address_id` int(11) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_shipments_on_number` (`number`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table shipping_categories
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `shipping_categories`;
+
+CREATE TABLE `shipping_categories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table shipping_methods
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `shipping_methods`;
+
+CREATE TABLE `shipping_methods` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `zone_id` int(11) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `display_on` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table state_events
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `state_events`;
+
+CREATE TABLE `state_events` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `stateful_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `previous_state` varchar(255) DEFAULT NULL,
+  `stateful_type` varchar(255) DEFAULT NULL,
+  `next_state` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table states
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `states`;
+
+CREATE TABLE `states` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `abbr` varchar(255) DEFAULT NULL,
+  `country_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1061493586 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `states` WRITE;
+/*!40000 ALTER TABLE `states` DISABLE KEYS */;
+INSERT INTO `states` (`id`,`name`,`abbr`,`country_id`)
+VALUES
+	(6764998,'District of Columbia','DC',214),
+	(17199670,'Utah','UT',214),
+	(37199952,'Louisiana','LA',214),
+	(41111624,'Virginia','VA',214),
+	(51943165,'North Dakota','ND',214),
+	(66390489,'Wyoming','WY',214),
+	(69729944,'New Mexico','NM',214),
+	(69870734,'Connecticut','CT',214),
+	(91367981,'West Virginia','WV',214),
+	(103680699,'Wisconsin','WI',214),
+	(177087202,'North Carolina','NC',214),
+	(179539703,'Nevada','NV',214),
+	(199950338,'Hawaii','HI',214),
+	(248548169,'Oklahoma','OK',214),
+	(267271847,'Florida','FL',214),
+	(276110813,'California','CA',214),
+	(298914262,'Oregon','OR',214),
+	(308473843,'Kentucky','KY',214),
+	(385551075,'Massachusetts','MA',214),
+	(403740659,'Alaska','AK',214),
+	(414569975,'Washington','WA',214),
+	(426832442,'New Hampshire','NH',214),
+	(471470972,'Arkansas','AR',214),
+	(471711976,'Pennsylvania','PA',214),
+	(474001862,'Rhode Island','RI',214),
+	(480368357,'Maryland','MD',214),
+	(485193526,'Ohio','OH',214),
+	(525212995,'Texas','TX',214),
+	(532363768,'Mississippi','MS',214),
+	(536031023,'Colorado','CO',214),
+	(597434151,'South Carolina','SC',214),
+	(615306087,'South Dakota','SD',214),
+	(625629523,'Illinois','IL',214),
+	(653576146,'Missouri','MO',214),
+	(673350891,'Nebraska','NE',214),
+	(721598219,'Delaware','DE',214),
+	(726305632,'Tennessee','TN',214),
+	(750950030,'New Jersey','NJ',214),
+	(769938586,'Indiana','IN',214),
+	(825306985,'Iowa','IA',214),
+	(876916760,'Georgia','GA',214),
+	(889445952,'New York','NY',214),
+	(931624400,'Michigan','MI',214),
+	(948208802,'Arizona','AZ',214),
+	(969722173,'Kansas','KS',214),
+	(982433740,'Idaho','ID',214),
+	(989115415,'Vermont','VT',214),
+	(999156632,'Montana','MT',214),
+	(1032288924,'Minnesota','MN',214),
+	(1055056709,'Maine','ME',214),
+	(1061493585,'Alabama','AL',214);
+
+/*!40000 ALTER TABLE `states` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table tax_categories
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `tax_categories`;
+
+CREATE TABLE `tax_categories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `is_default` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table tax_rates
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `tax_rates`;
+
+CREATE TABLE `tax_rates` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `zone_id` int(11) DEFAULT NULL,
+  `amount` decimal(8,4) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `tax_category_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table taxonomies
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `taxonomies`;
+
+CREATE TABLE `taxonomies` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `taxonomies` WRITE;
+/*!40000 ALTER TABLE `taxonomies` DISABLE KEYS */;
+INSERT INTO `taxonomies` (`id`,`name`,`created_at`,`updated_at`)
+VALUES
+	(1,'Shirts','2011-10-07 14:12:13','2011-10-07 14:12:13'),
+	(2,'Pants & Shorts','2011-10-07 14:13:17','2011-10-07 14:13:17'),
+	(3,'Sweaters & Outerwear','2011-10-07 14:13:35','2011-10-07 14:13:35'),
+	(4,'Suiting','2011-10-07 14:13:45','2011-10-07 14:13:45'),
+	(5,'Accessories ','2011-10-07 14:13:56','2011-10-07 14:13:56');
+
+/*!40000 ALTER TABLE `taxonomies` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table taxons
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `taxons`;
+
+CREATE TABLE `taxons` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `taxonomy_id` int(11) NOT NULL,
+  `parent_id` int(11) DEFAULT NULL,
+  `position` int(11) DEFAULT '0',
+  `name` varchar(255) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `permalink` varchar(255) DEFAULT NULL,
+  `lft` int(11) DEFAULT NULL,
+  `rgt` int(11) DEFAULT NULL,
+  `icon_file_name` varchar(255) DEFAULT NULL,
+  `icon_content_type` varchar(255) DEFAULT NULL,
+  `icon_file_size` int(11) DEFAULT NULL,
+  `icon_updated_at` datetime DEFAULT NULL,
+  `description` text,
+  PRIMARY KEY (`id`),
+  KEY `index_taxons_on_permalink` (`permalink`),
+  KEY `index_taxons_on_parent_id` (`parent_id`),
+  KEY `index_taxons_on_taxonomy_id` (`taxonomy_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `taxons` WRITE;
+/*!40000 ALTER TABLE `taxons` DISABLE KEYS */;
+INSERT INTO `taxons` (`id`,`taxonomy_id`,`parent_id`,`position`,`name`,`created_at`,`updated_at`,`permalink`,`lft`,`rgt`,`icon_file_name`,`icon_content_type`,`icon_file_size`,`icon_updated_at`,`description`)
+VALUES
+	(1,1,NULL,0,'Shirts','2011-10-07 14:12:14','2011-10-07 14:12:14','shirts',1,2,NULL,NULL,NULL,NULL,NULL),
+	(2,2,NULL,0,'Pants & Shorts','2011-10-07 14:13:17','2011-10-07 14:13:17','pants-and-shorts',3,4,NULL,NULL,NULL,NULL,NULL),
+	(3,3,NULL,0,'Sweaters & Outerwear','2011-10-07 14:13:35','2011-10-07 14:13:35','sweaters-and-outerwear',5,6,NULL,NULL,NULL,NULL,NULL),
+	(4,4,NULL,0,'Suiting','2011-10-07 14:13:45','2011-10-07 14:13:45','suiting',7,8,NULL,NULL,NULL,NULL,NULL),
+	(5,5,NULL,0,'Accessories ','2011-10-07 14:13:56','2011-10-07 14:13:56','accessories',9,10,NULL,NULL,NULL,NULL,NULL);
+
+/*!40000 ALTER TABLE `taxons` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table tokenized_permissions
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `tokenized_permissions`;
+
+CREATE TABLE `tokenized_permissions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `permissable_id` int(11) DEFAULT NULL,
+  `permissable_type` varchar(255) DEFAULT NULL,
+  `token` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_tokenized_name_and_type` (`permissable_id`,`permissable_type`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `tokenized_permissions` WRITE;
+/*!40000 ALTER TABLE `tokenized_permissions` DISABLE KEYS */;
+INSERT INTO `tokenized_permissions` (`id`,`permissable_id`,`permissable_type`,`token`,`created_at`,`updated_at`)
+VALUES
+	(1,1,'Order','e1d29b85fc042ab6','2011-10-07 14:18:36','2011-10-07 14:18:36'),
+	(2,2,'Order','981d7412ad248a60','2011-10-17 13:22:45','2011-10-17 13:22:45'),
+	(3,3,'Order','b4c3ddace0d011dd','2011-10-18 14:34:34','2011-10-18 14:34:34'),
+	(4,4,'Order','fdbe68e0c000c79b','2011-12-14 23:25:41','2011-12-14 23:25:41'),
+	(5,5,'Order','e1cf88b4bf339834','2011-12-22 05:59:17','2011-12-22 05:59:17'),
+	(6,6,'Order','b72fe0c40a06664f','2011-12-28 16:14:37','2011-12-28 16:14:37'),
+	(7,7,'Order','a75205d65372695f','2012-01-05 07:09:03','2012-01-05 07:09:03'),
+	(8,8,'Order','b06202f3a08d4354','2012-01-09 23:36:34','2012-01-09 23:36:34'),
+	(9,9,'Order','977ce5333175d192','2012-01-10 20:21:44','2012-01-10 20:21:44'),
+	(10,10,'Order','b00a919d48d6f355','2012-01-11 09:37:27','2012-01-11 09:37:27'),
+	(11,11,'Order','8c5fda45ffb292b7','2012-01-11 10:49:42','2012-01-11 10:49:42');
+
+/*!40000 ALTER TABLE `tokenized_permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table trackers
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `trackers`;
+
+CREATE TABLE `trackers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `environment` varchar(255) DEFAULT NULL,
+  `analytics_id` varchar(255) DEFAULT NULL,
+  `active` tinyint(1) DEFAULT '1',
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Dump of table users
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `users`;
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) DEFAULT NULL,
+  `encrypted_password` varchar(255) DEFAULT NULL,
+  `password_salt` varchar(255) DEFAULT NULL,
+  `remember_token` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `persistence_token` varchar(255) DEFAULT NULL,
+  `reset_password_token` varchar(255) DEFAULT NULL,
+  `perishable_token` varchar(255) DEFAULT NULL,
+  `sign_in_count` int(11) NOT NULL DEFAULT '0',
+  `failed_attempts` int(11) NOT NULL DEFAULT '0',
+  `last_request_at` datetime DEFAULT NULL,
+  `current_sign_in_at` datetime DEFAULT NULL,
+  `last_sign_in_at` datetime DEFAULT NULL,
+  `current_sign_in_ip` varchar(255) DEFAULT NULL,
+  `last_sign_in_ip` varchar(255) DEFAULT NULL,
+  `login` varchar(255) DEFAULT NULL,
+  `ship_address_id` int(11) DEFAULT NULL,
+  `bill_address_id` int(11) DEFAULT NULL,
+  `authentication_token` varchar(255) DEFAULT NULL,
+  `unlock_token` varchar(255) DEFAULT NULL,
+  `locked_at` datetime DEFAULT NULL,
+  `remember_created_at` datetime DEFAULT NULL,
+  `neck_inches` float DEFAULT NULL,
+  `chest_inches` float DEFAULT NULL,
+  `back_inches` float DEFAULT NULL,
+  `shoulder_inches` float DEFAULT NULL,
+  `right_sleeve_inches` float DEFAULT NULL,
+  `left_sleeve_inches` float DEFAULT NULL,
+  `stomach_inches` float DEFAULT NULL,
+  `bicep_inches` float DEFAULT NULL,
+  `wrist_inches` float DEFAULT NULL,
+  `waist_inches` float DEFAULT NULL,
+  `hip_inches` float DEFAULT NULL,
+  `belt_inches` float DEFAULT NULL,
+  `inseam_inches` float DEFAULT NULL,
+  `outseam_inches` float DEFAULT NULL,
+  `crotch_inches` float DEFAULT NULL,
+  `thigh_inches` float DEFAULT NULL,
+  `knee_inches` float DEFAULT NULL,
+  `ankle_inches` float DEFAULT NULL,
+  `height_inches` float DEFAULT NULL,
+  `weight_pounds` int(11) DEFAULT NULL,
+  `jean_size` varchar(255) DEFAULT NULL,
+  `shoe_size` float DEFAULT NULL,
+  `watch_hand` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_users_on_persistence_token` (`persistence_token`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` (`id`,`email`,`encrypted_password`,`password_salt`,`remember_token`,`created_at`,`updated_at`,`persistence_token`,`reset_password_token`,`perishable_token`,`sign_in_count`,`failed_attempts`,`last_request_at`,`current_sign_in_at`,`last_sign_in_at`,`current_sign_in_ip`,`last_sign_in_ip`,`login`,`ship_address_id`,`bill_address_id`,`authentication_token`,`unlock_token`,`locked_at`,`remember_created_at`,`neck_inches`,`chest_inches`,`back_inches`,`shoulder_inches`,`right_sleeve_inches`,`left_sleeve_inches`,`stomach_inches`,`bicep_inches`,`wrist_inches`,`waist_inches`,`hip_inches`,`belt_inches`,`inseam_inches`,`outseam_inches`,`crotch_inches`,`thigh_inches`,`knee_inches`,`ankle_inches`,`height_inches`,`weight_pounds`,`jean_size`,`shoe_size`,`watch_hand`)
+VALUES
+	(5,'admin@combatgent.com','683f1220273c219813437b524b3d51ac76ab4fc35948b359d770b9e69a53f8fb711755677a58978e48512227a58140fa09194aa996458117d691816a1bf4a227','pByM70RMWfzIsypIlHrz','L1m1hC2RyWHUoa86vwOk','2011-10-07 14:38:30','2011-12-28 16:16:22',NULL,NULL,NULL,4,0,NULL,'2011-12-28 16:16:22','2011-10-18 14:34:27','127.0.0.1','70.91.122.97','admin@combatgent.com',NULL,NULL,NULL,NULL,NULL,'2011-10-07 14:38:45',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+	(6,'saragibby@gmail.com','cfa25059b58145c7ac102a500f9feec1b0b65692280e348041106ef8dac90d74c8bc350aa9656b8934f74a94ad8902016d744a49b2541ad520cf75f816653354','WkJjIQwJV0UHFK0BRuA0',NULL,'2011-10-07 15:31:07','2011-10-07 15:31:07',NULL,NULL,NULL,0,0,NULL,NULL,NULL,NULL,NULL,'saragibby@gmail.com',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+	(7,'nate@workwithgrid.com','d7e54a435b781b7e9b53e6daa3ae36fb5e16906a1e207fe304515b89c5377c2eba19fca19f3d991398b3f2c0c4b3420fc81e43e60e4993872f4050f303faf305','9nkz1DwvN23rJ8lDV2yR',NULL,'2011-10-07 15:31:45','2012-01-11 10:48:03',NULL,NULL,NULL,10,0,NULL,'2012-01-11 10:48:03','2012-01-11 10:43:42','127.0.0.1','127.0.0.1','nate@workwithgrid.com',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,3,28,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'',NULL,''),
+	(8,'aaron@sazboom.com','97802de6f642b8d537c02d74746d6312c640cf3a098f691e1b9fed708b438a545ad1023ddd0e00ab9d1c04adbb610c854217fd706c8b7629a797e7d07c00fd89','AvpIqCeflCMIzIprhxTx',NULL,'2011-10-07 15:32:45','2011-10-07 15:32:45',NULL,NULL,NULL,0,0,NULL,NULL,NULL,NULL,NULL,'aaron@sazboom.com',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+	(9,'G-9I2TC5obBTqtvSco7h@example.net','c3497ceec84764eff7442642af2a28ff1f1bcd954ac9f3b536c67cbcd840c57e3aaa8e40e3d76943aa9b3dd686b22a6e75cb212a5a69f5b69f89f0c2e24f17ea','jqtzRjU87q4gs1PmpJDc',NULL,'2011-12-14 23:25:40','2011-12-14 23:25:40','G-9I2TC5obBTqtvSco7h',NULL,NULL,0,0,NULL,NULL,NULL,NULL,NULL,'G-9I2TC5obBTqtvSco7h@example.net',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+	(10,'nate.luzod@mac.com','523d1cf5116941646209a25865298c8f98e515f31e416b542246df314526a05e38325056b0152e049a9c776ee7c5ecc44c116ddcd3be7e85939194d66c67b656','dL7cwFky8qdusTc5UwXC',NULL,'2011-12-22 02:52:20','2011-12-22 02:52:20',NULL,NULL,NULL,0,0,NULL,NULL,NULL,NULL,NULL,'nate.luzod@mac.com',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+	(11,'PLb-lUoPbTejQ0L1M6g9@example.net','bf42b4d0dbfe96d4e210421968dd1173426d85d1e5eac486438d5e1334e530576cf0e3e31d164cf675be86c6c0d3cbcba270cb3d3f0cec1003020f22b967c4bc','zQ6sUo7qbAwypXNzeBCy',NULL,'2011-12-22 05:59:17','2011-12-22 05:59:17','PLb-lUoPbTejQ0L1M6g9',NULL,NULL,0,0,NULL,NULL,NULL,NULL,NULL,'PLb-lUoPbTejQ0L1M6g9@example.net',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+	(12,'T7EgJi21chc19T3JALg7@example.net','786726982eca4525fa11295919265afea4099392e55d412f9da05d6d3b463a34a2af0a8478b6af20a3ab29c8868aa736a1a878401a6c322d26fb1f87019873ee','qiAeNhhuJPaLuQqdX43h',NULL,'2011-12-28 16:14:37','2011-12-28 16:14:37','T7EgJi21chc19T3JALg7',NULL,NULL,0,0,NULL,NULL,NULL,NULL,NULL,'T7EgJi21chc19T3JALg7@example.net',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+	(13,'mae@workwithgrid.com','9891ced74603b3bca8dad2c0ce0ac038a2b1b7fd2c637ffc0aded52c01348ac306c0ec9437eeb00abf916e957292e2612fb23d89e67b3cf10ccff83b7df02c0f','tAzEamTvG5gFZZ3BmRef',NULL,'2012-01-08 22:39:40','2012-01-11 08:43:40',NULL,NULL,NULL,7,0,NULL,'2012-01-11 08:43:39','2012-01-11 03:59:23','192.168.100.105','192.168.100.105','mae@workwithgrid.com',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),
+	(14,'7l2Vg_Kd-MfYLBR12XPA@example.net','87dce8f2eba60a3bea9f22bce47483f44c85abe213b475d6fdb5fc1c0729b839ecb50d0549aa22f99ec4c7468aece676f2d9e4aea35e5da0d9a51524105c1f79','n1MgcL5NpGRoCeiZLupF',NULL,'2012-01-10 20:21:44','2012-01-10 20:21:44','7l2Vg_Kd-MfYLBR12XPA',NULL,NULL,0,0,NULL,NULL,NULL,NULL,NULL,'7l2Vg_Kd-MfYLBR12XPA@example.net',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table variants
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `variants`;
+
+CREATE TABLE `variants` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) DEFAULT NULL,
+  `sku` varchar(255) NOT NULL DEFAULT '',
+  `price` decimal(8,2) NOT NULL,
+  `weight` decimal(8,2) DEFAULT NULL,
+  `height` decimal(8,2) DEFAULT NULL,
+  `width` decimal(8,2) DEFAULT NULL,
+  `depth` decimal(8,2) DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `is_master` tinyint(1) DEFAULT '0',
+  `count_on_hand` int(11) NOT NULL DEFAULT '0',
+  `cost_price` decimal(8,2) DEFAULT NULL,
+  `position` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_variants_on_product_id` (`product_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `variants` WRITE;
+/*!40000 ALTER TABLE `variants` DISABLE KEYS */;
+INSERT INTO `variants` (`id`,`product_id`,`sku`,`price`,`weight`,`height`,`width`,`depth`,`deleted_at`,`is_master`,`count_on_hand`,`cost_price`,`position`)
+VALUES
+	(1,1,'',29.99,NULL,NULL,NULL,NULL,NULL,1,10,NULL,NULL),
+	(2,2,'',34.99,NULL,NULL,NULL,NULL,NULL,1,10,NULL,NULL),
+	(3,3,'',149.99,NULL,NULL,NULL,NULL,NULL,1,10,100.00,NULL),
+	(4,4,'',24.99,NULL,NULL,NULL,NULL,NULL,1,0,NULL,NULL),
+	(5,5,'',39.99,NULL,NULL,NULL,NULL,NULL,1,0,NULL,NULL),
+	(6,6,'',79.99,NULL,NULL,NULL,NULL,NULL,1,10,NULL,NULL),
+	(7,7,'0192029',10.00,NULL,NULL,NULL,NULL,NULL,1,100,100.00,NULL),
+	(8,8,'CG-LCT001',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(9,9,'CG-LCT002',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(10,10,'CG-LCT003',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(11,11,'CG-LCT004',10.00,NULL,NULL,NULL,NULL,NULL,1,0,NULL,NULL),
+	(12,12,'CG-LCT005',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(13,13,'CG-LCT006',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(14,14,'CG-LCT007',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(15,15,'CG-LCT008',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(16,16,'CG-LCT009',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(17,17,'CG-LCT010',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(18,18,'CG-LCT011',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(19,19,'CG-LCT012',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(20,20,'CG-LCT013',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(21,21,'CG-LCT014',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(22,22,'CG-LCT015',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(23,23,'CG-LCT016',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(24,24,'CG-LCT017',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(25,25,'CG-LCT018',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(26,26,'CG-LCT019',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(27,27,'CG-LCT020',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(28,28,'CG-LCT021',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(29,29,'CG-LCT022',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(30,30,'CG-LCT023',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(31,31,'CG-LCT024',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(32,32,'CG-LCT025',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(33,33,'CG-LCT026',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(34,34,'CG-LCSH001',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(35,35,'CG-LCT027',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(36,36,'CG-LCT028',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(37,37,'CG-LCT029',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(38,38,'CG-LCT030',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(39,39,'CG-LCT032',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(40,40,'CG-LCT031',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(41,41,'CG-LCT033',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(42,42,'CG-LCT034',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(43,43,'CG-LCT035',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(44,44,'CG-LCSH002',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(45,45,'CG-LCSH003',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(46,46,'CG-LCSH004',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(47,47,'CG-LCSH005',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(48,48,'CG-LCSH006',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(49,49,'CG-LCSH007',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(50,50,'CG-LCSH008',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(51,51,'CG-LCSH009',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(52,52,'CG-LCSH010',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(53,53,'CG-LCSH011',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(54,54,'CG-LCSH012',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(55,55,'CG-LCSH013',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(56,56,'CG-LCSH014',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(57,57,'CG-LCSH015',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(58,58,'CG-LCSH016',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(59,59,'CG-LCSH017',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(60,60,'CG-LCSH018',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(61,61,'CG-LCSH019',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(62,62,'CG-LCSH020',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(63,63,'CG-LCSH021',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(64,64,'CG-LCSH022',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(65,65,'CG-LCSH023',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(66,66,'CG-LCSH024',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(67,67,'CG-LCSH025',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(68,68,'CG-LCSH026',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(69,69,'CG-LCSH027',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(70,70,'CG-LCSH028',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(71,71,'CG-LCSH029',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(72,72,'COPY OF CG-LCT001',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(73,73,'CGLCP001',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(74,74,'CGLCP002',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(75,75,'CGLCP003',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(76,76,'CGLCP004',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(77,77,'CGLCP005',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(78,78,'CG-LCSU001',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(79,79,'CG-LCSU002',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(80,80,'CG-LCSU003',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(81,81,'CG-LCSU004',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(82,82,'CG-LCSU005',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(83,83,'CG-LCSU006',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(84,84,'COPY OF CG-LCSU006',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(85,85,'CG-LCSU007',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(86,86,'CG-LCSU008',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(87,87,'COPY OF CG-LCSU008',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(88,88,'CG-LCSU009',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(89,89,'CG-LCSU010',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(90,90,'COPY OF CG-LCSU010',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(91,91,'CG-LCSU011',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(92,92,'COPY OF CG-LCSU011',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(93,93,'CG-LCSU012',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(94,94,'CGLCTC001',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(95,95,'CGLCTC002',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(96,96,'CGLCTC003',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(97,97,'CGLCTC004',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(98,98,'CGLCSP001',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(99,99,'CGLCSP002',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(100,100,'CGLCSP003',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(101,101,'CGLCSP004',10.00,NULL,NULL,NULL,NULL,NULL,1,100,NULL,NULL),
+	(102,73,'CGLCP001',10.00,NULL,NULL,NULL,NULL,NULL,0,0,NULL,NULL),
+	(103,73,'CGLCP001',10.00,NULL,NULL,NULL,NULL,NULL,0,0,NULL,NULL),
+	(104,73,'CGLCP001',10.00,NULL,NULL,NULL,NULL,NULL,0,0,NULL,NULL);
+
+/*!40000 ALTER TABLE `variants` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table zone_members
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `zone_members`;
+
+CREATE TABLE `zone_members` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `zone_id` int(11) DEFAULT NULL,
+  `zoneable_id` int(11) DEFAULT NULL,
+  `zoneable_type` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1017582645 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `zone_members` WRITE;
+/*!40000 ALTER TABLE `zone_members` DISABLE KEYS */;
+INSERT INTO `zone_members` (`id`,`zone_id`,`zoneable_id`,`zoneable_type`,`created_at`,`updated_at`)
+VALUES
+	(4914820,1,13,'Country','2009-06-04 13:22:26','2009-06-04 13:22:26'),
+	(5807739,1,96,'Country','2009-06-04 13:22:26','2009-06-04 13:22:26'),
+	(35022990,1,188,'Country','2009-06-04 13:22:26','2009-06-04 13:22:26'),
+	(91991191,1,163,'Country','2009-06-04 13:22:26','2009-06-04 13:22:26'),
+	(120011419,1,52,'Country','2009-06-04 13:22:26','2009-06-04 13:22:26'),
+	(120937060,1,117,'Country','2009-06-04 13:22:26','2009-06-04 13:22:26'),
+	(195044517,2,214,'Country','2009-06-04 17:22:41','2009-06-04 17:22:41'),
+	(244414130,1,68,'Country','2009-06-04 13:22:26','2009-06-04 13:22:26'),
+	(394938353,1,162,'Country','2009-06-04 13:22:26','2009-06-04 13:22:26'),
+	(423866172,1,20,'Country','2009-06-04 13:22:26','2009-06-04 13:22:26'),
+	(424792003,1,90,'Country','2009-06-04 13:22:26','2009-06-04 13:22:26'),
+	(477297967,1,184,'Country','2009-06-04 13:22:26','2009-06-04 13:22:26'),
+	(506358563,1,53,'Country','2009-06-04 13:22:26','2009-06-04 13:22:26'),
+	(507251676,1,116,'Country','2009-06-04 13:22:26','2009-06-04 13:22:26'),
+	(546142054,1,142,'Country','2009-06-04 13:22:26','2009-06-04 13:22:26'),
+	(690576312,1,62,'Country','2009-06-04 13:22:26','2009-06-04 13:22:26'),
+	(691747661,1,110,'Country','2009-06-04 13:22:26','2009-06-04 13:22:26'),
+	(729140670,1,183,'Country','2009-06-04 13:22:26','2009-06-04 13:22:26'),
+	(739772837,1,213,'Country','2009-06-04 13:22:26','2009-06-04 13:22:26'),
+	(776249265,1,30,'Country','2009-06-04 13:22:26','2009-06-04 13:22:26'),
+	(777453396,1,74,'Country','2009-06-04 13:22:26','2009-06-04 13:22:26'),
+	(807406092,1,51,'Country','2009-06-04 13:22:26','2009-06-04 13:22:26'),
+	(808610553,1,125,'Country','2009-06-04 13:22:26','2009-06-04 13:22:26'),
+	(847027202,1,167,'Country','2009-06-04 13:22:26','2009-06-04 13:22:26'),
+	(890329113,1,194,'Country','2009-06-04 13:22:26','2009-06-04 13:22:26'),
+	(929017584,1,98,'Country','2009-06-04 13:22:26','2009-06-04 13:22:26'),
+	(966149671,1,67,'Country','2009-06-04 13:22:26','2009-06-04 13:22:26'),
+	(1017582644,2,35,'Country','2009-06-04 17:22:41','2009-06-04 17:22:41');
+
+/*!40000 ALTER TABLE `zone_members` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table zones
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `zones`;
+
+CREATE TABLE `zones` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `zones` WRITE;
+/*!40000 ALTER TABLE `zones` DISABLE KEYS */;
+INSERT INTO `zones` (`id`,`name`,`description`,`created_at`,`updated_at`)
+VALUES
+	(1,'EU_VAT','Countries that make up the EU VAT zone.','2009-06-04 17:22:26','2009-06-04 17:22:26'),
+	(2,'North America','USA + Canada','2009-06-04 17:22:41','2009-06-04 17:22:41');
+
+/*!40000 ALTER TABLE `zones` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+
+
+
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

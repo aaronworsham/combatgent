@@ -2143,6 +2143,7 @@ a.delete:hover {
 #user_saved_outfits #other_measurements p label,
 #user_measurements #other_measurements p label {
   font-size: 13px;
+  margin-bottom: 2px;
 }
 #user_closet #upper_body p:last-child,
 #user_saved_outfits #upper_body p:last-child,
