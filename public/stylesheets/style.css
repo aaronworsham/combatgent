@@ -2157,6 +2157,115 @@ a.delete:hover {
   width: 940px;
   float: left;
 }
+#user_closet .outfit, #user_saved_outfits .outfit, #user_measurements .outfit {
+  width: 940px;
+  float: left;
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px dotted #cccccc;
+}
+#user_closet .outfit:first-child, #user_saved_outfits .outfit:first-child, #user_measurements .outfit:first-child {
+  border: none;
+}
+#user_closet .outfit h3, #user_saved_outfits .outfit h3, #user_measurements .outfit h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+#user_closet .outfit img.outfit-thumb, #user_saved_outfits .outfit img.outfit-thumb, #user_measurements .outfit img.outfit-thumb {
+  display: inline;
+  float: left;
+  width: 300px;
+  margin-left: 20px;
+  margin-left: 0;
+  border: 1px solid #eaeaea;
+}
+#user_closet .outfit img.outfit-thumb:first-child, #user_saved_outfits .outfit img.outfit-thumb:first-child, #user_measurements .outfit img.outfit-thumb:first-child {
+  margin-left: 0;
+}
+#user_closet .outfit .outfit_balance, #user_saved_outfits .outfit .outfit_balance, #user_measurements .outfit .outfit_balance {
+  display: inline;
+  float: left;
+  width: 620px;
+  margin-left: 20px;
+  margin-left: 18px;
+}
+#user_closet .outfit .outfit_balance:first-child, #user_saved_outfits .outfit .outfit_balance:first-child, #user_measurements .outfit .outfit_balance:first-child {
+  margin-left: 0;
+}
+#user_closet .outfit .outfit_balance .cluster, #user_saved_outfits .outfit .outfit_balance .cluster, #user_measurements .outfit .outfit_balance .cluster {
+  display: inline;
+  float: left;
+  width: 300px;
+  margin-left: 20px;
+}
+#user_closet .outfit .outfit_balance .cluster:first-child, #user_saved_outfits .outfit .outfit_balance .cluster:first-child, #user_measurements .outfit .outfit_balance .cluster:first-child {
+  margin-left: 0;
+}
+#user_closet .outfit .outfit_balance .cluster h4, #user_saved_outfits .outfit .outfit_balance .cluster h4, #user_measurements .outfit .outfit_balance .cluster h4 {
+  font-size: 16px;
+  font-style: italic;
+}
+#user_closet .outfit .outfit_balance .cluster .item, #user_saved_outfits .outfit .outfit_balance .cluster .item, #user_measurements .outfit .outfit_balance .cluster .item {
+  display: inline;
+  float: left;
+  width: 300px;
+  margin-left: 20px;
+  margin: 0 0 10px;
+  padding: 0 0 10px;
+  line-height: 1.0em;
+}
+#user_closet .outfit .outfit_balance .cluster .item:first-child, #user_saved_outfits .outfit .outfit_balance .cluster .item:first-child, #user_measurements .outfit .outfit_balance .cluster .item:first-child {
+  margin-left: 0;
+}
+#user_closet .outfit .outfit_balance .cluster .item img, #user_saved_outfits .outfit .outfit_balance .cluster .item img, #user_measurements .outfit .outfit_balance .cluster .item img {
+  width: 100px;
+  float: left;
+  margin: 0 10px 0 0;
+  border: 1px solid #eaeaea;
+}
+#user_closet .outfit .outfit_balance .cluster .item h5, #user_saved_outfits .outfit .outfit_balance .cluster .item h5, #user_measurements .outfit .outfit_balance .cluster .item h5 {
+  width: 180px;
+  font-size: 13px;
+  margin: 0 0 2px;
+  line-height: 1.0em !important;
+  float: left;
+  color: #000;
+}
+#user_closet .outfit .outfit_balance .cluster .item span.price, #user_saved_outfits .outfit .outfit_balance .cluster .item span.price, #user_measurements .outfit .outfit_balance .cluster .item span.price {
+  width: 180px;
+  float: left;
+  font-size: 12px;
+  margin-bottom: 3px;
+}
+#user_closet .outfit .outfit_balance .cluster .item a.cart-action, #user_saved_outfits .outfit .outfit_balance .cluster .item a.cart-action, #user_measurements .outfit .outfit_balance .cluster .item a.cart-action {
+  font-size: 12px;
+}
+#user_closet .outfit .outfit_balance .cluster a.buy-all, #user_saved_outfits .outfit .outfit_balance .cluster a.buy-all, #user_measurements .outfit .outfit_balance .cluster a.buy-all {
+  font-family: "freight-sans-pro", helvetica, arial, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 20px;
+  display: block;
+  text-align: center;
+  padding: 4px 15px 0;
+  height: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 11px;
+  font-weight: bold;
+  float: left;
+  color: #ffffff;
+  border: 1px solid #84a653;
+  text-shadow: 0 1px 1px #698442;
+  background: url(../images/button-sprite-green.png) 0 0 repeat-x;
+}
+#user_closet .outfit .outfit_balance .cluster a.buy-all:hover, #user_saved_outfits .outfit .outfit_balance .cluster a.buy-all:hover, #user_measurements .outfit .outfit_balance .cluster a.buy-all:hover {
+  cursor: pointer;
+}
+#user_closet .outfit .outfit_balance .cluster a.buy-all:hover, #user_saved_outfits .outfit .outfit_balance .cluster a.buy-all:hover, #user_measurements .outfit .outfit_balance .cluster a.buy-all:hover {
+  background: url(../images/button-sprite-green.png) 0 -30px repeat-x;
+}
 /* EXCEPTIONS - WE SHOULD FIX THE CODE SO THAT THESE AREN'T NECESSARY */
 #shipping p.field.checkbox {
   display: block;
