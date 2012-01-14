@@ -2162,7 +2162,7 @@ a.delete:hover {
   float: left;
   margin-top: 30px;
   padding-top: 30px;
-  border-top: 1px dotted #cccccc;
+  border-top: 1px solid #cccccc;
 }
 #user_closet .outfit:first-child, #user_saved_outfits .outfit:first-child, #user_measurements .outfit:first-child {
   border: none;
@@ -2170,6 +2170,7 @@ a.delete:hover {
 #user_closet .outfit h3, #user_saved_outfits .outfit h3, #user_measurements .outfit h3 {
   font-size: 18px;
   font-weight: 700;
+  margin-bottom: 10px;
 }
 #user_closet .outfit img.outfit-thumb, #user_saved_outfits .outfit img.outfit-thumb, #user_measurements .outfit img.outfit-thumb {
   display: inline;
@@ -2212,10 +2213,14 @@ a.delete:hover {
   margin-left: 20px;
   margin: 0 0 10px;
   padding: 0 0 10px;
+  border-bottom: 1px dotted #cccccc;
   line-height: 1.0em;
 }
 #user_closet .outfit .outfit_balance .cluster .item:first-child, #user_saved_outfits .outfit .outfit_balance .cluster .item:first-child, #user_measurements .outfit .outfit_balance .cluster .item:first-child {
   margin-left: 0;
+}
+#user_closet .outfit .outfit_balance .cluster .item:last-child, #user_saved_outfits .outfit .outfit_balance .cluster .item:last-child, #user_measurements .outfit .outfit_balance .cluster .item:last-child {
+  border: none;
 }
 #user_closet .outfit .outfit_balance .cluster .item img, #user_saved_outfits .outfit .outfit_balance .cluster .item img, #user_measurements .outfit .outfit_balance .cluster .item img {
   width: 100px;
@@ -2259,6 +2264,7 @@ a.delete:hover {
   border: 1px solid #84a653;
   text-shadow: 0 1px 1px #698442;
   background: url(../images/button-sprite-green.png) 0 0 repeat-x;
+  width: 270px;
 }
 #user_closet .outfit .outfit_balance .cluster a.buy-all:hover, #user_saved_outfits .outfit .outfit_balance .cluster a.buy-all:hover, #user_measurements .outfit .outfit_balance .cluster a.buy-all:hover {
   cursor: pointer;

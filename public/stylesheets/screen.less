@@ -573,7 +573,7 @@ a.delete {
 		float: left;
 		margin-top: 30px;
 		padding-top: 30px;
-		border-top: 1px dotted #cccccc;
+		border-top: 1px solid #cccccc;
 		
 		&:first-child {
 			border: none;
@@ -582,6 +582,7 @@ a.delete {
 		h3 {
 			font-size: 18px;
 			font-weight: 700;
+			margin-bottom: 10px;
 		}
 		
 		img.outfit-thumb {
@@ -606,7 +607,12 @@ a.delete {
 					.columns(4);
 					margin: 0 0 10px;
 					padding: 0 0 10px;
+					border-bottom: 1px dotted #cccccc;					
 					line-height: 1.0em;
+					
+					&:last-child {
+						border: none;
+					}
 					
 					img {
 						width: 100px;
@@ -638,6 +644,7 @@ a.delete {
 				
 				a.buy-all {
 					.cg_button_green;
+					width: 270px;
 				}
 				
 			}
