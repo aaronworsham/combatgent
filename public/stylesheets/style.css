@@ -799,7 +799,7 @@ header, #wrapper {
   position: relative;
 }
 #slideshow.lookbook {
-  margin: 0 0 40px 0;
+  margin: 20px 0 40px 0;
   height: 600px;
   background: red;
 }
