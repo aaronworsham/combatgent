@@ -1,5 +1,7 @@
 <% if current_user %>
-  <% unless current_user.product_in_closet?(product) %>
+  <% if current_user.product_in_closet?(product) %>
+    <%= button_to "Remove from closet", current_user.closet_item(product), :method => 'delete' %>
+  <% else %>
     <%= form_for ClosetItem.new(:product => product) do |f| %>
       <%= f.hidden_field :product_id %>
       <%= f.submit "Save to closet" %>

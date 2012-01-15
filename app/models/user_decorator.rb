@@ -12,6 +12,10 @@ User.class_eval do
     products_in_closet.include? product
   end
   
+  def closet_item(product)
+    closet_items.select{|ci| ci.product_id == product.id}.first
+  end
+  
   def purchased_products
     purchased_products = []
     orders.each{ |order| purchased_products << order.products }
