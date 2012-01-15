@@ -1120,6 +1120,27 @@ form#user_new input[type=submit]:hover {
 form#user_new input[type=submit]:hover {
   background: url(../images/button-sprite-green.png) 0 -30px repeat-x;
 }
+.flash {
+  float: left;
+  width: 920px;
+  margin: 0 0 20px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font-size: 14px;
+  text-shadow: 0 1px 1px #000;
+  font-weight: bold;
+}
+.flash.notice {
+  background: #9cb973;
+  border: 1px solid #84a653;
+  text-shadow: 0 1px 1px #334020;
+}
+.flash.errors {
+  background: #de7050;
+  border: 1px solid #d34f28;
+  text-shadow: 0 1px 1px #521f10;
+}
 /* SLOTS */
 @-webkit-keyframes pulsar {
   0% {
