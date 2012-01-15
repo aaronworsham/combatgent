@@ -47,8 +47,9 @@
 		
       <% unless @product == product %>
 			<div class="outfit-item">
-        <%= image_tag product.images.first.attachment.url(:small) %>
-        <%= link_to product.name, product_url(product) %>
+        <%= link_to(product.name, product_url(product)) do %>
+          <%= image_tag product.images.first.attachment.url(:small) %>
+        <% end %>
 			</div>
       <% end %>
     <% end %>
