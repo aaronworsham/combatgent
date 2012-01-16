@@ -28,4 +28,6 @@ Combatgent::Application.routes.draw do
     end
   end
   
+  match '/products', :controller=>'products', :action=>'index' 
+  
 end
