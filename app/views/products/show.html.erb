@@ -21,12 +21,7 @@
 	</div>
 
 	<div id="match-to-outfit">
-	  <% if @product.outfit.present? %>
-	    <%= form_tag outfit_url(@product.outfit), :method => :get do %>
-	      <%= hidden_field_tag :product_id, @product.id %>
-	      <%= submit_tag "Match to outfit" %>
-	    <% end %>
-	  <% end %>
+	  <%= render 'shared/match_to_outfit', :product => @product %>
 	</div>
 </div>
 

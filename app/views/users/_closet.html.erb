@@ -26,28 +26,14 @@
 						</h4>
 						<%= product.description %>
 					</td>
-					<td class="price">
-						<%= product_price(product) %>
-					</td>
-					<td class="size">
-            <% unless product.categorise_variants_from_option('color').size == 0%>
-              <p><%= product.categorise_variants_from_option('color').size %> colors available</p>
-            <% end %>
-						<!-- FOR DEMO -->
-						<select name="some_name" id="some_name" size="1">
-							<option value="option1">Small</option>
-							<option value="option2">Medium</option>
-							<option value="option2">Large</option>							
-						</select>
-					</td>
-					<td class="buy">
-						<a href="#">Buy</a>
-					</td>
+					
+          <%= render 'closet_cart_form', :product => product %>
+
 					<td class="match">
-						<a href="#">Match</a>
+          	  <%= render 'shared/match_to_outfit', :product => product %>
 					</td>
 					<td class="remove">
-						<a class="delete">Remove</a>
+						<%= button_to "", current_user.closet_item(product), :method => 'delete', :class => 'delete' %>
 					</td>
         </tr>
       <% end %>

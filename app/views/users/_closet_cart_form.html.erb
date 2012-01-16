@@ -1,0 +1,28 @@
+
+<%= form_for :order, :url => populate_orders_url do |f| %>
+  <td class="price">
+    <% if product_price(product) %>
+      <%= product_price(product) %>
+    <% end %>
+  </td>
+  <td class="size">
+    <% unless product.categorise_variants_from_option('color').size == 0%>
+      <p><%= product.categorise_variants_from_option('color').size %> colors available</p>
+    <% end %>
+    <%= render 'shared/cart_form_variants', :product => product %>
+  </td>
+  <td class="buy">
+    <% if product.has_stock? || Spree::Config[:allow_backorders] %>
+      <%= hidden_field_tag (product.has_variants? ? :quantity : "variants[#{product.master.id}]"), '1' %>
+      <button type='submit' class='large primary'>
+        <%= image_tag('/images/add-to-cart.png') + 'Buy' %>
+      </button>
+    <% else %>
+      <%= content_tag('strong', t('out_of_stock')) %>
+    <% end %>
+  </td>
+<% end %>
+
+
+
+

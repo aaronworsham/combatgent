@@ -11,31 +11,10 @@
       </div>
     <% end %>
 
-    <% if @product.has_variants? %>
-      <div id="product-variants">
-        <h2><%= t('variants') %></h2>
-        <%  has_checked = false
-        variant_select_values = {}
-        @product.variants.active.each_with_index do |v,index|
-          next if v.option_values.empty? || (!v.in_stock && !Spree::Config[:show_zero_stock_products])
-          checked = !has_checked && (v.in_stock || Spree::Config[:allow_backorders])
-          has_checked = true if checked %>
-          
-          <%  if variant_select_values.has_key?(v.options_text_label) 
-                variant_select_values[v.options_text_label] << [v.option_text_for_select,v.id]
-              else
-                variant_select_values = variant_select_values.merge({v.options_text_label => [[v.option_text_for_select,v.id]]})
-              end %>          
-        <% end %>
-        <% variant_select_values.each do |key, value| %>
-          <% if variant_select_values.size > 0 %>
-            <%= select "", "products[#{@product.id}]", options_for_select(value) ,:prompt => key %>
-          <% end %>
-        <% end %>
-      </div>
-    <% end%>
+    <%= render 'shared/cart_form_variants', :product => @product %>
+    
     <% if @product.has_stock? || Spree::Config[:allow_backorders] %>
-      <%= select "", (@product.has_variants? ? :quantity : "variants[#{@product.master.id}]"), options_for_select((1..10).to_a), :prompt => 'Qty' %>
+      <%= select "", (@product.has_variants? ? :quantity : "variants[#{@product.master.id}]"), options_for_select((1..10).to_a,1), :prompt => 'Qty' %>
       &nbsp;
       <button type='submit' class='large primary'>
         <%= image_tag('/images/add-to-cart.png') + t('add_to_cart') %>
@@ -45,8 +24,4 @@
     <% end %>
 
   </div>
-<% end %>
-
-<% content_for :head do %>
-  <%= javascript_include_tag 'product' %>
 <% end %>
