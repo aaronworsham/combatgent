@@ -1,1 +1,33 @@
 <h2>My Saved Outfits</h2>
+<% 3.times do %>
+<div class="outfit" id="[outfit-id]">
+	<a class="delete" href="#">Remove</a>
+	<h3>Spring Gent Weekend Outfit</h3>
+	<a href="#"><img class="outfit-thumb" alt="[alt tag]" src="http://s3.amazonaws.com/combatgent/products/86/product/CG_Products_7_29_2011 0276.jpg?1326096694"></a>
+	<div class="outfit_balance">
+		<div class="cluster needed">
+			<h4>Items needed to complete outfit</h4>
+			<% 3.times do %>
+			<div class="item">
+				<a href="#"><img alt="[alt]" src="http://s3.amazonaws.com/combatgent/products/87/small/CG_Products_7_29_2011 0277.jpg?1326096829"></a>
+				<h5>Product Name</h5>				
+				<span class="price">$10.00</span>
+				<a href="#" class="cart-action">Add to Cart</a>
+			</div>
+			<% end %>
+			<a href="#" class="buy-all">Add all to Cart</a>
+		</div>
+		<div class="cluster already_own">
+			<h4>Items you already own</h4>
+			<% 2.times do %>
+			<div class="item">
+				<a href="#"><img alt="[alt]" src="http://s3.amazonaws.com/combatgent/products/87/small/CG_Products_7_29_2011 0277.jpg?1326096829"></a>
+				<h5>Product Name</h5>				
+				<span class="price">$10.00</span>
+				<a href="#" class="cart-action">Buy Another</a>
+			</div>
+			<% end %>			
+		</div>
+	</div>
+</div>
+<% end %>

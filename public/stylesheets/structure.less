@@ -468,13 +468,11 @@ header,
 #slideshow {
 	
 	&.lookbook {
-		margin: 0 0 40px 0;
+		margin: 20px 0 40px 0;
 		height: 600px;
-		background: red;
 		
 		.slideshow_wrapper { 
 			height: 600px; 
-			background: red;
 		}	
 		
 		.coda-nav-right,
@@ -776,12 +774,37 @@ form#user_new {
 	}
 }
 
+.flash {
+	float: left;
+	width: @siteWidth - 20;
+	margin: 0 0 20px;
+	padding: 10px;
+	background: rgba(0,0,0,0.25);
+	color: #fff;
+	font-size: 14px;
+	text-shadow: 0 1px 1px #000;
+	font-weight: bold;
+	
+	&.notice {
+		background: lighten(@green, 10%);
+		border: 1px solid @green;
+		text-shadow: 0 1px 1px darken(@green, 30%);
+	}
+	
+	&.errors {
+		background: lighten(@red, 10%);
+		border: 1px solid @red;
+		text-shadow: 0 1px 1px darken(@red, 30%);		
+	}
+	
+}
+
 /* SLOTS */
 
 @-webkit-keyframes pulsar {
-        0% 		{ opacity: 0.75; 	}
-		50% 	{ opacity: 1.0		}
-        100% 	{ opacity: 0.75; 	}
+	0% 		{ opacity: 0.75; 	}
+	50% 	{ opacity: 1.0		}
+	100% 	{ opacity: 0.75; 	}
 }
 
 #slot_1 {
