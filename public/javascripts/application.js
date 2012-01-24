@@ -7,6 +7,5 @@
       $(this).parents('form').submit();
       e.preventDefault();
     });
-
   });
 })(jQuery);

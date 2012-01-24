@@ -1028,7 +1028,7 @@ div#new-customer p input[type=submit], div#existing-customer p input[type=submit
   height: 24px;
   text-transform: uppercase;
   text-decoration: none;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-size: 11px;
   font-weight: bold;
   float: left;
@@ -1101,7 +1101,7 @@ form#user_new input[type=submit] {
   height: 24px;
   text-transform: uppercase;
   text-decoration: none;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-size: 11px;
   font-weight: bold;
   float: left;
@@ -1292,7 +1292,7 @@ a:hover {
   height: 24px;
   text-transform: uppercase;
   text-decoration: none;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-size: 11px;
   font-weight: bold;
   float: left;
@@ -1312,7 +1312,7 @@ a:hover {
   height: 24px;
   text-transform: uppercase;
   text-decoration: none;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-size: 11px;
   font-weight: bold;
   float: left;
@@ -1338,7 +1338,7 @@ a:hover {
   height: 24px;
   text-transform: uppercase;
   text-decoration: none;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-size: 11px;
   font-weight: bold;
   float: left;
@@ -1452,27 +1452,76 @@ form input[type=text], form input[type=email], form input[type=password] {
   margin-left: 20px;
   position: relative;
   margin-bottom: 30px;
+  height: 70px;
 }
 #product-details #cart-form:first-child {
   margin-left: 0;
 }
-#product-details #cart-form #product-variants {
+#product-details #cart-form #inside_product_cart_form select {
+  margin-top: 6px;
+  width: 220px;
+  border: 3px solid #ccc;
+}
+#product-details #cart-form #inside_product_cart_form .ui-selectmenu-area {
+  clear: both;
+  float: left;
+  width: 220px;
+}
+#product-details #cart-form #inside_product_cart_form .ui-selectmenu-area button[type=button] {
+  font-family: "freight-sans-pro", helvetica, arial, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 20px;
+  margin-bottom: 0;
+  font-size: 14px;
+  height: 30px;
+  font-weight: 500;
+  padding: 1px 0 0 10px;
+  color: #333333;
+  border: 1px solid #cccccc;
+  text-align: left;
+  background: url(../images/jqui-select-arrow.png) no-repeat center right #ffffff;
+}
+#product-details #cart-form #inside_product_cart_form .ui-selectmenu-area .ui-selectmenu-list {
+  background: #ffffff;
+  width: 223px !important;
+  list-style-type: none;
+  border: 1px solid #cccccc;
+  border-top: none;
+  overflow: hidden;
+}
+#product-details #cart-form #inside_product_cart_form .ui-selectmenu-area .ui-selectmenu-list li {
+  padding: 2px 10px;
+  font-weight: 500;
+}
+#product-details #cart-form #inside_product_cart_form .ui-selectmenu-area .ui-selectmenu-list li:first-child {
+  display: none;
+}
+#product-details #cart-form #inside_product_cart_form .ui-selectmenu-area .ui-selectmenu-list li:hover {
+  cursor: pointer;
+  background: #fff4d5;
+}
+#product-details #cart-form #inside_product_cart_form #product-variants {
   display: inline;
   float: left;
   width: 220px;
   margin-left: 20px;
-  margin: 0 0 20px 0;
+  margin: 0 0 15px 0;
   clear: both;
 }
-#product-details #cart-form #product-variants:first-child {
+#product-details #cart-form #inside_product_cart_form #product-variants:first-child {
   margin-left: 0;
 }
-#product-details #cart-form #product-variants h2 {
+#product-details #cart-form #inside_product_cart_form #product-variants h2 {
   display: none;
 }
-#product-details #cart-form #product-variants ul {
+#product-details #cart-form #inside_product_cart_form #product-variants ul {
   list-style-type: none;
   margin: 0;
+}
+#product-details #cart-form #inside_product_cart_form #_quantity {
+  clear: both;
+  float: left;
 }
 #product-details #cart-form input#quantity {
   display: inline;
@@ -1501,7 +1550,7 @@ form input[type=text], form input[type=email], form input[type=password] {
   height: 24px;
   text-transform: uppercase;
   text-decoration: none;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-size: 11px;
   font-weight: bold;
   float: left;
@@ -1532,7 +1581,7 @@ form input[type=text], form input[type=email], form input[type=password] {
   top: 45px;
   right: 0;
 }
-#product-details #cart-form #add-to-closet-form #closet_item_submit {
+#product-details #cart-form #add-to-closet-form #closet_item_submit, #product-details #cart-form #add-to-closet-form .closet_button {
   display: inline;
   float: left;
   width: 140px;
@@ -1548,7 +1597,7 @@ form input[type=text], form input[type=email], form input[type=password] {
   height: 24px;
   text-transform: uppercase;
   text-decoration: none;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-size: 11px;
   font-weight: bold;
   float: left;
@@ -1560,13 +1609,13 @@ form input[type=text], form input[type=email], form input[type=password] {
   padding: 4px 0 24px;
   font-size: 10px;
 }
-#product-details #cart-form #add-to-closet-form #closet_item_submit:first-child {
+#product-details #cart-form #add-to-closet-form #closet_item_submit:first-child, #product-details #cart-form #add-to-closet-form .closet_button:first-child {
   margin-left: 0;
 }
-#product-details #cart-form #add-to-closet-form #closet_item_submit:hover {
+#product-details #cart-form #add-to-closet-form #closet_item_submit:hover, #product-details #cart-form #add-to-closet-form .closet_button:hover {
   cursor: pointer;
 }
-#product-details #cart-form #add-to-closet-form #closet_item_submit:hover {
+#product-details #cart-form #add-to-closet-form #closet_item_submit:hover, #product-details #cart-form #add-to-closet-form .closet_button:hover {
   background: url(../images/button-sprite-gray.png) 0 -30px repeat-x;
 }
 #product-details #cart-form #match-to-outfit {
@@ -1597,7 +1646,7 @@ form input[type=text], form input[type=email], form input[type=password] {
   height: 24px;
   text-transform: uppercase;
   text-decoration: none;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-size: 11px;
   font-weight: bold;
   float: left;
@@ -1790,7 +1839,7 @@ form input[type=text], form input[type=email], form input[type=password] {
   height: 24px;
   text-transform: uppercase;
   text-decoration: none;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-size: 11px;
   font-weight: bold;
   float: left;
@@ -1835,7 +1884,7 @@ form input[type=text], form input[type=email], form input[type=password] {
   height: 24px;
   text-transform: uppercase;
   text-decoration: none;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-size: 11px;
   font-weight: bold;
   float: left;
@@ -1892,7 +1941,7 @@ form input[type=text], form input[type=email], form input[type=password] {
   height: 24px;
   text-transform: uppercase;
   text-decoration: none;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-size: 11px;
   font-weight: bold;
   float: left;
@@ -2005,7 +2054,7 @@ a.delete:hover {
   height: 24px;
   text-transform: uppercase;
   text-decoration: none;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-size: 11px;
   font-weight: bold;
   float: left;
@@ -2068,7 +2117,7 @@ a.delete:hover {
   height: 24px;
   text-transform: uppercase;
   text-decoration: none;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-size: 11px;
   font-weight: bold;
   float: left;
@@ -2275,7 +2324,7 @@ a.delete:hover {
   height: 24px;
   text-transform: uppercase;
   text-decoration: none;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-size: 11px;
   font-weight: bold;
   float: left;
@@ -2352,10 +2401,10 @@ a.delete:hover {
 .clearfix {
   zoom: 1;
 }
-@media all and (orientation:portrait) {
+@media all and (orientation: portrait) {
   
 }
-@media all and (orientation:landscape) {
+@media all and (orientation: landscape) {
   
 }
 @media screen and (max-device-width: 480px) {

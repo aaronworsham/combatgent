@@ -1,5 +1,5 @@
 <%= form_for :order, :url => populate_orders_url do |f| %>
-  <div data-hook="inside_product_cart_form">
+  <div id="inside_product_cart_form" data-hook="inside_product_cart_form">
 
     <% if product_price(@product) %>
       <div data-hook="product_price">

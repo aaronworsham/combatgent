@@ -35,5 +35,11 @@ jQuery(document).ready(function(){
 		
 		return false;
 	});
+	
+	$("select[name='[quantity]'], #inside_product_cart_form select").selectmenu({
+		width:'225',
+		direction:'down'
+	});	
+	
 
 });
