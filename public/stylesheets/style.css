@@ -888,15 +888,56 @@ header, #wrapper {
   text-transform: uppercase;
   font-weight: 400;
 }
-#slideshow .coda-slider .panel a.product, #slideshow .coda-slider .panel .pulsar {
+#slideshow .coda-slider .panel a.product {
   display: block;
   text-indent: -9999px;
   height: 20px;
   width: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
-  background: rgba(0, 0, 0, 0);
+  background: url(../images/outfit_arrow.png) no-repeat;
   position: absolute;
+}
+#slideshow .coda-slider .panel a.product:hover {
+  opacity: 0.5;
+}
+#slideshow .coda-slider .panel .tooltip {
+  z-index: 999;
+}
+#slideshow .coda-slider .panel .tooltip .product_info {
+  width: 150px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #ffffff;
+  float: left;
+  border-top: 3px solid #ffffff;
+  position: relative;
+  padding: 10px 15px;
+}
+#slideshow .coda-slider .panel .tooltip .product_info h3 {
+  font-size: 20px;
+  font-weight: 600;
+  position: relative;
+  clear: both;
+  text-shadow: 0 1px 1px #000000;
+  margin-bottom: 0px;
+}
+#slideshow .coda-slider .panel .tooltip .product_info span.price, #slideshow .coda-slider .panel .tooltip .product_info span.pipe, #slideshow .coda-slider .panel .tooltip .product_info a.item_link {
+  font-size: 14px;
+  float: left;
+  display: block;
+  position: relative;
+}
+#slideshow .coda-slider .panel .tooltip .product_info span.pipe {
+  font-weight: 200;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+#slideshow .coda-slider .panel .tooltip .product_info a.item_link {
+  color: #d34f28;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 600;
+}
+#slideshow .coda-slider .panel .tooltip .product_info a.item_link:hover {
+  color: #a83f20;
 }
 #slideshow .coda-slider .panel .pulsar {
   border: 10px solid rgba(211, 79, 40, 0.25);
@@ -1140,40 +1181,21 @@ form#user_new input[type=submit]:hover {
   text-shadow: 0 1px 1px #521f10;
 }
 /* SLOTS */
-@-webkit-keyframes pulsar {
-  0% {
-    opacity: 0.75;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.75;
-  }
-}
 #slot_1 .product.a {
-  top: 300px;
-  left: 300px;
+  top: 260px;
+  left: 420px;
 }
-#slot_1 .pulsar.a {
-  top: 290px;
-  left: 290px;
+#slot_1 .tooltip.a {
+  top: 266px !important;
+  left: 430px !important;
 }
 #slot_1 .product.b {
-  top: 250px;
+  top: 200px;
   left: 620px;
 }
-#slot_1 .pulsar.b {
-  top: 240px;
-  left: 610px;
-}
-#slot_1 .product.c {
-  top: 50px;
-  left: 670px;
-}
-#slot_1 .pulsar.c {
-  top: 40px;
-  left: 660px;
+#slot_1 .tooltip.b {
+  top: 206px !important;
+  left: 630px !important;
 }
 #slot_2 .a {
   top: 300px;

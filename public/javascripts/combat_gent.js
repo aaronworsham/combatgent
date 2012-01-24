@@ -41,5 +41,11 @@ jQuery(document).ready(function(){
 		direction:'down'
 	});	
 	
+	
+	$("#slot_1 .product.a, #slot_1 .product.b").tooltip({ 
+		effect: 'slide',
+		direction: 'right'
+	});	
+	
 
 });
