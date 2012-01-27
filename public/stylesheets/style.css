@@ -973,11 +973,11 @@ header, #wrapper {
 }
 .product-listing li {
   display: inline-block;
-  vertical-align: top;
   width: 220px;
   margin-right: 17px;
   margin-bottom: 30px;
   text-align: left;
+  vertical-align: top;
 }
 .product-listing li:nth-child(4n) {
   margin-right: 0;
