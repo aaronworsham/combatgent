@@ -1501,6 +1501,7 @@ table.perfect_fit_chart tr:hover td {
   float: right;
   border-bottom: 1px solid #ccc;
   padding: 0 0 10px 0;
+  line-height: 30px;
 }
 #product-details h1:first-child {
   margin-left: 0;
