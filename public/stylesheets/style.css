@@ -553,8 +553,8 @@ header ul li {
   float: left;
 }
 header ul li a, header ul li a:visited {
-  margin: 2px 5px 4px;
-  padding: 0 10px 0 0;
+  margin: 2px 8px 4px;
+  padding: 0 13px 0 0;
   display: block;
   float: left;
   color: #000000;
@@ -570,11 +570,10 @@ header ul li a:hover, header ul li a:visited:hover {
 header ul li.lookbooks a {
   margin-left: 0;
 }
-header ul li.sale a {
+header ul li.sale a, header ul li.perfect_fit a {
   border: none;
   padding-right: 0;
   margin-right: 0;
-  color: #d64e28;
 }
 header ul li.search {
   float: right;

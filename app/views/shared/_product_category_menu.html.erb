@@ -2,4 +2,6 @@
 <% Taxon.header_navigation.each do |taxon| %>
   <li><%= link_to taxon.name, seo_url(taxon) %></li>
 <% end %>
-<li class="sale"><%= link_to 'Sale', '#' %></li>
+<li class="about"><%= link_to 'About Us', page_path('about') %></li>
+<li class="perfect_fit"><%= link_to 'The Perfect Fit', page_path('the-perfect-fit') %></li>
+<!-- <li class="sale"><%= link_to 'Sale', '#' %></li> -->
