@@ -17,9 +17,9 @@
 		<% else %>
 		<li>
 			<li class="action profile">
-			<%= link_to 'SignUp', '/signup' %>	
+				<%= link_to t('log_in'), login_path %>	
 				<ul>
-		  		<li><%= link_to t('log_in'), login_path %></li>
+		  		<li><%= link_to 'SignUp', '/signup' %></li>
 				</ul>
 			</li>
 		<% end %>

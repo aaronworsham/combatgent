@@ -161,6 +161,60 @@ form {
 	
 }
 
+h2.perfect_fit_title {
+	font-size: 18px;
+	color: @red;
+}
 
-
-
+table {
+	&.perfect_fit_chart {
+		width: 100%;
+		margin: 0 0 50px 0;
+		
+		th {
+			border-bottom: 1px solid #ccc;
+		}
+		
+		td {
+			border-bottom: 1px dotted #ccc;
+			
+			&.code {
+				color: @red;
+				font-weight: 600;
+			}
+		}
+		
+		th, td {
+			width: 82px;
+			padding: 5px 0;
+			text-align: center;
+		}
+		
+	
+		th.area,
+		td.area,
+		th.size,
+		td.size {
+			width: 200px;
+			text-align: left;
+		}
+		
+		td.xxxxlarge {
+			border-left: 1px dotted #ccc;
+			
+			span {
+				margin-top: 175px;
+				padding: 10px;
+				display: block;
+			}
+		}
+		
+		tr:hover {
+			td {
+				background: rgba(255,255,255,0.9);
+				cursor: pointer;
+			}
+		}
+		
+	}
+}
