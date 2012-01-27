@@ -127,6 +127,39 @@ form {
 	text-align: right;
 }
 
+#errorExplanation {
+	display: block;
+	margin: 0 0 25px 0;
+	padding: 10px;
+	background: lighten(@red, 10%);
+	color: #fff;
+	text-shadow: 0 1px 1px darken(@red, 30%);		
+	border: 1px solid @red;	
+	
+	
+	h2 {
+		width: @siteWidth - 20;
+		margin: 0 0 5px 5px;
+		font-size: 15px;
+		font-weight: bold;
+	}
+	
+	p {
+		font-size: 12px;
+		margin-bottom: 10px;
+		display: none;
+	}
+	
+	ul {
+		margin-bottom: 5px;
+		
+		li {
+			font-size: 13px;
+			font-weight: 600;
+		}
+	}
+	
+}
 
 
 

@@ -1414,6 +1414,33 @@ form input[type=text], form input[type=email], form input[type=password] {
 .form-buttons {
   text-align: right;
 }
+#errorExplanation {
+  display: block;
+  margin: 0 0 25px 0;
+  padding: 10px;
+  background: #de7050;
+  color: #fff;
+  text-shadow: 0 1px 1px #521f10;
+  border: 1px solid #d34f28;
+}
+#errorExplanation h2 {
+  width: 920px;
+  margin: 0 0 5px 5px;
+  font-size: 15px;
+  font-weight: bold;
+}
+#errorExplanation p {
+  font-size: 12px;
+  margin-bottom: 10px;
+  display: none;
+}
+#errorExplanation ul {
+  margin-bottom: 5px;
+}
+#errorExplanation ul li {
+  font-size: 13px;
+  font-weight: 600;
+}
 /*
 	Screen Stuff
 */
