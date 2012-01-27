@@ -164,8 +164,8 @@ header {
 			
 			a,
 			a:visited {
-				margin: 2px 8px 4px;
-				padding: 0 13px 0 0;
+				margin: 2px 9px 4px;
+				padding: 0 16px 0 0;
 				display: block;
 				float: left;
 				color: #000000;
@@ -181,7 +181,7 @@ header {
 				
 			}
 			
-			&.lookbooks {
+			&.home {
 				a {
 					margin-left: 0;
 				}
@@ -585,13 +585,16 @@ header,
 			a.product {
 				display: block;
 				text-indent: -9999px;
-				height: 20px;
-				width: 20px;
-				background: url(../images/outfit_arrow.png) no-repeat;
+				height: 24px;
+				width: 24px;
+				// background: url(../images/outfit_arrow.png) no-repeat;
+				background: @red;
+				opacity: 0.35;
+				.border-radius(30px);
 				position: absolute;
 				
 				&:hover {
-					opacity: 0.5;
+					opacity: 0.0;
 				}
 				
 			}
@@ -681,6 +684,7 @@ header,
 	
 	li {
 		display: inline-block;
+		vertical-align: top;
 		width: 220px;
 		margin-right: 17px;
 		margin-bottom: 30px;

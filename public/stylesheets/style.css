@@ -553,8 +553,8 @@ header ul li {
   float: left;
 }
 header ul li a, header ul li a:visited {
-  margin: 2px 8px 4px;
-  padding: 0 13px 0 0;
+  margin: 2px 9px 4px;
+  padding: 0 16px 0 0;
   display: block;
   float: left;
   color: #000000;
@@ -567,7 +567,7 @@ header ul li a, header ul li a:visited {
 header ul li a:hover, header ul li a:visited:hover {
   color: #d34f28;
 }
-header ul li.lookbooks a {
+header ul li.home a {
   margin-left: 0;
 }
 header ul li.sale a, header ul li.perfect_fit a {
@@ -894,13 +894,16 @@ header, #wrapper {
 #slideshow .coda-slider .panel a.product {
   display: block;
   text-indent: -9999px;
-  height: 20px;
-  width: 20px;
-  background: url(../images/outfit_arrow.png) no-repeat;
+  height: 24px;
+  width: 24px;
+  background: #d34f28;
+  opacity: 0.35;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
   position: absolute;
 }
 #slideshow .coda-slider .panel a.product:hover {
-  opacity: 0.5;
+  opacity: 0.0;
 }
 #slideshow .coda-slider .panel .tooltip {
   z-index: 999;
@@ -970,6 +973,7 @@ header, #wrapper {
 }
 .product-listing li {
   display: inline-block;
+  vertical-align: top;
   width: 220px;
   margin-right: 17px;
   margin-bottom: 30px;
