@@ -494,7 +494,11 @@ body {
 #toolbar ul li.action ul {
   display: none;
 }
+#toolbar ul li.action.profile {
+  border-right: 1px solid #fafafa;
+}
 #toolbar ul li.action.cart {
+  border-left: none;
   border-right: 1px solid #fafafa;
 }
 #toolbar ul li.action:hover ul {

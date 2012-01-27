@@ -48,5 +48,13 @@ jQuery(document).ready(function(){
 		direction: 'right'
 	});	
 	
+	$("#toolbar .action.cart:empty").remove();
+	
+	
+	
+	// if($("#toolbar .action.cart").is(":empty")){
+	// 	alert("nanigga");
+	// }
+	
 
 });

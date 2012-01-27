@@ -5,12 +5,7 @@
     <li class="social blog"><%= link_to 'Blog', 'http://blog.combatgent.com' %></li>
     <li class="social feedback"><%= link_to 'Feedback', 'mailto:feedback@combatgent.com' %></li>	
     <li class="social service"><span>24/7 Customer Service 1-310-533-9774</span></li>
-		<li class="action cart">
-			<%= link_to_cart %>
-			<ul>
-				<li><a href="#">Checkout</a></li>
-			</ul>
-		</li>
+		<li class="action cart"><%= link_to_cart %></li>
 		<% if current_user %>
 		<li class="action profile">
 			<%= link_to t('my_account'), account_path %>
