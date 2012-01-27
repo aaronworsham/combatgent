@@ -369,11 +369,17 @@
 	td.size {
 		width: 120px !important;
 		text-align: left;
+		
+		select {
+			float: left;
+			margin-left: 15px;
+		}
+		
 	}
 	
 	th.buy,
 	td.buy {
-		width: 70px !important;
+		width: 50px !important;
 		text-align: center;
 		
 		a {
@@ -382,6 +388,16 @@
 			padding: 1px 10px 6px;
 			height: 15px;
 		}
+		
+		button {
+			.cg_button_green;
+			padding: 0 10px;
+			height: 24px;
+			float: none;
+			margin: 0 auto;
+			display: inline;
+		}
+		
 	}
 	
 	
@@ -396,11 +412,38 @@
 			padding: 1px 10px 6px;
 			height: 15px;
 		}
+		
+		input[type=submit]{
+			.cg_button_gray;
+			padding: 0 10px;
+			height: 24px;
+			margin: 0 auto;
+			float: none;
+			display: inline;
+		}
+		
 	}	
 	
 	th.remove,
 	td.remove {
-		width: 30px !important;
+		width: 24px !important;
+		
+		input.delete {
+			margin: 3px 0 0 0;
+			padding: 0;
+			float: right;
+			display: block;
+			width: 16px;
+			height: 16px;
+			background: none;
+			background: url(../images/x-icon-sprite.png) 0 0 no-repeat;
+			text-indent: -9999px;
+			border: none;
+			
+			&:hover {
+				background: url(../images/x-icon-sprite.png) 0 -18px no-repeat;				
+			}
+		}
 	}
 	
 	
@@ -422,23 +465,31 @@
 		margin: 0 0 50px 0;
 		
 		h3 {
-			margin: 15px 0;
+			margin: 15px 0 25px;
 			font-size: 18px;
+			font-weight: 700;
 		}
 		
 		font-size: 20px;
 		text-align: right;
 		
 		.links {
+			display: block;
+			float: right;
+			
 			a {
-				.cg_button_green;
-				float: right;
+				.cg_button_gray;
 				margin: 0 0 0 10px;
 				
 				img {
 					display: none;
 				}
-					
+				
+				&:last-child {
+					.cg_button_green;
+					float: right;
+				}
+				
 			}
 		}
 	}
@@ -583,7 +634,7 @@ a.delete {
 		margin-bottom: 50px;
 	}
 	
-	input[type=submit]{
+	input[type=submit] {
 		.cg_button_green;
 		padding-bottom: 24px;
 		margin-top: 10px;

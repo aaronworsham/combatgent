@@ -15,7 +15,7 @@
     <% if product.has_stock? || Spree::Config[:allow_backorders] %>
       <%= hidden_field_tag (product.has_variants? ? :quantity : "variants[#{product.master.id}]"), '1' %>
       <button type='submit' class='large primary'>
-        <%= image_tag('/images/add-to-cart.png') + 'Buy' %>
+				Buy
       </button>
     <% else %>
       <%= content_tag('strong', t('out_of_stock')) %>

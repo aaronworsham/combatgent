@@ -1839,11 +1839,15 @@ form input[type=text], form input[type=email], form input[type=password] {
   width: 120px !important;
   text-align: left;
 }
+#cart-detail td.size select, #closet-detail td.size select {
+  float: left;
+  margin-left: 15px;
+}
 #cart-detail th.buy,
 #closet-detail th.buy,
 #cart-detail td.buy,
 #closet-detail td.buy {
-  width: 70px !important;
+  width: 50px !important;
   text-align: center;
 }
 #cart-detail th.buy a,
@@ -1882,6 +1886,46 @@ form input[type=text], form input[type=email], form input[type=password] {
 #closet-detail th.buy a:hover,
 #cart-detail td.buy a:hover,
 #closet-detail td.buy a:hover {
+  background: url(../images/button-sprite-green.png) 0 -30px repeat-x;
+}
+#cart-detail th.buy button,
+#closet-detail th.buy button,
+#cart-detail td.buy button,
+#closet-detail td.buy button {
+  font-family: "freight-sans-pro", helvetica, arial, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 20px;
+  display: block;
+  text-align: center;
+  padding: 4px 15px 0;
+  height: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-size: 11px;
+  font-weight: bold;
+  float: left;
+  color: #ffffff;
+  border: 1px solid #84a653;
+  text-shadow: 0 1px 1px #698442;
+  background: url(../images/button-sprite-green.png) 0 0 repeat-x;
+  padding: 0 10px;
+  height: 24px;
+  float: none;
+  margin: 0 auto;
+  display: inline;
+}
+#cart-detail th.buy button:hover,
+#closet-detail th.buy button:hover,
+#cart-detail td.buy button:hover,
+#closet-detail td.buy button:hover {
+  cursor: pointer;
+}
+#cart-detail th.buy button:hover,
+#closet-detail th.buy button:hover,
+#cart-detail td.buy button:hover,
+#closet-detail td.buy button:hover {
   background: url(../images/button-sprite-green.png) 0 -30px repeat-x;
 }
 #cart-detail th.match,
@@ -1929,11 +1973,72 @@ form input[type=text], form input[type=email], form input[type=password] {
 #closet-detail td.match a:hover {
   background: url(../images/button-sprite-gray.png) 0 -30px repeat-x;
 }
+#cart-detail th.match input[type=submit],
+#closet-detail th.match input[type=submit],
+#cart-detail td.match input[type=submit],
+#closet-detail td.match input[type=submit] {
+  font-family: "freight-sans-pro", helvetica, arial, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 20px;
+  display: block;
+  text-align: center;
+  padding: 4px 15px 0;
+  height: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-size: 11px;
+  font-weight: bold;
+  float: left;
+  color: #ffffff;
+  border: 1px solid #999999;
+  text-shadow: 0 1px 1px #808080;
+  background: url(../images/button-sprite-gray.png) 0 0 repeat-x;
+  padding: 0 10px;
+  height: 24px;
+  margin: 0 auto;
+  float: none;
+  display: inline;
+}
+#cart-detail th.match input[type=submit]:hover,
+#closet-detail th.match input[type=submit]:hover,
+#cart-detail td.match input[type=submit]:hover,
+#closet-detail td.match input[type=submit]:hover {
+  cursor: pointer;
+}
+#cart-detail th.match input[type=submit]:hover,
+#closet-detail th.match input[type=submit]:hover,
+#cart-detail td.match input[type=submit]:hover,
+#closet-detail td.match input[type=submit]:hover {
+  background: url(../images/button-sprite-gray.png) 0 -30px repeat-x;
+}
 #cart-detail th.remove,
 #closet-detail th.remove,
 #cart-detail td.remove,
 #closet-detail td.remove {
-  width: 30px !important;
+  width: 24px !important;
+}
+#cart-detail th.remove input.delete,
+#closet-detail th.remove input.delete,
+#cart-detail td.remove input.delete,
+#closet-detail td.remove input.delete {
+  margin: 3px 0 0 0;
+  padding: 0;
+  float: right;
+  display: block;
+  width: 16px;
+  height: 16px;
+  background: none;
+  background: url(../images/x-icon-sprite.png) 0 0 no-repeat;
+  text-indent: -9999px;
+  border: none;
+}
+#cart-detail th.remove input.delete:hover,
+#closet-detail th.remove input.delete:hover,
+#cart-detail td.remove input.delete:hover,
+#closet-detail td.remove input.delete:hover {
+  background: url(../images/x-icon-sprite.png) 0 -18px no-repeat;
 }
 #cart a.continue {
   text-decoration: none;
@@ -1949,10 +2054,45 @@ form input[type=text], form input[type=email], form input[type=password] {
   text-align: right;
 }
 #cart #subtotal h3 {
-  margin: 15px 0;
+  margin: 15px 0 25px;
   font-size: 18px;
+  font-weight: 700;
+}
+#cart #subtotal .links {
+  display: block;
+  float: right;
 }
 #cart #subtotal .links a {
+  font-family: "freight-sans-pro", helvetica, arial, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 20px;
+  display: block;
+  text-align: center;
+  padding: 4px 15px 0;
+  height: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-size: 11px;
+  font-weight: bold;
+  float: left;
+  color: #ffffff;
+  border: 1px solid #999999;
+  text-shadow: 0 1px 1px #808080;
+  background: url(../images/button-sprite-gray.png) 0 0 repeat-x;
+  margin: 0 0 0 10px;
+}
+#cart #subtotal .links a:hover {
+  cursor: pointer;
+}
+#cart #subtotal .links a:hover {
+  background: url(../images/button-sprite-gray.png) 0 -30px repeat-x;
+}
+#cart #subtotal .links a img {
+  display: none;
+}
+#cart #subtotal .links a:last-child {
   font-family: "freight-sans-pro", helvetica, arial, sans-serif;
   font-size: 12px;
   font-weight: normal;
@@ -1972,16 +2112,12 @@ form input[type=text], form input[type=email], form input[type=password] {
   text-shadow: 0 1px 1px #698442;
   background: url(../images/button-sprite-green.png) 0 0 repeat-x;
   float: right;
-  margin: 0 0 0 10px;
 }
-#cart #subtotal .links a:hover {
+#cart #subtotal .links a:last-child:hover {
   cursor: pointer;
 }
-#cart #subtotal .links a:hover {
+#cart #subtotal .links a:last-child:hover {
   background: url(../images/button-sprite-green.png) 0 -30px repeat-x;
-}
-#cart #subtotal .links a img {
-  display: none;
 }
 #cart #clear_cart_link {
   display: none;

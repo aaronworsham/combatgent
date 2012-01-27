@@ -43,6 +43,7 @@ jQuery(document).ready(function(){
 	
 	
 	$("#slot_1 .product.a, #slot_1 .product.b").tooltip({ 
+		// tip: #tipId,
 		effect: 'slide',
 		direction: 'right'
 	});	
