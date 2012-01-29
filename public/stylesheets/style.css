@@ -344,6 +344,7 @@ a:hover {
 /* Change the width of the entire slider (without dynamic arrows) */
 .coda-slider, .coda-slider .panel {
   width: 600px;
+  position: relative;
 }
 /* Change margin and width of the slider (with dynamic arrows) */
 .coda-slider-wrapper.arrows .coda-slider, .coda-slider-wrapper.arrows .coda-slider .panel {
