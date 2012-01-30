@@ -2305,7 +2305,7 @@ a.delete:hover {
   font-size: 12px;
 }
 #checkout #checkout-summary table td strong {
-  font-weight: normal;
+  font-weight: 700;
 }
 #checkout #checkout-summary table td:nth-child(2) {
   text-align: right;
