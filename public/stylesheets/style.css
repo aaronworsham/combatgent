@@ -883,15 +883,14 @@ header, #wrapper {
   left: 40px;
   text-transform: uppercase;
   font-weight: 400;
-  padding: 15px;
-  background: rgba(0, 0, 0, 0.5);
+  padding: 15px 15px 15px 0;
 }
 #slideshow .coda-slider .panel a.main {
-  top: 120px;
+  top: 115px;
   left: 50px;
   padding: 5px 7px;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 13px;
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 600;
@@ -912,7 +911,7 @@ header, #wrapper {
   position: absolute;
 }
 #slideshow .coda-slider .panel a.product:hover {
-  opacity: 0.50;
+  background: url(../images/outfit_arrow.png) no-repeat 8px 4px rgba(211, 79, 40, 0.5);
 }
 #slideshow .coda-slider .panel .tooltip {
   z-index: 999;
@@ -2365,6 +2364,22 @@ a.delete:hover {
 }
 #checkout #billing {
   border-bottom: 1px solid #cccccc;
+}
+#checkout #payment ul#payment-methods {
+  margin-left: 0;
+}
+#checkout #payment ul#payment-methods #creditcard-image {
+  float: left;
+  clear: both;
+  margin-right: 700px;
+  margin-bottom: 20px;
+}
+#checkout #payment ul#payment-methods p.field {
+  width: 33%;
+  float: left;
+}
+#checkout #payment ul#payment-methods p.field #card_number {
+  width: 200px;
 }
 #tabs {
   padding: 0;
