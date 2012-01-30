@@ -1,30 +1,34 @@
 <section id="slideshow" class="home">
-	<div id="slideshow_wrapper">
-	  <div class="coda-slider-wrapper">
-	    <div class="coda-slider preload" id="coda-slider-1"> 
-				<div class="panel"> 
-					<div class="panel-wrapper" id="slot_1">
-						<%= image_tag 'homepage/ties-assortment.jpg', :alt => "Ties Assortment" %> 
-						<h2>Tons of Ties</h2>
-						<a class="main" href="/t/accessories">Get them now</a>
-						
-					</div> 
-				</div> 
-				<div class="panel"> 
-					<div class="panel-wrapper" id="slot_2"> 
-						<%= image_tag 'homepage/pants-assortment.jpg', :alt => "Assorted Pants" %> 
-						<h2>Fall Slack Styles</h2>
-						<a class="main" href="/t/pants-and-shorts">Check them out</a>						
-					</div> 
-				</div> 
-				<div class="panel"> 
-					<div class="panel-wrapper" id="slot_3"> 
-						<%= image_tag 'homepage/suit-laydown.jpg', :alt => "Suit Jacket" %> 
-						<h2>Suit Yourself</h2>
-						<a class="main" href="/t/suiting">Dress for Success</a>						
-					</div> 
-				</div> 
-			</div><!-- .coda-slider --> 
-		</div><!-- .coda-slider-wrapper -->	
-	</div><!-- /.slideshow-wrapper -->
+	<noscript>
+		<div>
+	        <p>Unfortunately your browser does not hava JavaScript capabilities which are required to exploit full functionality of our site. This could be the result of two possible scenarios:</p>
+	        <ol>
+	            <li>You are using an old web browser, in which case you should upgrade it to a newer version. We recommend the latest version of <a href="http://www.getfirefox.com">Firefox</a>.</li>
+	            <li>You have disabled JavaScript in you browser, in which case you will have to enable it to properly use our site. <a href="http://www.google.com/support/bin/answer.py?answer=23852">Learn how to enable JavaScript</a>.</li>
+	        </ol>
+	    </div>
+	</noscript>
+	<div class="coda-slider-wrapper" id="home_wrapper">
+		<div class="coda-slider preload" id="home_slideshow">
+			<div class="panel">
+				<div class="panel-wrapper">
+					<%= image_tag 'homepage/ties-assortment.jpg', :alt => "Ties Assortment" %> 
+					<h2>Tons of Ties</h2>
+					<a class="main" href="/t/accessories">Get them now</a>
+				</div>
+			</div>
+			<div class="panel">
+				<div class="panel-wrapper">
+					<%= image_tag 'homepage/pants-assortment.jpg', :alt => "Assorted Pants" %> 
+					<h2>Fall Slack Styles</h2>
+					<a class="main" href="/t/pants-and-shorts">Check them out</a>				</div>
+			</div>
+			<div class="panel">
+				<div class="panel-wrapper">
+					<%= image_tag 'homepage/suit-laydown.jpg', :alt => "Suit Jacket" %> 
+					<h2>Suit Yourself</h2>
+					<a class="main" href="/t/suiting">Dress for Success</a>				</div>
+			</div>
+		</div><!-- .coda-slider -->
+	</div><!-- .coda-slider-wrapper -->
 </section>
