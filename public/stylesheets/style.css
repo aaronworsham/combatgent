@@ -2368,18 +2368,21 @@ a.delete:hover {
 #checkout #payment ul#payment-methods {
   margin-left: 0;
 }
-#checkout #payment ul#payment-methods #creditcard-image {
+#checkout #payment ul#payment-methods li {
+  list-style-type: none;
+}
+#checkout #payment ul#payment-methods li #creditcard-image {
   float: left;
   clear: both;
   margin-right: 700px;
   margin-bottom: 20px;
 }
-#checkout #payment ul#payment-methods p.field {
+#checkout #payment ul#payment-methods li p.field {
   width: 33%;
   float: left;
 }
-#checkout #payment ul#payment-methods p.field #card_number {
-  width: 200px;
+#checkout #payment ul#payment-methods li p.field #card_number {
+  width: 150px;
 }
 #tabs {
   padding: 0;
