@@ -1,14 +1,11 @@
 <h1>Outfit Match</h1>
 <p>Match items to other items for complete outfits so that you look 100% put together.</p>
-
 <div id='outfit-left'>
   <div id='selected-product'>
     <%= render 'product_info', :product => @product %>
-    
     <%= link_to 'Return to item', @product%>
     <%= link_to 'Save to my closet', closet_items_path('closet_item[:product]' => @product), :method => :post %>
   </div>
-  
   <div id='products-owned'>
     <% if @user.present? %>
       <% @outfit.products.each do |product| %>
@@ -21,30 +18,24 @@
       <% end %>
     <% end %>
   </div>
-
   <%= button_to 'Go back', @product, :method => "get" %>
 </div>
-
 <div id='outfit-right'>
   <div id='outfit-images'>
     <% @outfit.outfit_images.each do |image| %>
       <%= image_tag image.attachment.url(:normal) %>
     <% end %>
-
-    <p><%= @outfit.title %></p>
+    <h2><%= @outfit.title %></h2>
     <p><%= @outfit.description %></p>
   </div>
-  
   <div id='outfit-to-purchase'>
     <% @outfit.products.each do |product| %>
       <% if @user.present? %>
         <% unless @user.purchased_products.include? product %>
           <%= render 'product_info', :product => product %>
-        
           <div id="cart-form" data-hook="cart_form">
             <%= render 'cart_form' %>
           </div>
-        
           <%= render 'shared/add_to_closet', :product => product %>
         <% end %>
       <% end %>

@@ -1,6 +1,4 @@
 <%= product_image(product) %>
-<strong>
-  <%= product_price(product) %>
-  <%= product.name %>
-</strong>
-<%= product_description(product) rescue t("product_has_no_description") %>
+<h3><%= product.name %></h3>
+<span class="product-price"><%= product_price(product) %></span>
+<p><%= product_description(product) rescue t("product_has_no_description") %></p>
