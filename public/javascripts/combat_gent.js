@@ -50,4 +50,12 @@ jQuery(document).ready(function(){
 	
 	$("#toolbar .action.cart:empty").remove();
 	
+	// If no outfit matches available, inflate size of add to cart
+	// button to occupy more of box
+	if($("#match-to-outfit input[type=submit]").length === 0){
+		$("#closet_item_submit").css({
+			"width" : 300
+		});
+	}
+	
 });
