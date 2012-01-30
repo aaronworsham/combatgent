@@ -42,7 +42,7 @@ jQuery(document).ready(function(){
 	});	
 	
 	
-	$("#slideshow_wrapper .product").tooltip({ 
+	$(".panel-wrapper .product").tooltip({ 
 		// tip: #tipId,
 		effect: 'slide',
 		direction: 'right'

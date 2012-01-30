@@ -1,12 +1,3 @@
-/*
-	jQuery Coda-Slider v2.0 - http://www.ndoherty.biz/coda-slider
-	Copyright (c) 2009 Niall Doherty
-	This plugin available for use in all personal or commercial projects under both MIT and GPL licenses.
-*/
-
-
-/* Most common stuff you'll need to change */
-
 	.coda-slider-wrapper { padding: 20px 0 }
 	.coda-slider { background: #ebebeb }
 	
@@ -14,25 +5,25 @@
 	.coda-slider-no-js .coda-slider { height: 200px; overflow: auto !important; padding-right: 20px }
 	
 	/* Change the width of the entire slider (without dynamic arrows) */
-	.coda-slider, .coda-slider .panel { width: 600px; position: relative } 
+	.coda-slider, .coda-slider .panel { width: 940px } 
 	
 	/* Change margin and width of the slider (with dynamic arrows) */
-	.coda-slider-wrapper.arrows .coda-slider, .coda-slider-wrapper.arrows .coda-slider .panel { width: 600px }
+/*	.coda-slider-wrapper.arrows .coda-slider, .coda-slider-wrapper.arrows .coda-slider .panel { width: 600px }
 	.coda-slider-wrapper.arrows .coda-slider { margin: 0 10px }
-	
+*/	
 	/* Arrow styling */
-	.coda-nav-left a, .coda-nav-right a { background: #000; color: #fff; padding: 5px; width: 100px }
+	/*	.coda-nav-left a, .coda-nav-right a { background: #000; color: #fff; padding: 5px; width: 100px }*/
 	
 	/* Tab nav */
 	.coda-nav ul li a.current { background: #39c }
 	
 	/* Panel padding */
-	.coda-slider .panel-wrapper { padding: 20px }
+	/*.coda-slider .panel-wrapper { padding: 20px }*/
 	
 	/* Preloader */
 	.coda-slider p.loading { padding: 20px; text-align: center }
 
-/* Don't change anything below here unless you know what you're doing */
+	/* Don't change anything below here unless you know what you're doing */
 
 	/* Tabbed nav */
 	.coda-nav ul { clear: both; display: block; margin: auto; overflow: hidden }
@@ -44,6 +35,175 @@
 	.coda-slider { float: left; overflow: hidden; position: relative }
 	.coda-slider .panel { display: block; float: left }
 	.coda-slider .panel-container { position: relative }
-	.coda-nav-left, .coda-nav-right { float: left }
+/*	.coda-nav-left, .coda-nav-right { float: left }
 	.coda-nav-left a, .coda-nav-right a { display: block; text-align: center; text-decoration: none }
+*/	
+	
+	
+	/* BEGIN EDITS */
+	
+	
+	.coda-nav-right,
+	.coda-nav-left {
+		position: absolute;
+		z-index: 999;
+		top: 190px;
+		width: 40px;
+		height: 82px;
+		
+		a {
+			width: 40px;
+			height: 82px;
+			background: red;
+			display: block;
+			text-indent: -9999px;
+		}
+	}
+	
+	.coda-nav-left {
+		left: 0;
+		
+		a {
+			background: url('../images/template/hero-prev-next.png') no-repeat -42px 0;
+			&:hover { background: url('../images/template/hero-prev-next.png') no-repeat -42px -100px; }
+		}
+	}
+	
+	.coda-nav-right {
+		right: 0;
+		
+		a {
+			background: url('../images/template/hero-prev-next.png') no-repeat 0 0 ;
+			&:hover { background: url('../images/template/hero-prev-next.png') no-repeat 0 -100px; }
+		}		
+		
+	}	
+	
+	
+	.coda-slider-wrapper {
+		position: relative;
+		width: 940px;
+		height: 600px;
+		padding: 0;
+		
+		.panel { position: relative; }
 
+			&#lookbook_wrapper {
+				.coda-slider {
+					height: 600px !important;
+				}
+				
+				.coda-nav-left,
+				.coda-nav-right {
+					top: 260px;
+				}
+			}
+
+
+			h2, h3, h4, a {
+				position: absolute;
+				z-index: 3;
+				text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);				
+			}
+			
+			h2 {
+				font-size: 3.5em;
+				color: #ffffff;
+				top: 65px;
+				left: 40px;
+				text-transform: uppercase;
+				font-weight: 400;
+				padding: 15px 15px 15px 0;
+				// background: rgba(0,0,0,0.5);
+			}
+			
+			a.main {
+				top: 115px;
+				left: 50px;
+				padding: 5px 7px;
+				color: #ffffff;
+				font-size: 13px;
+				text-decoration: none;
+				text-transform: uppercase;
+				font-weight: 600;				
+				background: rgba(0,0,0,0.5);				
+				
+				&:hover {
+					background: rgba(211,79,40, 0.75);
+				}
+			}
+			
+			a.product {
+				display: block;
+				text-indent: -9999px;
+				height: 24px;
+				width: 24px;
+				// background: url(../images/outfit_arrow.png) no-repeat 8px 4px rgba(211,79,40, 0.5);
+				background: url(../images/outfit_arrow.png) no-repeat 8px 4px rgba(0,0,0,0.5);
+				// background: @red;
+				opacity: 0.75;
+				.border-radius(30px);
+				position: absolute;
+				
+				&:hover {
+					// opacity: 0.50;
+					background: url(../images/outfit_arrow.png) no-repeat 8px 4px rgba(211,79,40, 0.5);					
+				}
+				
+			}
+			
+			.tooltip {
+				z-index: 999;
+				
+				
+				.product_info {
+					width: 150px;
+					background: rgba(0,0,0,0.75);
+					color: #ffffff;
+					float: left;
+					border-top: 3px solid #ffffff;
+					position: relative;
+					padding: 10px 15px;
+
+					h3 {
+						font-size: 20px;
+						font-weight: 600;
+						position: relative;
+						clear: both;
+						text-shadow: 0 1px 1px #000000;
+						margin-bottom: 0px;
+					}
+
+					span.price,
+					span.pipe,
+					a.item_link {
+						font-size: 14px;
+						float: left;
+						display: block;
+						position: relative;
+					}					
+					
+					span.pipe {
+						font-weight: 200;
+						margin-left: 10px;
+						margin-right: 10px;
+					}
+					
+					a.item_link {
+						color: @red;
+						text-transform: uppercase;
+						text-decoration: none;
+						font-weight: 600;
+						
+						&:hover {
+							color: darken(@red, 10%);
+						}
+						
+					}
+				}
+			}
+
+	
+	}
+	
+	
