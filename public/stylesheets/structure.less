@@ -597,14 +597,15 @@ header,
 				text-indent: -9999px;
 				height: 24px;
 				width: 24px;
-				// background: url(../images/outfit_arrow.png) no-repeat;
-				background: @red;
-				opacity: 0.35;
+				// background: url(../images/outfit_arrow.png) no-repeat 8px 4px rgba(211,79,40, 0.5);
+				background: url(../images/outfit_arrow.png) no-repeat 8px 4px rgba(0,0,0,0.5);
+				// background: @red;
+				opacity: 0.75;
 				.border-radius(30px);
 				position: absolute;
 				
 				&:hover {
-					opacity: 0.0;
+					opacity: 0.50;
 				}
 				
 			}
@@ -897,4 +898,15 @@ form#user_new {
 	
 	.product.c 	{ top: 450px; 	left: 550px; }
 	.tooltip.c 	{ top: 456px !important;		left: 560px !important; }	
+}
+
+#slot_4 {
+	.product.a 	{ top: 240px; 	left: 485px; }
+	.tooltip.a 	{ top: 246px !important;		left: 495px !important; }	
+	
+	.product.b 	{ top: 225px; 	left: 275px; }
+	.tooltip.b 	{ top: 234px !important;		left: 285px !important; }	
+	
+	.product.c 	{ top: 350px; 	left: 285px; }
+	.tooltip.c 	{ top: 356px !important;		left: 295px !important; }	
 }

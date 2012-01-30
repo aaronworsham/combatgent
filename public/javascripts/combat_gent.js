@@ -42,7 +42,7 @@ jQuery(document).ready(function(){
 	});	
 	
 	
-	$(".product").tooltip({ 
+	$("#slideshow_wrapper .product").tooltip({ 
 		// tip: #tipId,
 		effect: 'slide',
 		direction: 'right'
@@ -50,11 +50,4 @@ jQuery(document).ready(function(){
 	
 	$("#toolbar .action.cart:empty").remove();
 	
-	
-	
-	// if($("#toolbar .action.cart").is(":empty")){
-	// 	alert("nanigga");
-	// }
-	
-
 });
