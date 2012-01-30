@@ -820,6 +820,7 @@ header, #wrapper {
 #slideshow .slideshow_wrapper {
   height: 450px;
   padding: 0;
+  position: relative;
 }
 #slideshow .coda-nav-right, #slideshow .coda-nav-left {
   position: absolute;
@@ -878,19 +879,26 @@ header, #wrapper {
 #slideshow .coda-slider .panel h2 {
   font-size: 3.5em;
   color: #ffffff;
-  top: 100px;
+  top: 65px;
   left: 40px;
   text-transform: uppercase;
   font-weight: 400;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.5);
 }
 #slideshow .coda-slider .panel a.main {
-  top: 130px;
-  left: 40px;
+  top: 120px;
+  left: 50px;
+  padding: 5px 7px;
   color: #ffffff;
-  font-size: 1.55em;
+  font-size: 14px;
   text-decoration: none;
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.5);
+}
+#slideshow .coda-slider .panel a.main:hover {
+  background: rgba(211, 79, 40, 0.75);
 }
 #slideshow .coda-slider .panel a.product {
   display: block;
