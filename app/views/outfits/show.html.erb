@@ -4,7 +4,7 @@
   <div id='selected-product'>
     <%= render 'product_info', :product => @product %>
     <%= link_to 'Return to item', @product%>
-    <%= link_to 'Save to my closet', closet_items_path('closet_item[:product]' => @product), :method => :post %>
+    <%= render 'shared/add_to_closet', :product => @product %>
   </div>
   <div id='products-owned'>
     <% if @user.present? %>
@@ -30,14 +30,20 @@
   </div>
   <div id='outfit-to-purchase'>
     <% @outfit.products.each do |product| %>
-      <% if @user.present? %>
-        <% unless @user.purchased_products.include? product %>
+      <% if current_user.present? %>
+        <% unless current_user.purchased_products.include? product %>
           <%= render 'product_info', :product => product %>
           <div id="cart-form" data-hook="cart_form">
-            <%= render 'cart_form' %>
+            <%= render 'products/cart_form' %>
           </div>
           <%= render 'shared/add_to_closet', :product => product %>
         <% end %>
+      <% else %>
+        <%= render 'product_info', :product => product %>
+        <div id="cart-form" data-hook="cart_form">
+          <%= render 'products/cart_form' %>
+        </div>
+        <%= render 'shared/add_to_closet', :product => product %>
       <% end %>
     <% end %>
   </div>
