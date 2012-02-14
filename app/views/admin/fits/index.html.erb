@@ -1,0 +1,29 @@
+<h1><%= t("listing_fits") %></h1>
+
+<%= render "shared/error_messages", :target => @fit %>
+
+<p>
+  <%= link_to icon('add') + ' ' + t("new_fit"), new_admin_fit_url %>
+</p>
+
+<table class="index">
+  <thead>
+    <tr>
+      <th><%= t("title") %></th>
+      <th><%= t("description") %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @fits.each do |fit| %>
+      <tr>
+        <td><%= link_to fit.title, edit_admin_fit_url(fit) %></td>
+        <td><%= fit.description %></td>
+        <td>
+          <%= link_to_edit fit %>
+          <%= link_to_delete fit %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

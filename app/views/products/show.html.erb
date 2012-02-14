@@ -32,15 +32,21 @@
   <%= render 'thumbnails', :product => @product %>
 </div>
 
+<% if @product.fit.present? %>
+  <div id="product-fit">
+    <label><%= @product.fit.title %></label>
+    <p class='description'><%= @product.fit.description %></p>
+  </div>
+<% end %>
 
 <% if @product.outfit.present? %>
   <div id='related-products'>
-    <% if @product.outfit.products.reject{|p| p == @product}.size > 0 %>
+    <% if @product.outfit.products.reject{|p| p == @product || @product.has_same_taxon?(p)}.size > 0 %>
       <h2>This will look great with:</h2>
     <% end %>
     <% @product.outfit.products.each do |product| %>
 		
-      <% unless @product == product %>
+      <% unless @product == product || @product.has_same_taxon?(product) %>
 			<div class="outfit-item">
         <%= link_to(product_url(product)) do %>
           <!-- <p><%= product.name %></p> -->

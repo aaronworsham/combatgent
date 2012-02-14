@@ -1,0 +1,6 @@
+<h1><%== t("editing_fit") + " &ldquo;#{@fit.title}&rdquo;" %></h1>
+
+<% form_for @fit, :url => admin_fit_url(@fit) do |f|%>
+  <%= render :partial => "form", :locals => { :f => f } %>
+  <%= f.submit 'Save' %>
+<% end %>

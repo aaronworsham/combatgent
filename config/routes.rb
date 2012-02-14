@@ -13,6 +13,7 @@ Combatgent::Application.routes.draw do
   resources :outfits
   
   namespace :admin do
+    resources :fits
     resources :outfits do
       resources :outfit_images
       resources :outfit_products do

@@ -1,0 +1,6 @@
+<h1><%= t("new_fit") %></h1>
+
+<% form_for @fit, :url => { :controller => 'fits', :action => 'create' } do |f| %>
+  <%= render :partial => "form", :locals => { :f => f } %>
+  <%= f.submit 'Create' %>
+<% end %>
