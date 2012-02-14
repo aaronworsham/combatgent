@@ -1,6 +1,12 @@
 UsersController.class_eval do
   def closet
-    load_object
+    if params[:id].present?
+      @user = User.find(params[:id])
+      @users_own_closet = false
+    else
+      load_object
+      @users_own_closet = true      
+    end
   end
   
   def update

@@ -1,22 +1,29 @@
-<h1><%= t("my_closet") %></h1>
+<% if @users_own_closet %>
+  <h1><%= t("my_closet") %></h1>
 
-<div id="tabs">
-	<ul>
-		<li><a href="#user_closet">My Closet</a></li>
-		<!-- <li><a href="#user_saved_outfits">My Saved Outfits</a></li> -->
-		<li><a href="#user_measurements">My Measurements</a></li>
-	</ul>
+  <div id="tabs">
+  	<ul>
+  		<li><a href="#user_closet">My Closet</a></li>
+  		<!-- <li><a href="#user_saved_outfits">My Saved Outfits</a></li> -->
+  		<li><a href="#user_measurements">My Measurements</a></li>
+  	</ul>
 
+    <div id="user_closet">
+      <%= render 'closet' %>
+    </div>
+
+    <!-- <div id="user_saved_outfits">
+      <%= render 'saved_outfits' %>
+    </div> -->
+  
+    <div id="user_measurements">
+      <%= render 'measurements' %>
+    </div>
+
+  </div>
+<% else %>
+  <h1><%= "#{@user.email}'s Closet" %></h1>
   <div id="user_closet">
     <%= render 'closet' %>
   </div>
-
-  <!-- <div id="user_saved_outfits">
-    <%= render 'saved_outfits' %>
-  </div> -->
-  
-  <div id="user_measurements">
-    <%= render 'measurements' %>
-  </div>
-
-</div>
+<% end %>
