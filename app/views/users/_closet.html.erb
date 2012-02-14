@@ -27,8 +27,12 @@
 						<%= product.description %>
 					</td>
 					
-          <%= render 'closet_cart_form', :product => product %>
-
+					<% if product.coming_soon? %>
+            <td colspan=3><p>Coming Soon</p></td>
+          <% else %>
+            <%= render 'closet_cart_form', :product => product %>
+          <% end %>
+          
 					<td class="match">
           	  <%= render 'shared/match_to_outfit', :product => product %>
 					</td>

@@ -1,0 +1,9 @@
+<p>
+  <%= f.label :coming_soon, t("coming_soon") %><br />
+  <%= f.check_box :coming_soon %>
+</p>
+
+<p>
+  <%= f.label :fit_id, t("product_fit")%><br />
+  <%= f.select :fit_id, Fit.all.collect {|f| [ f.title, f.id ] }, { :include_blank => true } %>
+</p>

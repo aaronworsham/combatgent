@@ -1,27 +1,32 @@
-<%= form_for :order, :url => populate_orders_url do |f| %>
-  <div id="inside_product_cart_form" data-hook="inside_product_cart_form">
+<% if @product.coming_soon? %>
+  <p>Coming Soon</p>
+<% else %>
+  <%= form_for :order, :url => populate_orders_url do |f| %>
+    <div id="inside_product_cart_form" data-hook="inside_product_cart_form">
 
-    <% if product_price(@product) %>
-      <div data-hook="product_price">
-        <p class="prices">
-          <%= t("price") %>
-          <br />
-          <span class="price selling"><%= product_price(@product) %></span>
-        </p>
-      </div>
-    <% end %>
+      <% if product_price(@product) %>
+        <div data-hook="product_price">
+          <p class="prices">
+            <%= t("price") %>
+            <br />
+            <span class="price selling"><%= product_price(@product) %></span>
+          </p>
+        </div>
+      <% end %>
 
-    <%= render 'shared/cart_form_variants', :product => @product %>
-    
-    <% if @product.has_stock? || Spree::Config[:allow_backorders] %>
-      <%= select "", (@product.has_variants? ? :quantity : "variants[#{@product.master.id}]"), options_for_select((1..10).to_a,1), :prompt => 'Qty' %>
-      &nbsp;
-      <button type='submit' class='large primary'>
-        <%= image_tag('/images/add-to-cart.png') + t('add_to_cart') %>
-      </button>
-    <% else %>
-      <%= content_tag('strong', t('out_of_stock')) %>
-    <% end %>
+      <%= render 'shared/cart_form_variants', :product => @product %>
 
-  </div>
+      <% if @product.has_stock? || Spree::Config[:allow_backorders] %>
+        <%= select "", (@product.has_variants? ? :quantity : "variants[#{@product.master.id}]"), options_for_select((1..10).to_a), :prompt => 'Quantity' %>
+        &nbsp;
+        <button type='submit' class='large primary'>
+          <%= image_tag('/images/add-to-cart.png') + t('add_to_cart') %>
+        </button>
+      <% else %>
+        <%= content_tag('strong', t('out_of_stock')) %>
+      <% end %>
+
+    </div>
+  <% end %>
 <% end %>
+
