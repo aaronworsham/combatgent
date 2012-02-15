@@ -36,9 +36,13 @@
 					<td class="match">
           	  <%= render 'shared/match_to_outfit', :product => product %>
 					</td>
-					<td class="remove">
-						<%= button_to "", current_user.closet_item(product), :method => 'delete', :class => 'delete' %>
-					</td>
+					<% if @users_own_closet %>
+  					<td class="remove">
+  						<%= button_to "", @user.closet_item(product), :method => 'delete', :class => 'delete' %>
+  					</td>
+  				<% else %>
+  				  <td></td>
+  				<% end %>
         </tr>
       <% end %>
     <% end %>
