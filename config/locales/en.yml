@@ -43,3 +43,4 @@ en:
   new_fit: "New Fit"
   editing_fit: "Edit Fit"
   fit: "Fit"
+  no_product_variant: "Need to select product type"
