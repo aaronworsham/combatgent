@@ -1759,9 +1759,14 @@ table.perfect_fit_chart tr:hover td {
 #product-details #product-description:first-child {
   margin-left: 0;
 }
+#product-details #product-description p {
+  width: 400px;
+  float: left;
+  margin-left: 0;
+}
 #product-details #product-description #social-links {
   margin: 0 0 20px 0;
-  float: left;
+  float: right;
 }
 #product-details #cart-form {
   display: inline;
