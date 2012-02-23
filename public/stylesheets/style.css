@@ -1337,6 +1337,36 @@ form#user_new input[type=submit]:hover {
 #outfit-left .button_to input[type=submit]:hover {
   background: url(../images/button-sprite-gray.png) 0 -30px repeat-x;
 }
+#outfit-left .closet_button {
+  font-family: "freight-sans-pro", helvetica, arial, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 20px;
+  display: block;
+  text-align: center;
+  padding: 4px 15px 0;
+  height: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-size: 11px;
+  font-weight: bold;
+  float: left;
+  color: #ffffff;
+  border: 1px solid #84a653;
+  text-shadow: 0 1px 1px #698442;
+  background: url(../images/button-sprite-green.png) 0 0 repeat-x;
+  width: 140px;
+  padding: 0;
+  height: 30px;
+  width: 140px !important;
+}
+#outfit-left .closet_button:hover {
+  cursor: pointer;
+}
+#outfit-left .closet_button:hover {
+  background: url(../images/button-sprite-green.png) 0 -30px repeat-x;
+}
 #outfit-right {
   display: inline;
   float: left;
@@ -1346,9 +1376,94 @@ form#user_new input[type=submit]:hover {
 #outfit-right:first-child {
   margin-left: 0;
 }
-#outfit-right h2 {
-  font-size: 20px;
-  font-weight: 700;
+#outfit-right .product {
+  display: inline;
+  float: left;
+  width: 620px;
+  margin-left: 20px;
+  margin: 0 0 20px 0;
+  padding: 0 0 20px 0;
+  border-bottom: 1px dashed #cccccc;
+}
+#outfit-right .product:first-child {
+  margin-left: 0;
+}
+#outfit-right .product img {
+  float: left;
+  margin-right: 20px;
+}
+#outfit-right .product h3 {
+  font-size: 18px;
+}
+#outfit-right .product .product-price {
+  font-size: 16px;
+  margin: 0 0 10px;
+}
+#outfit-right .product .closet_button {
+  font-family: "freight-sans-pro", helvetica, arial, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 20px;
+  display: block;
+  text-align: center;
+  padding: 4px 15px 0;
+  height: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-size: 11px;
+  font-weight: bold;
+  float: left;
+  color: #ffffff;
+  border: 1px solid #999999;
+  text-shadow: 0 1px 1px #808080;
+  background: url(../images/button-sprite-gray.png) 0 0 repeat-x;
+  padding: 0;
+  height: 30px;
+  width: 140px !important;
+  float: left;
+  margin: -20px 0 0 10px;
+}
+#outfit-right .product .closet_button:hover {
+  cursor: pointer;
+}
+#outfit-right .product .closet_button:hover {
+  background: url(../images/button-sprite-gray.png) 0 -30px repeat-x;
+}
+#outfit-right .product #cart-form .ui-widget {
+  display: none;
+}
+#outfit-right .product #cart-form button[type=submit].large.primary {
+  font-family: "freight-sans-pro", helvetica, arial, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 20px;
+  display: block;
+  text-align: center;
+  padding: 4px 15px 0;
+  height: 24px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-size: 11px;
+  font-weight: bold;
+  float: left;
+  color: #ffffff;
+  border: 1px solid #84a653;
+  text-shadow: 0 1px 1px #698442;
+  background: url(../images/button-sprite-green.png) 0 0 repeat-x;
+  padding: 0;
+  height: 30px;
+  width: 140px;
+}
+#outfit-right .product #cart-form button[type=submit].large.primary:hover {
+  cursor: pointer;
+}
+#outfit-right .product #cart-form button[type=submit].large.primary:hover {
+  background: url(../images/button-sprite-green.png) 0 -30px repeat-x;
+}
+#outfit-right .product #cart-form button[type=submit].large.primary img {
+  display: none;
 }
 /* SLOTS */
 #slot_1 .product.a {

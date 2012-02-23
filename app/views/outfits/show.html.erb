@@ -6,6 +6,7 @@
     <%= link_to 'Return to item', @product%>
     <%= render 'shared/add_to_closet', :product => @product %>
   </div>
+	<!-- 
   <div id='products-owned'>
     <% if @user.present? %>
       <% @outfit.products.each do |product| %>
@@ -18,25 +19,28 @@
       <% end %>
     <% end %>
   </div>
-  <%= button_to 'Go back', @product, :method => "get" %>
+	-->
+  <!-- <%= button_to 'Go back', @product, :method => "get" %> -->
 </div>
 <div id='outfit-right'>
-  <div id='outfit-images'>
+  <!-- <div id='outfit-images'>
     <% @outfit.outfit_images.each do |image| %>
       <%= image_tag image.attachment.url(:normal) %>
     <% end %>
-    <h2><%= @outfit.title %></h2>
+    <h2><%= @outfit.title %> TITLE</h2>
     <p><%= @outfit.description %></p>
-  </div>
+  </div> -->
   <div id='outfit-to-purchase'>
     <% @outfit.products.each do |product| %>
       <% if current_user.present? %>
         <% unless current_user.purchased_products.include? product %>
-          <%= render 'product_info', :product => product %>
-          <div id="cart-form" data-hook="cart_form">
+					<div class="product">
+          	<%= render 'product_info', :product => product %>
+          	<div id="cart-form" data-hook="cart_form">
             <%= render 'products/cart_form' %>
           </div>
           <%= render 'shared/add_to_closet', :product => product %>
+					</div><!-- /.product -->
         <% end %>
       <% else %>
         <%= render 'product_info', :product => product %>
