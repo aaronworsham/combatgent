@@ -2653,10 +2653,17 @@ a.delete:hover {
 #tabs input[type=submit]:hover {
   background: url(../images/button-sprite-green.png) 0 -30px repeat-x;
 }
+#fb-share {
+  float: right;
+  position: absolute;
+  top: -34px;
+  right: 0;
+}
 #user_closet,
 #user_saved_outfits,
 #user_measurements {
   padding: 20px 0 0;
+  position: relative;
 }
 #user_closet #upper_body,
 #user_saved_outfits #upper_body,
