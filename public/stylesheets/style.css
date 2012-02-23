@@ -2012,31 +2012,71 @@ table.perfect_fit_chart tr:hover td {
 #product-details #cart-form #match-to-outfit input[type=submit]:hover {
   background: url(../images/button-sprite-gray.png) 0 -30px repeat-x;
 }
-#product-details #product-thumbnails {
+#product-details #toggle-product-info {
+  display: inline;
+  float: left;
+  width: 540px;
+  margin-left: 20px;
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+#product-details #toggle-product-info:first-child {
+  margin-left: 0;
+}
+#product-details #toggle-product-info li {
+  display: inline;
+}
+#product-details #toggle-product-info li a {
+  font-weight: bold;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #555555;
+}
+#product-details #toggle-product-info li a.current {
+  color: #d34f28;
+}
+#product-details #toggle-product-info li.pipe {
+  padding: 0 5px;
+  color: #cccccc;
+}
+#product-details #product-thumbnails,
+#product-details #product-fit {
   display: inline;
   float: left;
   width: 540px;
   margin-left: 20px;
   margin-bottom: 10px;
 }
-#product-details #product-thumbnails:first-child {
+#product-details #product-thumbnails:first-child,
+#product-details #product-fit:first-child {
   margin-left: 0;
 }
-#product-details #product-thumbnails ul {
+#product-details #product-thumbnails h2,
+#product-details #product-fit h2 {
+  font-size: 18px;
+}
+#product-details #product-thumbnails ul,
+#product-details #product-fit ul {
   list-style-type: none;
 }
-#product-details #product-thumbnails ul li {
+#product-details #product-thumbnails ul li,
+#product-details #product-fit ul li {
   display: inline;
   margin: 0 5px 5px 0;
 }
-#product-details #product-thumbnails ul li img {
+#product-details #product-thumbnails ul li img,
+#product-details #product-fit ul li img {
   border: 1px solid #cccccc;
 }
-#product-details #product-thumbnails ul li:first-child {
+#product-details #product-thumbnails ul li:first-child,
+#product-details #product-fit ul li:first-child {
   display: none;
 }
 #product-details #product-thumbnails ul li:hover img,
-#product-details #product-thumbnails ul li.current img {
+#product-details #product-fit ul li:hover img,
+#product-details #product-thumbnails ul li.current img,
+#product-details #product-fit ul li.current img {
   border: 1px solid #e6937b;
 }
 #product-details #related-products {

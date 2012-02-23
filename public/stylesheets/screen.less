@@ -215,9 +215,41 @@
 		}			
 	}
 	
-	#product-thumbnails {
+	#toggle-product-info {
+		.columns(7);
+		list-style-type: none;
+		margin-bottom: 10px;
+		
+		li {
+			display: inline;
+			
+			a {
+				font-weight: bold;
+				font-size: 12px;
+				text-transform:uppercase;
+				text-decoration: none;
+				color: @gray;
+				
+				&.current {
+					color: @red;
+				}
+			}
+			
+			&.pipe {
+				padding: 0 5px;
+				color: @grayLighter;
+			}
+		}
+	}
+	
+	#product-thumbnails,
+	#product-fit {
 		.columns(7);
 		margin-bottom: 10px;
+		
+		h2 {
+			font-size: 18px;
+		}
 		
 		ul {
 			list-style-type: none;
