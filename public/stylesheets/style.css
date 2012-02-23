@@ -3081,6 +3081,38 @@ a.delete:hover {
   display: none !important;
   background: red;
 }
+.about-process p.deck {
+  font-size: 22px;
+  line-height: 1.25em;
+  color: #d34f28;
+  margin: 0 0 20px 0;
+}
+.about-process div.step {
+  width: 31%;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 20px;
+  text-align: center;
+}
+.about-process div.step img {
+  margin: 10px 0 20px 0;
+}
+.about-process div.step span {
+  color: #777777;
+  display: block;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+}
+.about-process div.step h2 {
+  font-size: 22px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #555555;
+}
+.about-process div.step p {
+  text-align: left;
+}
 .ir {
   display: block;
   text-indent: -999em;
