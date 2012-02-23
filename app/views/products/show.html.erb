@@ -7,6 +7,10 @@
 
 <div id="product-description" data-hook="product_description">
 	<%= product_description(@product) rescue t("product_has_no_description") %>	
+	<div id="social-links">
+		<span class='st_facebook_hcount' displayText='Facebook'></span>
+		<span class='st_twitter_hcount' displayText='Tweet'></span>
+	</div>
   <div data-hook="product_properties">
     <%= render 'properties' %>
   </div>
