@@ -8,15 +8,22 @@
 <div id="product-description" data-hook="product_description">
 	<div id="social-links">
 		<span class='st_facebook_hcount' displayText='Facebook'></span>
-		<!-- <span class='st_twitter_hcount' displayText='Tweet'></span> -->
 	</div>	
 	<%= product_description(@product) rescue t("product_has_no_description") %>	
   <div data-hook="product_properties">
     <%= render 'properties' %>
   </div>
+	
+	<div id="coming-soon">
+	<% if @product.coming_soon? %>
+		<h2>Coming Soon</h2>
+		<p>Please check back shortly to purchase this product.</p>
+	<% end %>
+	</div>
 
 </div>
 
+<% if !@product.coming_soon? %>
 <div id="cart-form" data-hook="cart_form">
   <%= render 'cart_form' %>
 
@@ -28,6 +35,7 @@
 	  <%= render 'shared/match_to_outfit', :product => @product %>
 	</div>
 </div>
+<% end %>
 
 
 <% # = render 'taxons' %>
@@ -36,28 +44,29 @@
   <%= render 'thumbnails', :product => @product %>
 </div>
 
-<% if @product.fit.present? %>
-  <div id="product-fit">
-    <label><%= @product.fit.title %></label>
-    <p class='description'><%= @product.fit.description %></p>
-  </div>
-<% end %>
-
-<% if @product.outfit.present? %>
-  <div id='related-products'>
-    <% if @product.outfit.products.reject{|p| p == @product || @product.has_same_taxon?(p)}.size > 0 %>
-      <h2>This will look great with:</h2>
-    <% end %>
-    <% @product.outfit.products.each do |product| %>
+<% if !@product.coming_soon? %>
+	<% if @product.fit.present? %>
+	  <div id="product-fit">
+	    <label><%= @product.fit.title %></label>
+	    <p class='description'><%= @product.fit.description %></p>
+	  </div>
+	<% end %>
+	<% if @product.outfit.present? %>
+	  <div id='related-products'>
+	    <% if @product.outfit.products.reject{|p| p == @product || @product.has_same_taxon?(p)}.size > 0 %>
+	      <h2>This will look great with:</h2>
+	    <% end %>
+	    <% @product.outfit.products.each do |product| %>
 		
-      <% unless @product == product || @product.has_same_taxon?(product) %>
-			<div class="outfit-item">
-        <%= link_to(product_url(product)) do %>
-          <!-- <p><%= product.name %></p> -->
-          <%= image_tag product.images.first.attachment.url(:small) %>
-        <% end %>
-			</div>
-      <% end %>
-    <% end %>
-  </div>
+	      <% unless @product == product || @product.has_same_taxon?(product) %>
+				<div class="outfit-item">
+	        <%= link_to(product_url(product)) do %>
+	          <!-- <p><%= product.name %></p> -->
+	          <%= image_tag product.images.first.attachment.url(:small) %>
+	        <% end %>
+				</div>
+	      <% end %>
+	    <% end %>
+	  </div>
+	<% end %>
 <% end %>

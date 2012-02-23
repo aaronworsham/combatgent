@@ -1727,6 +1727,24 @@ table.perfect_fit_chart tr:hover td {
 #product-details p.prices {
   float: right;
 }
+#product-details #coming-soon {
+  display: inline;
+  float: left;
+  width: 540px;
+  margin-left: 20px;
+  margin-left: 0;
+}
+#product-details #coming-soon:first-child {
+  margin-left: 0;
+}
+#product-details #coming-soon h2 {
+  font-size: 16px;
+  color: #d34f28;
+  font-weight: bold;
+}
+#product-details #coming-soon p {
+  font-style: italic;
+}
 #product-details #product-images {
   display: inline;
   float: left;
