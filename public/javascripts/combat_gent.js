@@ -36,6 +36,27 @@ jQuery(document).ready(function(){
 		return false;
 	});
 	
+	
+	$("a#toggle-images").click(function(e){
+		e.preventDefault();
+			$("#product-fit").fadeOut("slow", function(){
+				$("#product-thumbnails").fadeIn("slow");							
+			});
+			$(this).parent("li").siblings("li").find("a").removeClass("current");
+			$(this).addClass("current");
+		return false;
+	});
+	
+	$("a#toggle-fit").click(function(e){
+		e.preventDefault();
+			$("#product-thumbnails").fadeOut("slow", function(){
+				$("#product-fit").fadeIn("slow");							
+			});
+			$(this).parent("li").siblings("li").find("a").removeClass("current");
+			$(this).addClass("current");			
+		return false;
+	});	
+	
 	$("select[name='[quantity]'], #inside_product_cart_form select").selectmenu({
 		width:'225',
 		direction:'down'
