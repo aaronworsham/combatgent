@@ -79,16 +79,4 @@ jQuery(document).ready(function(){
 		});
 	}
 	
-	jQuery(document).ready(function($){
-  	$('.zoom-image').addimagezoom({
-  	  zoomrange: [5, 5],
-  		magnifiersize: [400,400],
-  		magnifierpos: 'right',
-  		cursorshade: true,
-  		cursorshadecolor: 'pink',
-  		cursorshadeopacity: 0.3,
-  		cursorshadeborder: '1px solid red'
-  	})
-  })
-	
 });
