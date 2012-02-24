@@ -1,7 +1,7 @@
 <% if @product.coming_soon? %>
   <p>Coming Soon</p>
 <% else %>
-  <%= form_for :order, :url => populate_orders_url do |f| %>
+  <%= form_for :order, :url => populate_orders_url, :html => { :id => 'populate_order_form' } do |f| %>
     <div id="inside_product_cart_form" data-hook="inside_product_cart_form">
 
       <% if product_price(@product) %>

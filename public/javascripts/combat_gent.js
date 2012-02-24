@@ -81,4 +81,28 @@ jQuery(document).ready(function(){
 	
 	$("a.single_image").fancybox();
 	
+	$("#product-details #populate_order_form").submit(function(){
+	  needs_to_select = false;
+	  $('#populate_order_form select').each(function() {
+      if($(this).val() == ""){ needs_to_select = true;}
+    });
+    if(needs_to_select){
+      alert("Please select all product options")
+      return false;
+    }
+    else { return true; }
+	});
+	
+	$('#user_closet #populate_order_form').submit(function(){
+	  needs_to_select = false;
+	  $(this).parent('.product').find('.size select').each(function() {
+      if($(this).val() == ""){ needs_to_select = true;}
+    });
+    if(needs_to_select){
+      alert("Please select all product options")
+      return false;
+    }
+    else { return true; }
+	});
+	
 });
