@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(:version => 20120210162627) do
 
   create_table "adjustments", :force => true do |t|
     t.integer  "order_id"
-    t.decimal  "amount"
+    t.decimal  "amount",          :precision => 8, :scale => 2
     t.string   "label"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -220,13 +220,13 @@ ActiveRecord::Schema.define(:version => 20120210162627) do
   create_table "orders", :force => true do |t|
     t.integer  "user_id"
     t.string   "number",               :limit => 15
-    t.decimal  "item_total",                                                       :default => 0.0, :null => false
-    t.decimal  "total",                                                            :default => 0.0, :null => false
+    t.decimal  "item_total",                         :precision => 8, :scale => 2, :default => 0.0, :null => false
+    t.decimal  "total",                              :precision => 8, :scale => 2, :default => 0.0, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "state"
-    t.decimal  "adjustment_total",                                                 :default => 0.0, :null => false
-    t.decimal  "credit_total",                                                     :default => 0.0, :null => false
+    t.decimal  "adjustment_total",                   :precision => 8, :scale => 2, :default => 0.0, :null => false
+    t.decimal  "credit_total",                       :precision => 8, :scale => 2, :default => 0.0, :null => false
     t.datetime "completed_at"
     t.integer  "bill_address_id"
     t.integer  "ship_address_id"
@@ -254,25 +254,6 @@ ActiveRecord::Schema.define(:version => 20120210162627) do
     t.datetime "updated_at"
   end
 
-  create_table "pages", :force => true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.string   "slug"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "show_in_header",   :default => false, :null => false
-    t.boolean  "show_in_footer",   :default => false, :null => false
-    t.string   "foreign_link"
-    t.integer  "position",         :default => 1,     :null => false
-    t.boolean  "visible",          :default => true
-    t.string   "meta_keywords"
-    t.string   "meta_description"
-    t.string   "layout"
-    t.boolean  "show_in_sidebar",  :default => false, :null => false
-  end
-
-  add_index "pages", ["slug"], :name => "index_pages_on_slug"
-
   create_table "payment_methods", :force => true do |t|
     t.string   "type"
     t.string   "name"
@@ -289,7 +270,7 @@ ActiveRecord::Schema.define(:version => 20120210162627) do
     t.integer  "order_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "amount",            :default => 0.0, :null => false
+    t.decimal  "amount",            :precision => 8, :scale => 2, :default => 0.0, :null => false
     t.integer  "source_id"
     t.string   "source_type"
     t.integer  "payment_method_id"
@@ -300,11 +281,11 @@ ActiveRecord::Schema.define(:version => 20120210162627) do
 
   create_table "preferences", :force => true do |t|
     t.string   "name",       :limit => 100, :null => false
-    t.integer  "owner_id",   :limit => 30,  :null => false
+    t.integer  "owner_id",                  :null => false
     t.string   "owner_type", :limit => 50,  :null => false
     t.integer  "group_id"
     t.string   "group_type", :limit => 50
-    t.text     "value",      :limit => 255
+    t.text     "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -592,16 +573,16 @@ ActiveRecord::Schema.define(:version => 20120210162627) do
 
   create_table "users", :force => true do |t|
     t.string   "email"
-    t.string   "encrypted_password",   :limit => 128
-    t.string   "password_salt",        :limit => 128
+    t.string   "encrypted_password"
+    t.string   "password_salt"
     t.string   "remember_token"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "persistence_token"
     t.string   "reset_password_token"
     t.string   "perishable_token"
-    t.integer  "sign_in_count",                       :default => 0, :null => false
-    t.integer  "failed_attempts",                     :default => 0, :null => false
+    t.integer  "sign_in_count",        :default => 0, :null => false
+    t.integer  "failed_attempts",      :default => 0, :null => false
     t.datetime "last_request_at"
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -614,7 +595,6 @@ ActiveRecord::Schema.define(:version => 20120210162627) do
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.datetime "remember_created_at"
-    t.string   "openid_identifier"
     t.float    "neck_inches"
     t.float    "chest_inches"
     t.float    "back_inches"
