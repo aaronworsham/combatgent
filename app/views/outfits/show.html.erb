@@ -31,7 +31,7 @@
     <p><%= @outfit.description %></p>
   </div> -->
   <div id='outfit-to-purchase'>
-    <% @outfit.products.each do |product| %>
+    <% @outfit.products.reject{ |product| @product == product || @product.has_same_taxon?(product)}.each do |product| %>
       <% if current_user.present? %>
         <% unless current_user.purchased_products.include? product %>
 					<div class="product">

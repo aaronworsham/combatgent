@@ -10,6 +10,7 @@ gem 'high_voltage'
 
 gem 'spree'
 gem 'spree-homepager', :git => 'git://github.com/pero-ict-solutions/spree-homepager.git', :require => 'homepager'
+gem 'active_shipping', :git => 'git://github.com/Shopify/active_shipping.git'
 
 group :development do
   gem 'ruby-debug'
