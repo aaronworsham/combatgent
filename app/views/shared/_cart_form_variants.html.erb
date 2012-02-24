@@ -15,7 +15,7 @@
     <% end %>
     <% variant_select_values.each do |key, value| %>
       <% if variant_select_values.size > 0 %>
-        <%= select "", "products[#{product.id}]", options_for_select(value) ,:prompt => key %>
+        <%= select "", "products[#{product.id}]", options_for_select(value) ,:prompt => key, :class => 'product_variant' %>
       <% end %>
     <% end %>
   </div>

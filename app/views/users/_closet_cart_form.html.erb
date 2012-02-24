@@ -1,5 +1,4 @@
-
-<%= form_for :order, :url => populate_orders_url do |f| %>
+<%= form_for :order, :url => populate_orders_url,:html => { :id => 'populate_order_form' } do |f| %>
   <td class="price">
     <% if product_price(product) %>
       <%= product_price(product) %>
@@ -22,7 +21,3 @@
     <% end %>
   </td>
 <% end %>
-
-
-
-
