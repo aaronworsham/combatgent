@@ -1,7 +1,7 @@
 <div id='collection'>
   <h1><%= "#{accurate_title} Collection" %></h1>
 
-  <!-- <%= render 'shared/product_sorting' %> -->
+  <%= render 'shared/product_sorting' %>
 
   <% if @taxon.children.empty? || !params[:keywords].blank? %>
     <div data-hook="taxon_products">
