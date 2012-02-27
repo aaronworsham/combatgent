@@ -113,17 +113,17 @@ jQuery(document).ready(function(){
     $('#order_ship_address_attributes_phone').val("");
   });
 
-  // var show_billing = function(show) {
-  //   if(show) {
-  //     $('#shipping').show();
-  //     $('#shipping input').removeAttr('disabled', 'disabled');
-  //     $('#shipping select').removeAttr('disabled', 'disabled');
-  //   } else {
-  //     $('#shipping').hide();
-  //     $('#shipping input').attr('disabled', 'disabled');
-  //     $('#shipping select').attr('disabled', 'disabled');
-  //   }
-  // }
+  var show_billing = function(show) {
+    if(show) {
+      $('#shipping').show();
+      $('#shipping input').removeAttr('disabled', 'disabled');
+      $('#shipping select').removeAttr('disabled', 'disabled');
+    } else {
+      $('#shipping').hide();
+      $('#shipping input').attr('disabled', 'disabled');
+      $('#shipping select').attr('disabled', 'disabled');
+    }
+  }
 
 });
 
