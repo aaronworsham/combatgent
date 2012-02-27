@@ -48,23 +48,23 @@
     update_state('b');
     update_state('s');
 
-    $('input#order_use_billing').click(function() {
-      if($(this).is(':checked')) {
-        $('#shipping .inner input, #shipping .inner select, #shipping .inner label, #shipping .inner .req').hide();
-        $('#shipping .inner input, #shipping .inner select').attr('disabled', 'disabled');
-      } else {
-        $('#shipping .inner input, #shipping .inner select, #shipping .inner label, #shipping .inner .req').show();
-        $('#shipping .inner input, #shipping .inner select').removeAttr('disabled', 'disabled');
-
-        //only want to enable relevant field
-        if(get_states('s')){
-          $('span#sstate input').hide().attr('disabled', 'disabled');
-        }else{
-          $('span#sstate select').hide().attr('disabled', 'disabled');
-        }
-
-      }
-    }).triggerHandler('click');
+    // $('input#order_use_billing').click(function() {
+    //   if($(this).is(':checked')) {
+    //     $('#shipping .inner input, #shipping .inner select, #shipping .inner label, #shipping .inner .req').hide();
+    //     $('#shipping .inner input, #shipping .inner select').attr('disabled', 'disabled');
+    //   } else {
+    //     $('#shipping .inner input, #shipping .inner select, #shipping .inner label, #shipping .inner .req').show();
+    //     $('#shipping .inner input, #shipping .inner select').removeAttr('disabled', 'disabled');
+    // 
+    //     //only want to enable relevant field
+    //     if(get_states('s')){
+    //       $('span#sstate input').hide().attr('disabled', 'disabled');
+    //     }else{
+    //       $('span#sstate select').hide().attr('disabled', 'disabled');
+    //     }
+    // 
+    //   }
+    // }).triggerHandler('click');
 
     $('form.edit_checkout').submit(function() {
       $(this).find(':submit, :image').attr('disabled', true).removeClass('primary').addClass('disabled');

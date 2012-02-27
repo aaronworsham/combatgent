@@ -1761,6 +1761,7 @@ form input[type=password] {
 }
 .form-buttons {
   text-align: right;
+  float: left;
 }
 #errorExplanation {
   display: block;
@@ -2709,6 +2710,7 @@ a.delete:hover {
   width: 700px;
   margin-left: 20px;
   margin-left: 0;
+  margin-bottom: 0;
 }
 #checkout .edit_order fieldset:first-child {
   margin-left: 0;
@@ -2743,10 +2745,16 @@ a.delete:hover {
 #checkout .edit_order p {
   width: 50%;
   float: left;
-  height: 50px;
+}
+#checkout #shipping {
+  padding-top: 40px;
 }
 #checkout #billing {
   border-bottom: 1px solid #cccccc;
+}
+#checkout #billing p,
+#checkout #shipping p {
+  height: 50px;
 }
 #checkout #shipping_method p.field.radios {
   width: 100%;
@@ -2766,6 +2774,13 @@ a.delete:hover {
   position: absolute;
   top: 14px;
   left: 3px;
+}
+#checkout #shipping_method p.field.radios label:last-child {
+  border: none;
+}
+#checkout #payment {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
 #checkout #payment ul#payment-methods {
   margin-left: 0;

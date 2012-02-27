@@ -638,6 +638,7 @@ a.delete {
 		fieldset {
 			.columns(9);
 			margin-left: 0;
+			margin-bottom: 0;
 		}
 		
 		input[type=submit]{
@@ -647,15 +648,22 @@ a.delete {
 		
 		p {
 			width: 50%;
-			float: left;
-			height: 50px;
-			
-			
+			float: left;			
 		}
+	}
+	
+	#shipping {
+		padding-top: 40px;
 	}
 	
 	#billing {
 		border-bottom: 1px solid #cccccc;
+	}
+	
+	#billing, #shipping {
+		p {
+			height: 50px;
+		}
 	}
 	
 	#shipping_method {
@@ -680,7 +688,11 @@ a.delete {
 						position: absolute;
 						top: 14px;
 						left: 3px;
-					}					
+					}				
+					
+					&:last-child {
+						border: none;
+					}	
 					
 				}
 			}
@@ -688,6 +700,9 @@ a.delete {
 	}
 	
 	#payment {
+		margin-bottom: 0 !important;
+		padding-bottom: 0 !important;
+		
 		ul#payment-methods {
 			margin-left: 0;
 			
@@ -904,6 +919,7 @@ a.delete {
 /* EXCEPTIONS - WE SHOULD FIX THE CODE SO THAT THESE AREN'T NECESSARY */
 
 #shipping {
+	
 	p {
 		&.field {
 			&.checkbox {
