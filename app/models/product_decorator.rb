@@ -12,6 +12,6 @@ Product.class_eval do
   end
   
   def has_same_taxon?(product)
-    self.taxons.any? { |t| not product.taxons.include?(t) }
+    self.taxons.any? { |t| product.taxons.include?(t) }
   end
 end
