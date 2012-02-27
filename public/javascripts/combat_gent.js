@@ -8,16 +8,16 @@ jQuery(document).ready(function(){
 					// console.log(response.posts[0].title);
    });
 
-	if($("#order_use_billing").is(":checked")){
-		$("#shipping .inner").hide();
-		$(this).change(function(){
-			$("#shipping .inner").slideToggle();
-		});
-	} else {
-		$(this).change(function(){
-			$("#shipping .inner").slideToggle();
-		});		
-	}
+	// if($("#order_use_billing").is(":checked")){
+	// 	$("#shipping .inner").hide();
+	// 	$(this).change(function(){
+	// 		$("#shipping .inner").slideToggle();
+	// 	});
+	// } else {
+	// 	$(this).change(function(){
+	// 		$("#shipping .inner").slideToggle();
+	// 	});		
+	// }
 
 	// $("#order_use_billing").change(function(){
 	// 	$("#shipping .inner").slideToggle();
