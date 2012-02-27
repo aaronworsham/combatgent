@@ -3179,6 +3179,21 @@ a.delete:hover {
   padding: 10px;
   font-weight: bold;
 }
+table.index {
+  width: 100% !important;
+}
+table.index td {
+  border-bottom: 1px dashed #cccccc;
+  font-size: 14px;
+  padding: 5px;
+}
+table.index td.price,
+table.index td.total {
+  text-align: right;
+}
+table.index td.qty {
+  text-align: center;
+}
 .ir {
   display: block;
   text-indent: -999em;
