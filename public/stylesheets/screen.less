@@ -658,6 +658,35 @@ a.delete {
 		border-bottom: 1px solid #cccccc;
 	}
 	
+	#shipping_method {
+		p {
+			&.field.radios {
+				width: 100%;
+				float: left;
+				
+				br {
+					display: none;
+				}
+				
+				label {
+					font-size: 18px;
+					position: relative;
+					padding: 10px 0 10px 22px;
+					border-bottom: 1px dashed @grayLighter;
+					margin: 0;
+									
+					
+					input[type=radio]{
+						position: absolute;
+						top: 14px;
+						left: 3px;
+					}					
+					
+				}
+			}
+		}
+	}
+	
 	#payment {
 		ul#payment-methods {
 			margin-left: 0;

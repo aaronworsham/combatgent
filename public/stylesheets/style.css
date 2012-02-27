@@ -2748,6 +2748,25 @@ a.delete:hover {
 #checkout #billing {
   border-bottom: 1px solid #cccccc;
 }
+#checkout #shipping_method p.field.radios {
+  width: 100%;
+  float: left;
+}
+#checkout #shipping_method p.field.radios br {
+  display: none;
+}
+#checkout #shipping_method p.field.radios label {
+  font-size: 18px;
+  position: relative;
+  padding: 10px 0 10px 22px;
+  border-bottom: 1px dashed #cccccc;
+  margin: 0;
+}
+#checkout #shipping_method p.field.radios label input[type=radio] {
+  position: absolute;
+  top: 14px;
+  left: 3px;
+}
 #checkout #payment ul#payment-methods {
   margin-left: 0;
 }
