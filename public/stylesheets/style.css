@@ -675,12 +675,20 @@ header .hline {
   margin: 0 auto;
 }
 header a#logo_container {
-  width: 447px;
+  width: 470px;
   height: 23px;
+  position: relative;
   overflow: hidden;
 }
-header a#logo_container:hover img {
+header a#logo_container:hover img#logo {
   margin-top: -50px;
+}
+header a#logo_container #beta-flag {
+  position: absolute;
+  z-index: 999;
+  top: 1px;
+  right: 0;
+  overflow: visible;
 }
 header img#tagline {
   margin: 15px auto 10px;
