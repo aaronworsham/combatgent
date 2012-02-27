@@ -3194,6 +3194,12 @@ table.index td.total {
 table.index td.qty {
   text-align: center;
 }
+table.index tbody#order-charges {
+  font-weight: normal;
+}
+table.index tbody#order-total {
+  font-weight: bold;
+}
 .ir {
   display: block;
   text-indent: -999em;
