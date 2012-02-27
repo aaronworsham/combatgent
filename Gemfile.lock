@@ -1,14 +1,4 @@
 GIT
-  remote: git://github.com/Shopify/active_shipping.git
-  revision: 3f11e8a3e2d3e7a21d02d0e0f507ab5a274a1cf3
-  specs:
-    active_shipping (0.9.13)
-      active_utils (>= 1.0.1)
-      activesupport (>= 2.3.5)
-      builder
-      i18n
-
-GIT
   remote: git://github.com/pero-ict-solutions/spree-homepager.git
   revision: 393749cb067209acc3b756cf8f5fae95362eb7f8
   specs:
@@ -32,9 +22,6 @@ GEM
       rack-mount (~> 0.6.14)
       rack-test (~> 0.5.7)
       tzinfo (~> 0.3.23)
-    active_utils (1.0.3)
-      activesupport (>= 2.3.11)
-      i18n
     activemerchant (1.14.0)
       activesupport (>= 2.3.8)
       braintree (>= 2.0.0)
@@ -182,7 +169,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_shipping!
   aws-s3
   high_voltage
   mysql2 (~> 0.2.7)

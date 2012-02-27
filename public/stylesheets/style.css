@@ -1820,6 +1820,10 @@ table.perfect_fit_chart tr:hover td {
   background: rgba(255, 255, 255, 0.9);
   cursor: pointer;
 }
+table.perfect_fit_chart#mens_shirts th.area,
+table.perfect_fit_chart#mens_shirts td.area {
+  width: 100px;
+}
 /*
 	Screen Stuff
 */
