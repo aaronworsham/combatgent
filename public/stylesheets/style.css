@@ -650,6 +650,7 @@ body {
   top: 30px;
   width: 150px;
   height: auto;
+  z-index: 999;
 }
 #toolbar ul li.action:hover ul li {
   background: #000000;
