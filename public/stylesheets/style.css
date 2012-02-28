@@ -3208,6 +3208,19 @@ table.index tbody#order-charges {
 table.index tbody#order-total {
   font-weight: bold;
 }
+span.coming-soon {
+  font-size: 118px;
+  position: absolute;
+  z-index: 999;
+  font-weight: 700;
+  text-transform: none;
+  color: #333;
+  display: block;
+  text-align: center;
+  width: 940px;
+  top: 350px;
+  text-shadow: 2px 2px 0 #999;
+}
 .ir {
   display: block;
   text-indent: -999em;

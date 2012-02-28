@@ -1,10 +1,33 @@
+<script type="text/javascript">
+	function testForComingSoon(taxon){
+		if((taxon == "pants-and-shorts") || (taxon == "suiting")){
+			return true;
+		}
+	}
+	
+	$(document).ready(function(){
+			var taxon = location.pathname.match(/\/t\/(.*)/)[1];
+			
+			if(testForComingSoon(taxon)){
+				$(".product-listing *")
+					.fadeTo('fast', 0.75)
+					.css({
+						"color" : "#999",
+						"cursor" : "default"
+						}).click(function(e){
+							e.preventDefault();
+						});
+				
+				$("#collection h1").after("<span class='coming-soon'>Coming Soon</span>");
+			}
+	});
+</script>
 <div id='collection'>
   <h1><%= "#{accurate_title} Collection" %></h1>
 
   <%= render 'shared/product_sorting' %>
-
   <% if @taxon.children.empty? || !params[:keywords].blank? %>
-    <div data-hook="taxon_products">
+    <div data-hook="taxon_products" id="taxon-products">
       <%= render :partial => "shared/products", :locals => {:products => @products, :taxon => @taxon } %>
     </div>
   <% else %>
