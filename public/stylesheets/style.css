@@ -1908,6 +1908,9 @@ table.perfect_fit_chart#mens_shirts td.area {
 #product-details #product-images ul li:first-child {
   display: none;
 }
+#product-details #product-images span {
+  color: #999;
+}
 #product-details #product-description {
   display: inline;
   float: left;
