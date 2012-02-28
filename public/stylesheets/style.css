@@ -503,7 +503,8 @@ a:hover {
   background: rgba(211, 79, 40, 0.75);
 }
 .coda-slider-wrapper a.product {
-  display: block;
+  /*				display: block;*/
+
   text-indent: -9999px;
   height: 24px;
   width: 24px;
@@ -1491,6 +1492,9 @@ form#user_new input[type=submit]:hover {
   top: 206px !important;
   left: 630px !important;
 }
+#slot_1 a {
+  display: none !important;
+}
 #slot_2 .a {
   top: 300px;
   left: 300px;
@@ -1502,6 +1506,9 @@ form#user_new input[type=submit]:hover {
 #slot_2 .c {
   top: 100px;
   left: 570px;
+}
+#slot_2 a {
+  display: none !important;
 }
 #slot_3 .product.a {
   top: 310px;
@@ -1527,6 +1534,9 @@ form#user_new input[type=submit]:hover {
   top: 456px !important;
   left: 560px !important;
 }
+#slot_3 a {
+  display: none !important;
+}
 #slot_4 .product.a {
   top: 240px;
   left: 485px;
@@ -1550,6 +1560,9 @@ form#user_new input[type=submit]:hover {
 #slot_4 .tooltip.c {
   top: 356px !important;
   left: 295px !important;
+}
+#slot_4 a {
+  display: none !important;
 }
 h1 {
   font-family: "freight-sans-pro", helvetica, arial, sans-serif;
