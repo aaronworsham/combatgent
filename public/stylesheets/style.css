@@ -685,7 +685,7 @@ header a#logo_container:hover img#logo {
 }
 header a#logo_container #beta-flag {
   position: absolute;
-  z-index: 999;
+  z-index: 2;
   top: 1px;
   right: 0;
   overflow: visible;
