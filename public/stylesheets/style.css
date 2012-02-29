@@ -485,8 +485,9 @@ a:hover {
   top: 65px;
   left: 40px;
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: 700;
   padding: 15px 15px 15px 0;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.5);
 }
 .coda-slider-wrapper a.main {
   top: 115px;
