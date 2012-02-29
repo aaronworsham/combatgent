@@ -503,7 +503,8 @@ a:hover {
   background: rgba(211, 79, 40, 0.75);
 }
 .coda-slider-wrapper a.product {
-  display: block;
+  /*				display: block;*/
+
   text-indent: -9999px;
   height: 24px;
   width: 24px;
@@ -650,6 +651,7 @@ body {
   top: 30px;
   width: 150px;
   height: auto;
+  z-index: 999;
 }
 #toolbar ul li.action:hover ul li {
   background: #000000;
@@ -675,12 +677,20 @@ header .hline {
   margin: 0 auto;
 }
 header a#logo_container {
-  width: 447px;
+  width: 482px;
   height: 23px;
+  position: relative;
   overflow: hidden;
 }
-header a#logo_container:hover img {
+header a#logo_container:hover img#logo {
   margin-top: -50px;
+}
+header a#logo_container #beta-flag {
+  position: absolute;
+  z-index: 2;
+  top: 1px;
+  right: 0;
+  overflow: visible;
 }
 header img#tagline {
   margin: 15px auto 10px;
@@ -1398,6 +1408,7 @@ form#user_new input[type=submit]:hover {
 #outfit-right .product .product-price {
   font-size: 16px;
   margin: 0 0 10px;
+  display: block;
 }
 #outfit-right .product .closet_button {
   font-family: "freight-sans-pro", helvetica, arial, sans-serif;
@@ -1482,6 +1493,9 @@ form#user_new input[type=submit]:hover {
   top: 206px !important;
   left: 630px !important;
 }
+#slot_1 a {
+  display: none !important;
+}
 #slot_2 .a {
   top: 300px;
   left: 300px;
@@ -1493,6 +1507,9 @@ form#user_new input[type=submit]:hover {
 #slot_2 .c {
   top: 100px;
   left: 570px;
+}
+#slot_2 a {
+  display: none !important;
 }
 #slot_3 .product.a {
   top: 310px;
@@ -1518,6 +1535,9 @@ form#user_new input[type=submit]:hover {
   top: 456px !important;
   left: 560px !important;
 }
+#slot_3 a {
+  display: none !important;
+}
 #slot_4 .product.a {
   top: 240px;
   left: 485px;
@@ -1541,6 +1561,9 @@ form#user_new input[type=submit]:hover {
 #slot_4 .tooltip.c {
   top: 356px !important;
   left: 295px !important;
+}
+#slot_4 a {
+  display: none !important;
 }
 h1 {
   font-family: "freight-sans-pro", helvetica, arial, sans-serif;
@@ -1900,6 +1923,9 @@ table.perfect_fit_chart#mens_shirts td.area {
 #product-details #product-images ul li:first-child {
   display: none;
 }
+#product-details #product-images span {
+  color: #999;
+}
 #product-details #product-description {
   display: inline;
   float: left;
@@ -2194,8 +2220,9 @@ table.perfect_fit_chart#mens_shirts td.area {
 }
 #product-details #product-thumbnails ul li,
 #product-details #product-fit ul li {
-  display: inline;
+  display: inline-block;
   margin: 0 5px 5px 0;
+  vertical-align: top;
 }
 #product-details #product-thumbnails ul li img,
 #product-details #product-fit ul li img {
@@ -3199,6 +3226,19 @@ table.index tbody#order-charges {
 }
 table.index tbody#order-total {
   font-weight: bold;
+}
+span.coming-soon {
+  font-size: 118px;
+  position: absolute;
+  z-index: 999;
+  font-weight: 700;
+  text-transform: none;
+  color: #333;
+  display: block;
+  text-align: center;
+  width: 940px;
+  top: 350px;
+  text-shadow: 2px 2px 0 #999;
 }
 .ir {
   display: block;
