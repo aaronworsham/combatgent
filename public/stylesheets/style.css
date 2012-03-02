@@ -1316,7 +1316,8 @@ form#user_new input[type=submit]:hover {
   background: url(../images/button-sprite-green.png) 0 -30px repeat-x;
 }
 #outfit-left .button_to {
-  margin-top: 15px;
+  /*margin-top: 15px;*/
+
   float: left;
 }
 #outfit-left .button_to input[type=submit] {

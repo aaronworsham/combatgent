@@ -32,15 +32,14 @@
   </div> -->
   <div id='outfit-to-purchase'>
     <% @outfit.products.reject{ |product| @product == product || @product.has_same_taxon?(product)}.each do |product| %>
+			<div class="product">
       <% if current_user.present? %>
         <% unless current_user.purchased_products.include? product %>
-					<div class="product">
           	<%= render 'product_info', :product => product %>
           	<div id="cart-form" data-hook="cart_form">
             <%= render 'products/cart_form' %>
           </div>
           <%= render 'shared/add_to_closet', :product => product %>
-					</div><!-- /.product -->
         <% end %>
       <% else %>
         <%= render 'product_info', :product => product %>
@@ -49,6 +48,7 @@
         </div>
         <%= render 'shared/add_to_closet', :product => product %>
       <% end %>
+			</div><!-- /.product -->
     <% end %>
   </div>
 </div>
