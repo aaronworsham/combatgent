@@ -1,5 +1,5 @@
 <div id="fb-share">
-	<span class='st_facebook_hcount' displayText='Facebook' st_title="Test" st_url='http://dev.combatgent.com<%=closet_user_path(@user)  %>'></span>
+	<span class='st_facebook_hcount' displayText='Facebook' st_title="Test" st_url='http://combatgent.com<%=closet_user_path(@user)  %>'></span>
 </div>
 <% if @user.products_in_closet.any? %>
 <table id="closet-detail">
@@ -54,9 +54,3 @@
 <% else %>
   <p>No products in your closet.</p>
 <% end %>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$("title").text("Combat Gent - Clothes I Want");
-	});
-</script>
- 

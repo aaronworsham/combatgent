@@ -1862,6 +1862,37 @@ table.perfect_fit_chart#mens_shirts th.area,
 table.perfect_fit_chart#mens_shirts td.area {
   width: 100px;
 }
+table.order-summary {
+  width: 100%;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+table.order-summary th {
+  padding: 5px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+table.order-summary td {
+  padding: 5px;
+  text-align: center;
+}
+table.order-summary tr {
+  border-bottom: 1px dashed #cccccc;
+}
+#order table.index {
+  margin-bottom: 20px;
+}
+#order table.index th {
+  padding: 5px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+#order table.index tbody#order-charges {
+  font-weight: normal !important;
+}
+#order table.index tbody#order-charges strong {
+  font-weight: normal;
+}
 /*
 	Screen Stuff
 */
