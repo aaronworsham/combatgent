@@ -90,7 +90,7 @@ jQuery(document).ready(function(){
 		});
 	}
 	
-	// $("a.single_image").fancybox();
+  $("a.single_image").fancybox();
 	
 	$("#product-details #populate_order_form").submit(function(){
 	  needs_to_select = false;
