@@ -1976,6 +1976,15 @@ table.order-summary tr {
 #product-details #product-description #social-links {
   margin: 0 0 20px 0;
   float: right;
+  width: 100px;
+  padding-top: 5px;
+}
+#product-details #product-description #social-links .st_facebook_hcount,
+#product-details #product-description #social-links .st_twitter_hcount,
+#product-details #product-description #social-links .st_pinterest_hcount,
+#product-details #product-description #social-links .st_email_hcount {
+  margin-bottom: 5px;
+  float: right;
 }
 #product-details #cart-form {
   display: inline;

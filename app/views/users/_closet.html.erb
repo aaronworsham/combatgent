@@ -1,5 +1,8 @@
 <div id="fb-share">
-	<span class='st_facebook_hcount' displayText='Facebook' st_title="Test" st_url='http://combatgent.com<%=closet_user_path(@user)  %>'></span>
+	<span class='st_facebook_hcount' displayText='Facebook' st_url='http://combatgent.com<%=closet_user_path(@user)  %>'></span>
+	<span class='st_twitter_hcount' displayText='Tweet' st_url='http://combatgent.com<%=closet_user_path(@user)  %>'></span>
+	<span class='st_pinterest_hcount' displayText='Pinterest' st_url='http://combatgent.com<%=closet_user_path(@user)  %>'></span>
+	<!-- <span class='st_email_hcount' displayText='Email'></span> -->	
 </div>
 <% if @user.products_in_closet.any? %>
 <table id="closet-detail">
