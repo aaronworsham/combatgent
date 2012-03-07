@@ -39,6 +39,7 @@ jQuery(document).ready(function(){
 		// Load the new image
 		var newImg = $(this).attr("href");
 		$("#product-images img").attr("src", newImg);
+		$("#product-images a").attr("href", newImg);
 		
 		// Change nav state
 		$(this).parent("li").siblings().removeClass("current");
