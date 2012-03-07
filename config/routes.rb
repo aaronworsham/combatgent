@@ -29,7 +29,5 @@ Combatgent::Application.routes.draw do
     end
   end
   
-  # match '/products', :controller=>'products', :action=>'index' 
-  match '/products', :controller=>'home', :action=>'index' 
-  
+  match '/products', :controller=>'products', :action=>'index' 
 end
