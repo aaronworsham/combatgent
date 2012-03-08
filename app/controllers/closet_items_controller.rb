@@ -8,7 +8,7 @@ class ClosetItemsController < Spree::BaseController
   
   def destroy
     ClosetItem.find(params[:id]).destroy
-    redirect_to closet_user_path(current_user)
+    redirect_to my_closet_path
   end
 
 end

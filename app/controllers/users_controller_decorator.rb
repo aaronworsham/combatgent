@@ -3,7 +3,7 @@ UsersController.class_eval do
     id = params[:id]
     if id
       @user = User.find(id)
-      @users_own_closet = (id == current_user.id)
+      @users_own_closet = (current_user == @user)
     else
       load_object
       @users_own_closet = true      
