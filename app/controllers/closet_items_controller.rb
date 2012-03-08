@@ -3,7 +3,7 @@ class ClosetItemsController < Spree::BaseController
   
   def create
     current_user.closet_items.create(params[:closet_item])
-    redirect_to closet_user_path(current_user)
+    redirect_to my_closet_path
   end
   
   def destroy
