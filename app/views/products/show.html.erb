@@ -3,12 +3,16 @@
 <h1 id="product-title"><%= accurate_title %></h1>
 <div id="product-images" data-hook="product_images">
 	<%= render 'fullsize', :product => @product %>
-	<!-- <span class="zoom-tip">Click image to zoom</span> -->
+	<span class="zoom-tip">Click image to zoom</span>
 </div>
 
 <div id="product-description" data-hook="product_description">
 	<div id="social-links">
 		<span class='st_facebook_hcount' displayText='Facebook'></span>
+		<span class='st_twitter_hcount' displayText='Tweet'></span>
+		<span class='st_pinterest_hcount' st_title='Combat Gent' st_img='<%= @product.images.first.attachment.url(:large) %>' displayText='Pinterest'></span>
+		
+		<!-- <span class='st_email_hcount' displayText='Email'></span> -->
 	</div>	
 	<%= product_description(@product) rescue t("product_has_no_description") %>	
   <div data-hook="product_properties">
