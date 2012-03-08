@@ -3,12 +3,12 @@ class ClosetItemsController < Spree::BaseController
   
   def create
     current_user.closet_items.create(params[:closet_item])
-    redirect_to my_closet_path
+    redirect_to closet_user_path
   end
   
   def destroy
     ClosetItem.find(params[:id]).destroy
-    redirect_to my_closet_path
+    redirect_to closet_user_path
   end
 
 end
