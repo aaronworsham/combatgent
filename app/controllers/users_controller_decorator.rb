@@ -1,8 +1,9 @@
 UsersController.class_eval do
   def closet
-    if params[:id].present?
-      @user = User.find(params[:id])
-      @users_own_closet = false
+    id = params[:id]
+    if id
+      @user = User.find(id)
+      @users_own_closet = (id == current_user.id)
     else
       load_object
       @users_own_closet = true      
