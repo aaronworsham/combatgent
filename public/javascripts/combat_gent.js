@@ -8,6 +8,11 @@ jQuery(document).ready(function(){
 					// console.log(response.posts[0].title);
    });
 
+	if($("#announcement").length > 0){
+		$("body").addClass("announcement");
+		$("#announcement").fadeIn();
+	}
+
 	// if($("#order_use_billing").is(":checked")){
 	// 	$("#shipping .inner").hide();
 	// 	$(this).change(function(){

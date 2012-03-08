@@ -1110,3 +1110,36 @@ span.coming-soon {
 	top: 350px;
 	text-shadow: 2px 2px 0 #999;
 }
+
+#announcement {
+	position: absolute;
+	display: none;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: lighten(@green, 10%);
+	border: 1px solid @green;
+	text-shadow: 0 1px 1px darken(@green, 30%);
+	padding: 3px 0;
+	color: #fff;
+	font-size: 12px;
+	text-shadow: 0 1px 1px #000;
+	font-weight: bold;		
+	
+	span {
+		width: 900px;
+		margin: 0 auto;
+		display: block;
+		text-align: center;
+		text-transform: uppercase;
+		
+		strong {
+			font-size: 16px;
+		}
+	}
+	
+}
+
+body.announcement {
+	padding-top: 30px;
+}

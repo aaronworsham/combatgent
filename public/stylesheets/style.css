@@ -576,6 +576,7 @@ body {
   font-size: 12px;
   font-weight: normal;
   line-height: 20px;
+  position: relative;
 }
 #toolbar ul {
   width: 940px;
@@ -3312,6 +3313,34 @@ span.coming-soon {
   width: 940px;
   top: 350px;
   text-shadow: 2px 2px 0 #999;
+}
+#announcement {
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #9cb973;
+  border: 1px solid #84a653;
+  text-shadow: 0 1px 1px #334020;
+  padding: 3px 0;
+  color: #fff;
+  font-size: 12px;
+  text-shadow: 0 1px 1px #000;
+  font-weight: bold;
+}
+#announcement span {
+  width: 900px;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+}
+#announcement span strong {
+  font-size: 16px;
+}
+body.announcement {
+  padding-top: 30px;
 }
 .ir {
   display: block;
