@@ -5,7 +5,7 @@ UsersController.class_eval do
       @user = User.find(id)
       @users_own_closet = (current_user == @user)
     else
-      load_object
+      @user = current_user
       @users_own_closet = true      
     end
   end
